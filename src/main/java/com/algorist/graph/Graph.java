@@ -46,6 +46,10 @@ public class Graph<T extends EdgeNode<T>> {
         return this.nvertices;
     }
 
+    public int nedges() {
+        return this.nedges;
+    }
+
     public T edge(int v) {
         return this.edges[v];
     }
