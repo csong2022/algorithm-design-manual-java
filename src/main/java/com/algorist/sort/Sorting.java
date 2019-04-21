@@ -213,6 +213,28 @@ public class Sorting {
         }
     }
 
+    public static <T extends Comparable<T>> boolean isSorted(final T[] s) {
+        return isSorted(s, Comparator.naturalOrder());
+    }
+
+    /**
+     * Test if array is already sorted.
+     *
+     * @param s   array.
+     * @param c   comparator.
+     * @param <T> element type.
+     * @return true if array is sorted, otherwise false.
+     */
+    public static <T> boolean isSorted(final T[] s, final Comparator<T> c) {
+        for (int i = 1; i < s.length; i++) {
+            if (compare(s[i], s[i - 1], c) < 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private static <T> void swap(T[] s, int i, int j) {
         T tmp = s[i];
         s[i] = s[j];
