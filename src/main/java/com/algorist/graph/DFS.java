@@ -34,8 +34,14 @@ public class DFS<T extends EdgeNode<T>> extends AbstractGraphSearch<T> {
         super(g);
         this.entryTime = new int[g.nvertices() + 1];
         this.exitTime = new int[g.nvertices() + 1];
-        this.time = 0;
         this.finished = false;
+        initialize();
+    }
+
+    @Override
+    public void initialize() {
+        super.initialize();
+        this.time = 0;
     }
 
     EdgeType edgeClassification(int x, int y) {

@@ -58,6 +58,13 @@ public class Graph<T extends EdgeNode<T>> {
         return directed;
     }
 
+    public T findEdge(int x, int y) {
+        for (T p = edges[x]; p != null; p = p.next()) {
+            if (p.y() == y) return p;
+        }
+        return null;
+    }
+
     public void insertEdge(int x, T n, boolean directed) {
         n.setNext(edges[x]);
         edges[x] = n;

@@ -12,6 +12,10 @@ public abstract class AbstractGraphSearch<T extends EdgeNode<T>> implements Grap
         this.discovered = new boolean[g.nvertices() + 1];
         this.parent = new int[g.nvertices() + 1];
 
+        initialize();
+    }
+
+    public void initialize() {
         for (int i = 0; i <= g.nvertices(); i++) {
             processed[i] = discovered[i] = false;
             parent[i] = -1;
