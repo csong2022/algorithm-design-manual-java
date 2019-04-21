@@ -1,7 +1,9 @@
 package com.algorist.numerical;
 
 /**
- * Compute random numbers within given ranges.
+ * Compute random numbers within given ranges. Reimplement original random.c with Java Random.
+ *
+ * @author csong2022
  */
 public class Random {
     private static final java.util.Random random = new java.util.Random(System.currentTimeMillis());
