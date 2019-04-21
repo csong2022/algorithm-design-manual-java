@@ -21,7 +21,7 @@ package com.algorist.wgraph;
 import java.util.Scanner;
 
 /**
- * Adjacent matrix.
+ * Adjacent matrix representation of weight graph.
  *
  * @author csong2022
  */

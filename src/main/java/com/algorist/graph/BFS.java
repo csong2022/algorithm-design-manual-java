@@ -46,12 +46,15 @@ public class BFS<T extends EdgeNode<T>> extends AbstractGraphSearch<T> {
 
             for (T p = g.edge(v); p != null; p = p.next()) {
                 int y = p.y();
-                if (!processed[y] || g.isDirected())
-                    callback.processEdge(v, y);
-                if (!discovered[y]) {
-                    q.enqueue(y);
-                    discovered[y] = true;
-                    parent[y] = v;
+
+                if (callback.validateEdge(p)) {
+                    if (!processed[y] || g.isDirected())
+                        callback.processEdge(v, y);
+                    if (!discovered[y]) {
+                        q.enqueue(y);
+                        discovered[y] = true;
+                        parent[y] = v;
+                    }
                 }
             }
 
