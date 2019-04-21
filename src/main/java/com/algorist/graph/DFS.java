@@ -80,7 +80,7 @@ public class DFS<T extends EdgeNode<T>> extends AbstractGraphSearch<T> {
     }
 
     void setEntryTime(int v) {
-        entryTime[v] = ++time;
+        this.entryTime[v] = ++time;
     }
 
     int exitTime(int v) {
@@ -88,7 +88,11 @@ public class DFS<T extends EdgeNode<T>> extends AbstractGraphSearch<T> {
     }
 
     void setExitTime(int v) {
-        exitTime[v] = ++time;
+        this.exitTime[v] = ++time;
+    }
+
+    void setFinished() {
+        this.finished = true;
     }
 
     /**
