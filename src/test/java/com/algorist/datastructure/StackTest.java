@@ -18,7 +18,7 @@ public class StackTest {
     public void testPopEmptyStack() {
         assertTrue(this.s.isEmpty());
         this.s.print();
-        this.s.pop();
+        assertNull(this.s.pop());
     }
 
     @Test

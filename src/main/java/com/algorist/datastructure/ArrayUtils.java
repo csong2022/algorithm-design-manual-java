@@ -8,11 +8,11 @@ public class ArrayUtils {
     public static final int ARRAY_SIZE_THRESHOLD = 16;
 
     /**
-     * Create a new array.
+     * Create a generic array.
      *
      * @param size size of array.
      * @param <T>  element type.
-     * @return array.
+     * @return generic array.
      */
     public static <T> T[] newArray(int size) {
         return (T[]) new Object[size];
@@ -37,7 +37,8 @@ public class ArrayUtils {
             T[] newArr = newArray(arr.length / 2);
             System.arraycopy(arr, 0, newArr, 0, count);
             return newArr;
-        } else {
+
+        } else { // no change.
             return arr;
         }
     }
