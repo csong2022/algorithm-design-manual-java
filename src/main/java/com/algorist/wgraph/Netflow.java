@@ -81,7 +81,7 @@ public class Netflow {
         return bfs.parent(x);
     }
 
-    private class NetflowCallback implements GraphSearchCallback<FlowEdgeNode> {
+    private static class NetflowCallback implements GraphSearchCallback<FlowEdgeNode> {
         @Override
         public boolean validateEdge(FlowEdgeNode e) {
             return e.residual() > 0;
