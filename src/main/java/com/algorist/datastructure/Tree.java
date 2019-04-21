@@ -23,7 +23,7 @@ import java.util.Comparator;
 import java.util.Objects;
 
 /**
- * binary search tree container implementation.
+ * Binary search tree container implementation.
  *
  * @param <T> data item type.
  * @author csong2022
