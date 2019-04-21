@@ -1,7 +1,5 @@
 package com.algorist.graph;
 
-import com.algorist.datastructure.Stack;
-
 public abstract class AbstractGraphSearch<T extends EdgeNode<T>> implements GraphSearch<T> {
     protected Graph<T> g;            /* The graph */
     protected boolean[] processed;   /* which vertices have been processed */
@@ -34,18 +32,6 @@ public abstract class AbstractGraphSearch<T extends EdgeNode<T>> implements Grap
 
     @Override
     public Iterable<Integer> findPath(int start, int end) {
-        Stack<Integer> path = new Stack<>();
-        findPath(start, end, path);
-        return path;
+        return GraphSearchUtils.findPath(start, end, this.parent);
     }
-
-    private void findPath(int start, int end, Stack<Integer> path) {
-        if ((start == end) || (end == -1))
-            path.push(start);
-        else {
-            path.push(end);
-            findPath(start, parent[end], path);
-        }
-    }
-
 }
