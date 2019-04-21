@@ -24,6 +24,14 @@ public abstract class AbstractGraphSearch<T extends EdgeNode<T>> implements Grap
         return parent[v];
     }
 
+    public boolean processed(int v) {
+        return processed[v];
+    }
+
+    public boolean discovered(int v) {
+        return discovered[v];
+    }
+
     @Override
     public Iterable<Integer> findPath(int start, int end) {
         Stack<Integer> path = new Stack<>();
