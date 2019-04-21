@@ -131,6 +131,8 @@ public class PriorityQueue<T> {
             this.q[1] = this.q[this.n];
             this.q[this.n] = null;
             this.n--;
+            resize();
+
             bubbleDown(1);
             return min;
         }
