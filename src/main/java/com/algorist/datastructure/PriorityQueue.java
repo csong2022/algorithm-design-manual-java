@@ -112,7 +112,7 @@ public class PriorityQueue<T> {
     }
 
     private void resize() {
-        this.q = ArrayUtils.resize(this.q, this.n);
+        this.q = ArrayUtils.resize(this.q, this.n + 1);
     }
 
     private void swap(int i, int j) {
@@ -122,20 +122,18 @@ public class PriorityQueue<T> {
     }
 
     public T extractMin() {
+        T min = null;            /* minimum value */
         if (isEmpty()) {
             System.out.printf("Warning: empty priority queue.\n");
-            return null;
         } else {
-            T min = q[1]; /* minimum value */
-
+            min = q[1]; /* minimum value */
             this.q[1] = this.q[this.n];
-            this.q[this.n] = null;
-            this.n--;
-            resize();
-
+            this.q[this.n--] = null;
             bubbleDown(1);
-            return min;
+            resize();
         }
+
+        return min;
     }
 
     public boolean isEmpty() {
