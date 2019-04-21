@@ -106,7 +106,7 @@ public class List<T> {
         }
     }
 
-    static class Node<T> {
+    private static class Node<T> {
         T item;         /* data item */
         Node<T> next;   /* point to successor */
 
