@@ -20,7 +20,6 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 package com.algorist.graph;
 
 import com.algorist.datastructure.Queue;
-import com.algorist.datastructure.Stack;
 
 /**
  * A generic implementation of graph traversal: breadth-first search.
@@ -28,26 +27,10 @@ import com.algorist.datastructure.Stack;
  * @param <T> edge node type.
  * @author csong2022
  */
-public class BFS<T extends EdgeNode<T>> implements GraphSearch<T> {
-    private Graph<T> g;
-    private boolean[] processed;    /* which vertices have been processed */
-    private boolean[] discovered;  /* which vertices have been found */
-    private int[] parent;    /* discovery relation */
+public class BFS<T extends EdgeNode<T>> extends AbstractGraphSearch<T> {
 
     public BFS(Graph<T> g) {
-        this.g = g;
-        this.processed = new boolean[g.nvertices() + 1];
-        this.discovered = new boolean[g.nvertices() + 1];
-        this.parent = new int[g.nvertices() + 1];
-
-        for (int i = 0; i <= g.nvertices(); i++) {
-            processed[i] = discovered[i] = false;
-            parent[i] = -1;
-        }
-    }
-
-    public int parent(int v) {
-        return parent[v];
+        super(g);
     }
 
     @Override
@@ -73,22 +56,6 @@ public class BFS<T extends EdgeNode<T>> implements GraphSearch<T> {
             }
 
             callback.processVertexLate(v);
-        }
-    }
-
-    @Override
-    public Iterable<Integer> findPath(int start, int end) {
-        Stack<Integer> path = new Stack<>();
-        findPath(start, end, path);
-        return path;
-    }
-
-    private void findPath(int start, int end, Stack<Integer> path) {
-        if ((start == end) || (end == -1))
-            path.push(start);
-        else {
-            path.push(end);
-            findPath(start, parent[end], path);
         }
     }
 }
