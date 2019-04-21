@@ -54,7 +54,7 @@ public class DFSDemoTest implements TestCaseWithInput {
 
     @Test
     public void test() throws IOException {
-        TestEngine.execute("grid", "grid-dfs-demo-out", this);
+        TestEngine.execute(this, "grid", "grid-dfs-demo-out");
     }
 
     private static class DFSDemoCallback implements GraphSearchCallback<UnweightedEdgeNode> {

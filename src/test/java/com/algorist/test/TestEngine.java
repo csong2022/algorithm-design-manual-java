@@ -20,11 +20,11 @@ public class TestEngine {
     /**
      * Execute test case with input.
      *
+     * @param testCase       test case to be executed.
      * @param inputFileName  input file.
      * @param outputFileName output file.
-     * @param testCase       test case to be executed.
      */
-    public static void execute(String inputFileName, String outputFileName, TestCaseWithInput testCase) throws IOException {
+    public static void execute(TestCaseWithInput testCase, String inputFileName, String outputFileName) throws IOException {
         File inputFile = new File(DATAFILES_DIR, inputFileName);
         if (!inputFile.exists()) {
             throw new IllegalArgumentException(String.format("Input file %s doesn't exists", inputFileName));
@@ -56,10 +56,10 @@ public class TestEngine {
     /**
      * Execute test case without input.
      *
-     * @param outputFileName output file.
      * @param testcase       test case to be executed.
+     * @param outputFileName output file.
      */
-    public static void execute(String outputFileName, TestCaseWithoutInput testcase) throws IOException {
+    public static void execute(TestCaseWithoutInput testcase, String outputFileName) throws IOException {
         File expectedfile = new File(DATAFILES_DIR, outputFileName);
         if (!expectedfile.exists()) {
             throw new IllegalArgumentException(String.format("Expected output file %s doesn't exists", outputFileName));

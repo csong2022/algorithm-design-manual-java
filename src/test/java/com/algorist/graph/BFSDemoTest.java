@@ -56,7 +56,7 @@ public class BFSDemoTest implements TestCaseWithInput {
 
     @Test
     public void test() throws IOException {
-        TestEngine.execute("grid", "grid-bfs-demo-out", this);
+        TestEngine.execute(this, "grid", "grid-bfs-demo-out");
     }
 
     private static class BFSDemoCallback implements GraphSearchCallback<UnweightedEdgeNode> {

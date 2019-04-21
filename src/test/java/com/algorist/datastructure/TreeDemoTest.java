@@ -46,11 +46,11 @@ public class TreeDemoTest implements TestCaseWithInput {
 
     @Test
     public void testListIn() throws IOException {
-        TestEngine.execute("list-in", "treelist-out", this);
+        TestEngine.execute(this, "list-in", "treelist-out");
     }
 
     @Test
     public void testT1() throws IOException {
-        TestEngine.execute("t1.in", "t1.out", this);
+        TestEngine.execute(this, "t1.in", "t1.out");
     }
 }

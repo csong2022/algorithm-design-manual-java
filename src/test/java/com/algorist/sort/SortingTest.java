@@ -68,6 +68,6 @@ public class SortingTest implements TestCaseWithoutInput {
 
     @Test
     public void test() throws IOException {
-        TestEngine.execute("sorting-out", this);
+        TestEngine.execute(this, "sorting-out");
     }
 }

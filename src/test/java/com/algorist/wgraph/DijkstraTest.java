@@ -27,6 +27,6 @@ public class DijkstraTest implements TestCaseWithInput {
 
     @Test
     public void test() throws IOException {
-        TestEngine.execute("wgrid", "wgrid-dijkstra-out", this);
+        TestEngine.execute(this, "wgrid", "wgrid-dijkstra-out");
     }
 }

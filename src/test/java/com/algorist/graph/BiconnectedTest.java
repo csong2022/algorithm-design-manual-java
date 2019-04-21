@@ -19,26 +19,26 @@ public class BiconnectedTest implements TestCaseWithInput {
 
     @Test
     public void testGrid() throws IOException {
-        TestEngine.execute("grid", "biconnected-grid", this);
+        TestEngine.execute(this, "grid", "biconnected-grid");
     }
 
     @Test
     public void testTree() throws IOException {
-        TestEngine.execute("tree", "biconnected-tree", this);
+        TestEngine.execute(this, "tree", "biconnected-tree");
     }
 
     @Test
     public void testArt3() throws IOException {
-        TestEngine.execute("art3", "biconnected-art3", this);
+        TestEngine.execute(this, "art3", "biconnected-art3");
     }
 
     @Test
     public void testBaase() throws IOException {
-        TestEngine.execute("baase", "biconnected-baase", this);
+        TestEngine.execute(this, "baase", "biconnected-baase");
     }
 
     @Test
     public void testClrGraph() throws IOException {
-        TestEngine.execute("clr-graph", "biconnected-clr-graph", this);
+        TestEngine.execute(this, "clr-graph", "biconnected-clr-graph");
     }
 }

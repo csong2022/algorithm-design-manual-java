@@ -19,6 +19,6 @@ public class TopSort1Test implements TestCaseWithInput {
 
     @Test
     public void test() throws IOException {
-        TestEngine.execute("grid", "grid-topsort1-out", this);
+        TestEngine.execute(this, "grid", "grid-topsort1-out");
     }
 }

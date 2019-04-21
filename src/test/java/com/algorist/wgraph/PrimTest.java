@@ -28,7 +28,7 @@ public class PrimTest implements TestCaseWithInput {
 
     @Test
     public void test() throws IOException {
-        TestEngine.execute("wgrid", "wgrid-prim-out", this);
+        TestEngine.execute(this, "wgrid", "wgrid-prim-out");
     }
 
 }

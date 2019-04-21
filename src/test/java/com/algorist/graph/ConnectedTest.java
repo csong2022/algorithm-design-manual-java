@@ -20,11 +20,11 @@ public class ConnectedTest implements TestCaseWithInput {
 
     @Test
     public void testConnected() throws IOException {
-        TestEngine.execute("connected-in", "connected-out", this);
+        TestEngine.execute(this, "connected-in", "connected-out");
     }
 
     @Test
     public void testGrid() throws IOException {
-        TestEngine.execute("grid", "grid-connected-out", this);
+        TestEngine.execute(this, "grid", "grid-connected-out");
     }
 }

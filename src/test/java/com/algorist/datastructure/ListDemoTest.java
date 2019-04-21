@@ -68,6 +68,6 @@ public class ListDemoTest implements TestCaseWithInput {
 
     @Test
     public void test() throws IOException {
-        TestEngine.execute("list-in", "list-out", this);
+        TestEngine.execute(this, "list-in", "list-out");
     }
 }

@@ -22,16 +22,16 @@ public class BipartiteTest implements TestCaseWithInput {
 
     @Test
     public void testGrid() throws IOException {
-        TestEngine.execute("grid", "bipartite-grid", this);
+        TestEngine.execute(this, "grid", "bipartite-grid");
     }
 
     @Test
     public void testTree() throws IOException {
-        TestEngine.execute("tree", "bipartite-tree", this);
+        TestEngine.execute(this, "tree", "bipartite-tree");
     }
 
     @Test
     public void testArt3() throws IOException {
-        TestEngine.execute("art3", "bipartite-art3", this);
+        TestEngine.execute(this, "art3", "bipartite-art3");
     }
 }
