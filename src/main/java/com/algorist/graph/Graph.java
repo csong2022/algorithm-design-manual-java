@@ -18,8 +18,6 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 
 */
 
-import static com.algorist.datastructure.ArrayUtils.newArray;
-
 /**
  * A generic adjacency list graph data type.
  *
@@ -38,7 +36,7 @@ public class Graph<T extends EdgeNode<T>> {
         this.nedges = 0;
         this.directed = directed;
 
-        this.edges = newArray(nvertices + 1);
+        this.edges = (T[]) new EdgeNode[nvertices + 1];
         this.degree = new int[nvertices + 1];
 
         for (int i = 1; i < this.degree.length; i++) this.degree[i] = 0;
@@ -46,6 +44,14 @@ public class Graph<T extends EdgeNode<T>> {
 
     public int nvertices() {
         return this.nvertices;
+    }
+
+    public T edge(int v) {
+        return this.edges[v];
+    }
+
+    public boolean isDirected() {
+        return directed;
     }
 
     public void insertEdge(int x, T n, boolean directed) {

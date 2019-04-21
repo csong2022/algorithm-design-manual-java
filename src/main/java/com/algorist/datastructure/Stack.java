@@ -19,6 +19,8 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 package com.algorist.datastructure;
 
 
+import java.util.Iterator;
+
 import static com.algorist.datastructure.ArrayUtils.ARRAY_SIZE_THRESHOLD;
 import static com.algorist.datastructure.ArrayUtils.newArray;
 
@@ -28,7 +30,7 @@ import static com.algorist.datastructure.ArrayUtils.newArray;
  * @param <T> element type.
  * @author csong2022
  */
-public class Stack<T> {
+public class Stack<T> implements Iterable<T> {
     private T[] s;        /* body of queue */
     private int top;                        /* position of top element */
     private int count;                      /* number of stack elements */
@@ -77,5 +79,19 @@ public class Stack<T> {
             System.out.printf("%s ", this.s[i]);
 
         System.out.printf("\n");
+    }
+
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            private int index = count - 1;
+
+            public boolean hasNext() {
+                return this.index >= 0;
+            }
+
+            public T next() {
+                return s[this.index--];
+            }
+        };
     }
 }
