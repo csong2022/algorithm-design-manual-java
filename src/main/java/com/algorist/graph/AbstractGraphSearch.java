@@ -1,5 +1,11 @@
 package com.algorist.graph;
 
+/**
+ * Common graph search code between BFS and DFS.
+ *
+ * @param <T> edges node type.
+ * @author csong2022
+ */
 public abstract class AbstractGraphSearch<T extends EdgeNode> implements GraphSearch<T> {
     protected Graph<T> g;            /* The graph */
     protected boolean[] processed;   /* which vertices have been processed */

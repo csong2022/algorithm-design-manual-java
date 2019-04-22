@@ -58,7 +58,7 @@ public class Graph<T extends EdgeNode> {
         return this.nedges;
     }
 
-    public List<T> edge(int v) {
+    public List<T> edges(int v) {
         return this.edges[v];
     }
 

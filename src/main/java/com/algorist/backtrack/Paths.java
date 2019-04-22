@@ -75,7 +75,7 @@ public class Paths<T extends EdgeNode> implements BacktrackCallback<Integer> {
         } else {
             ncandidates = 0;
             int last = a[k - 1];   /* last vertex on current path */
-            for (T p : g.edge(last)) {
+            for (T p : g.edges(last)) {
                 if (!inSol[p.y()]) {
                     c[ncandidates] = p.y();
                     ncandidates++;
