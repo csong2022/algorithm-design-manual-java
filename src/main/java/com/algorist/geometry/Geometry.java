@@ -190,6 +190,14 @@ public class Geometry {
                 System.out.printf("(%f,%f)\n", p[i].x, p[i].y);
         }
 
+        @Override
+        public boolean equals(Object other) {
+            if (other instanceof Point) {
+                Point b = (Point) other;
+                return b.x == this.x && b.y == this.y;
+            } else return false;
+        }
+
         void print() {
             System.out.printf("%7.3f %7.3f\n", this.x, this.y);
         }
@@ -197,7 +205,7 @@ public class Geometry {
 
     static class Polygon {
         final Point[] p;       /* array of points in polygon */
-        int n;            /* number of points in polygon */
+        final int n;            /* number of points in polygon */
 
         public Polygon(Point[] p) {
             this(p, p.length);

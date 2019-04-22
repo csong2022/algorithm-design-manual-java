@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static com.algorist.geometry.ConvexHull.convex_hull;
+import static com.algorist.geometry.ConvexHull.convexHull;
 import static com.algorist.geometry.Geometry.readPoint;
 
 public class ConvexHullTest implements TestCaseWithInput {
@@ -19,9 +19,7 @@ public class ConvexHullTest implements TestCaseWithInput {
         for (int i = 0; i < n; i++)
             in[i] = readPoint(scanner);
 
-        Geometry.Polygon polygon = new Geometry.Polygon(new Geometry.Point[n + 1]);
-
-        convex_hull(in, n, polygon);
+        Geometry.Polygon polygon = convexHull(in, n);
 
         polygon.print();
     }

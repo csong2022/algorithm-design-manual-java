@@ -31,59 +31,47 @@ import static com.algorist.sort.Sorting.quickSort;
  */
 public class ConvexHull {
 
-    public static Polygon convex_hull(Point in[], int n, Polygon hull) {
-        int i;            /* input counter */
-        int top;        /* current hull size */
-
+    public static Polygon convexHull(Point in[], int n) {
         if (n <= 3) {        /* all points on hull! */
-            for (i = 0; i < n; i++)
-                hull.p[i] = in[i];
-            hull.n = n;
-            return hull;
+            return new Polygon(in, n);
         }
 
-        n = sort_and_remove_duplicates(in, n);
+        n = sortAndRemoveDuplicates(in, n);
 
-        Point first_point = in[0];   /* first hull point */
+        Point first_point = in[0];          /* first hull point */
 
         quickSort(in, 1, n - 1, new SmallerAngle(first_point));
 
+        Point[] points = new Point[n + 1];  /* convex hull points */
+        points[0] = first_point;
+        points[1] = in[1];
 
-        hull.p[0] = first_point;
-        hull.p[1] = in[1];
-
-        //Point.copy(first_point, in[n]);    /* sentinel to avoid special case */
-        in[n] = first_point;  /* sentinel to avoid special case */
-        top = 1;
-        i = 2;
+        in[n] = first_point;               /* sentinel to avoid special case */
+        int top = 1;                       /* current hull size */
+        int i = 2;
 
         while (i <= n) {
-            if (cw(hull.p[top - 1], hull.p[top], in[i]))
+            if (cw(points[top - 1], points[top], in[i]))
                 top--;    /* top not on hull */
             else {
-                if (!collinear(hull.p[top - 1], hull.p[top], in[i]))
+                if (!collinear(points[top - 1], points[top], in[i]))
                     top++;
-                hull.p[top] = in[i];
+                points[top] = in[i];
                 i++;
             }
         }
 
-        hull.n = top;
-
-        return hull;
+        return new Polygon(points, top);
     }
 
-    private static int sort_and_remove_duplicates(Geometry.Point in[], int n) {
-        int i;                  /* counter */
-        int oldn;               /* number of points before deletion */
-        int hole;               /* index marked for potential deletion */
-
+    private static int sortAndRemoveDuplicates(Geometry.Point in[], int n) {
         quickSort(in, 0, n - 1, new LeftLower());
 
-        oldn = n;
-        hole = 1;
-        for (i = 1; i < oldn; i++) {
-            if (in[hole - 1].x == in[i].x && in[hole - 1].y == in[i].y) n--;
+        int oldn = n;           /* number of points before deletion */
+        int hole = 1;           /* index marked for potential deletion */
+        for (int i = 1; i < oldn; i++) {
+            if (in[hole - 1].x == in[i].x && in[hole - 1].y == in[i].y)
+                n--;
             else {
                 in[hole] = in[i];
                 hole++;
@@ -110,7 +98,7 @@ public class ConvexHull {
     private static class SmallerAngle implements Comparator<Point> {
         private Point first_point;
 
-        public SmallerAngle(Point first_point) {
+        SmallerAngle(Point first_point) {
             this.first_point = first_point;
         }
 
