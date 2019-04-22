@@ -19,6 +19,7 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 
 package com.algorist.datastructure;
 
+import java.util.Iterator;
 import java.util.Objects;
 
 /**
@@ -29,7 +30,7 @@ import java.util.Objects;
  * @param <T> Element type.
  * @author csong2022
  */
-public class List<T> {
+public class List<T> implements Iterable<T> {
     private Node<T> head;
 
     public List() {
@@ -41,28 +42,17 @@ public class List<T> {
     }
 
     public boolean contains(T x) {
-        return search(this.head, x) != null;
+        return search(x) != null;
     }
 
-    private Node<T> search(Node<T> l, T x) {
-        if (l == null) return null;
+    private Node<T> search(T x) {
+        Node<T> p = this.head;
 
-        if (Objects.equals(l.item, x))
-            return l;
-        else
-            return search(l.next, x);
-    }
-
-    private Node<T> predecessor(Node<T> l, T x) {
-        if ((l == null) || (l.next == null)) {
-            // System.out.printf("Error: predecessor sought on null list.\n");
-            return null;
+        while (p != null && !Objects.equals(p.item, x)) {
+            p = p.next;
         }
 
-        if (Objects.equals(l.next.item, x))
-            return l;
-        else
-            return predecessor(l.next, x);
+        return p;
     }
 
     public void insert(T x) {
@@ -87,23 +77,27 @@ public class List<T> {
     }
 
     public void delete(T x) {
-        delete(this.head, x);
+        Node<T> pred = null;
+        Node<T> p = this.head;
+
+        while (p != null && !Objects.equals(p.item, x)) {
+            pred = p;
+            p = p.next;
+        }
+
+        if (p != null) {
+            if (pred == null) {
+                this.head = p.next;
+            } else {
+                pred.next = p.next;
+            }
+            p.next = null;
+        }
     }
 
-    private void delete(Node<T> l, T x) {
-        Node<T> p;            /* item pointer */
-        Node<T> pred;            /* predecessor pointer */
-
-        p = search(l, x);
-        if (p != null) {
-            pred = predecessor(l, x);
-            if (pred == null)    /* splice out out list */
-                this.head = p.next;
-            else
-                pred.next = p.next;
-
-            p.next = null;        /* remove reference */
-        }
+    @Override
+    public Iterator<T> iterator() {
+        return new ListIterator();
     }
 
     private static class Node<T> {
@@ -113,6 +107,38 @@ public class List<T> {
         Node(T item, Node<T> next) {
             this.item = item;
             this.next = next;
+        }
+    }
+
+    private class ListIterator implements Iterator<T> {
+        private Node<T> pred = null, predpred = null;
+        private Node<T> current = List.this.head;
+
+        @Override
+        public boolean hasNext() {
+            return this.current != null;
+        }
+
+        @Override
+        public T next() {
+            final T x = this.current.item;
+            this.predpred = this.pred;
+            this.pred = this.current;
+            this.current = this.current.next;
+            return x;
+        }
+
+        @Override
+        public void remove() {
+            if (this.pred != null) {
+                Node<T> n = this.pred;
+                if (this.predpred == null) {
+                    head = this.current;
+                } else {
+                    this.predpred.next = this.current;
+                }
+                n.next = null;
+            }
         }
     }
 }
