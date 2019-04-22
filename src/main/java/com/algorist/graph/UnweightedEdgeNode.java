@@ -5,12 +5,11 @@ package com.algorist.graph;
  *
  * @author csong2022
  */
-public class UnweightedEdgeNode implements EdgeNode<UnweightedEdgeNode> {
+public class UnweightedEdgeNode implements EdgeNode {
     private final int y;                /* adjancency info */
 
     public UnweightedEdgeNode(int y) {
         this.y = y;
-
     }
 
     @Override

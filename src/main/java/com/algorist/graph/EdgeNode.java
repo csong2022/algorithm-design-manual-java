@@ -3,10 +3,9 @@ package com.algorist.graph;
 /**
  * Adjacency list node.
  *
- * @param <T> Edge node type.
  * @author csong2022
  */
-public interface EdgeNode<T extends EdgeNode> {
+public interface EdgeNode {
     /**
      * @return adjacent vertex.
      */
@@ -18,5 +17,5 @@ public interface EdgeNode<T extends EdgeNode> {
      * @param v vertex.
      * @return copy of edge node for given vertex.
      */
-    T copy(int v);
+    EdgeNode copy(int v);
 }

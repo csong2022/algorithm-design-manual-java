@@ -18,29 +18,23 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 */
 package com.algorist.wgraph;
 
-import com.algorist.graph.EdgeNode;
+import com.algorist.graph.UnweightedEdgeNode;
 
 /**
  * Flow Graph edge node.
  *
  * @author csong2022
  */
-public class FlowEdgeNode implements EdgeNode<FlowEdgeNode> {
-    private final int y;                   /* neighboring vertex */
+public class FlowEdgeNode extends UnweightedEdgeNode {
     private final int capacity;            /* capacity of edge */
     int residual;                          /* residual capacity of edge */
     private int flow;                      /* flow through edge */
 
     public FlowEdgeNode(int y, int capacity) {
-        this.y = y;
+        super(y);
         this.capacity = capacity;
         this.flow = 0;
         this.residual = capacity;
-    }
-
-    @Override
-    public int y() {
-        return this.y;
     }
 
     public int capacity() {
@@ -73,6 +67,6 @@ public class FlowEdgeNode implements EdgeNode<FlowEdgeNode> {
     }
 
     public String toString() {
-        return String.format("%d(%d,%d,%d)", y, capacity, flow, residual);
+        return String.format("%d(%d,%d,%d)", y(), capacity, flow, residual);
     }
 }

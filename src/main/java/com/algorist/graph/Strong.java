@@ -26,7 +26,7 @@ import com.algorist.datastructure.Stack;
  * @param <T> edge node type.
  * @author csong2022
  */
-public class Strong<T extends EdgeNode<T>> {
+public class Strong<T extends EdgeNode> {
 
     public Strong(Graph<T> g) {
         DFS<T> dfs = new DFS<>(g);
@@ -38,7 +38,7 @@ public class Strong<T extends EdgeNode<T>> {
             }
     }
 
-    private static class StrongCallback<T extends EdgeNode<T>> implements GraphSearchCallback<T> {
+    private static class StrongCallback<T extends EdgeNode> implements GraphSearchCallback<T> {
         private int[] low;        /* oldest vertex surely in component of v */
         private int[] scc;        /* strong component number for each vertex */
 

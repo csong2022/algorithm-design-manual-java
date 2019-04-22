@@ -27,7 +27,7 @@ import com.algorist.datastructure.Queue;
  * @param <T> edge node type.
  * @author csong2022
  */
-public class BFS<T extends EdgeNode<T>> extends AbstractGraphSearch<T> {
+public class BFS<T extends EdgeNode> extends AbstractGraphSearch<T> {
 
     public BFS(Graph<T> g) {
         super(g);

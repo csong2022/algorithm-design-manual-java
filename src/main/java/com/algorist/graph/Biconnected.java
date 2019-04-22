@@ -25,7 +25,7 @@ package com.algorist.graph;
  * @param <T> edge node type.
  * @author csong2022
  */
-public class Biconnected<T extends EdgeNode<T>> {
+public class Biconnected<T extends EdgeNode> {
 
     public Biconnected(Graph<T> g) {
         DFS<T> dfs = new DFS<>(g);
@@ -36,7 +36,7 @@ public class Biconnected<T extends EdgeNode<T>> {
             if (!dfs.discovered(i)) dfs.search(i, callback);
     }
 
-    private static class BiconnectedCallback<T extends EdgeNode<T>> implements GraphSearchCallback<T> {
+    private static class BiconnectedCallback<T extends EdgeNode> implements GraphSearchCallback<T> {
         int[] reachable_ancestor;    /* earliest reachable ancestor of v */
         int[] tree_out_degree;       /* DFS tree outdegree of v */
 

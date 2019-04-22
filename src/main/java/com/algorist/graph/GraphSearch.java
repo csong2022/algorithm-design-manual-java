@@ -6,7 +6,7 @@ package com.algorist.graph;
  * @param <T> edge node type.
  * @author csong2022
  */
-public interface GraphSearch<T extends EdgeNode<T>> {
+public interface GraphSearch<T extends EdgeNode> {
     /**
      * Graph traverse from starting point.
      *

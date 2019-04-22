@@ -24,7 +24,7 @@ package com.algorist.graph;
  * @param <T> Edge node type.
  * @author csong2022
  */
-public class Bipartite<T extends EdgeNode<T>> {
+public class Bipartite<T extends EdgeNode> {
     private Color[] color;       /* assigned color of v */
     private boolean bipartite;   /* is the graph bipartite? */
 

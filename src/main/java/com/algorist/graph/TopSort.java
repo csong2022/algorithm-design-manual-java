@@ -26,7 +26,7 @@ import com.algorist.datastructure.Queue;
  * @param <T> edge node type.
  * @author csong2022
  */
-public class TopSort<T extends EdgeNode<T>> {
+public class TopSort<T extends EdgeNode> {
     int[] sorted;
 
     public TopSort(Graph<T> g) {

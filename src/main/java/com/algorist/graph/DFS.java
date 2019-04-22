@@ -24,7 +24,7 @@ package com.algorist.graph;
  * @param <T> edge node type.
  * @author csong2022
  */
-public class DFS<T extends EdgeNode<T>> extends AbstractGraphSearch<T> {
+public class DFS<T extends EdgeNode> extends AbstractGraphSearch<T> {
     private int[] entryTime;         /* time of vertex entry */
     private int[] exitTime;          /* time of vertex exit */
     private int time;                 /* current event time */

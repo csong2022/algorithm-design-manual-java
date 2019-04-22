@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @param <T> edge node type.
  * @author csong2022
  */
-public interface GraphReader<T extends EdgeNode<T>> {
+public interface GraphReader<T extends EdgeNode> {
     /**
      * Read graph from input.
      *

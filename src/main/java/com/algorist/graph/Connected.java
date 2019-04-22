@@ -23,7 +23,7 @@ package com.algorist.graph;
  *
  * @author csong2022
  */
-public class Connected<T extends EdgeNode<T>> {
+public class Connected<T extends EdgeNode> {
     public Connected(Graph<T> g) {
         BFS<T> bfs = new BFS<>(g);
         ConnectedCallback<T> callback = new ConnectedCallback<>();
@@ -38,7 +38,7 @@ public class Connected<T extends EdgeNode<T>> {
             }
     }
 
-    private static class ConnectedCallback<T extends EdgeNode<T>> implements GraphSearchCallback<T> {
+    private static class ConnectedCallback<T extends EdgeNode> implements GraphSearchCallback<T> {
         @Override
         public void processVertexEarly(int v) {
             System.out.printf(" %d", v);

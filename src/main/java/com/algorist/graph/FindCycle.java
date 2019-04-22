@@ -26,7 +26,7 @@ import com.algorist.utils.IterableUtils;
  * @param <T> edge node type.
  * @author csong2022
  */
-public class FindCycle<T extends EdgeNode<T>> {
+public class FindCycle<T extends EdgeNode> {
 
     public FindCycle(Graph<T> g) {
         DFS<T> dfs = new DFS<>(g);
@@ -34,7 +34,7 @@ public class FindCycle<T extends EdgeNode<T>> {
         dfs.search(1, callback);
     }
 
-    private static class FindCycleCallback<T extends EdgeNode<T>> implements GraphSearchCallback<T> {
+    private static class FindCycleCallback<T extends EdgeNode> implements GraphSearchCallback<T> {
         private DFS<T> dfs;
 
         public FindCycleCallback(DFS<T> dfs) {

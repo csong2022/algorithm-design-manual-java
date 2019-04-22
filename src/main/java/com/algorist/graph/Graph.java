@@ -29,7 +29,7 @@ import java.util.Iterator;
  * @param <T> edge node type.
  * @author csong2022
  */
-public class Graph<T extends EdgeNode<T>> {
+public class Graph<T extends EdgeNode> {
     private List<T>[] edges;    /* adjacency info */
     private int[] degree;       /* outdegree of each vertex */
     private int nvertices;      /* number of vertices in the graph */
@@ -78,7 +78,7 @@ public class Graph<T extends EdgeNode<T>> {
         degree[x]++;
 
         if (!directed)
-            insertEdge(n.y(), n.copy(x), true);
+            insertEdge(n.y(), (T) n.copy(x), true);
         else
             nedges++;
     }

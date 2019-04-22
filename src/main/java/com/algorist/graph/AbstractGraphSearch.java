@@ -1,6 +1,6 @@
 package com.algorist.graph;
 
-public abstract class AbstractGraphSearch<T extends EdgeNode<T>> implements GraphSearch<T> {
+public abstract class AbstractGraphSearch<T extends EdgeNode> implements GraphSearch<T> {
     protected Graph<T> g;            /* The graph */
     protected boolean[] processed;   /* which vertices have been processed */
     protected boolean[] discovered;  /* which vertices have been found */

@@ -26,7 +26,7 @@ import com.algorist.datastructure.Stack;
  * @param <T> edge node type.
  * @author csong2022
  */
-public class TopSort1<T extends EdgeNode<T>> {
+public class TopSort1<T extends EdgeNode> {
 
     public TopSort1(Graph<T> g) {
         DFS<T> dfs = new DFS<>(g);
@@ -40,7 +40,7 @@ public class TopSort1<T extends EdgeNode<T>> {
         sorted.print();  /* report topological order */
     }
 
-    private static class TopSort1Callback<T extends EdgeNode<T>> implements GraphSearchCallback<T> {
+    private static class TopSort1Callback<T extends EdgeNode> implements GraphSearchCallback<T> {
         private DFS<T> dfs;
         private Stack<Integer> sorted;
 

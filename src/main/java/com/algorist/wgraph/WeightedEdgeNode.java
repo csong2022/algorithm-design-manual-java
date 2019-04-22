@@ -18,25 +18,19 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 */
 package com.algorist.wgraph;
 
-import com.algorist.graph.EdgeNode;
+import com.algorist.graph.UnweightedEdgeNode;
 
 /**
  * Weighted edge node.
  *
  * @author csong2022
  */
-public class WeightedEdgeNode implements EdgeNode<WeightedEdgeNode> {
-    private final int y;                /* adjancency info */
+public class WeightedEdgeNode extends UnweightedEdgeNode {
     private final int weight;            /* edge weight */
 
     public WeightedEdgeNode(int y, int weight) {
-        this.y = y;
+        super(y);
         this.weight = weight;
-    }
-
-    @Override
-    public int y() {
-        return this.y;
     }
 
     public int weight() {
