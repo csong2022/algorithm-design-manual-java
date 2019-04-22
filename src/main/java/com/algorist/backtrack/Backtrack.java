@@ -49,7 +49,7 @@ public class Backtrack {
         }
     }
 
-    public void setFinished() {
-        this.finished = true;
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 }
