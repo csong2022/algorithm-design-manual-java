@@ -10,7 +10,7 @@ import static com.algorist.dp.EditDistance.INSERT;
 public class StringEdit {
     EditDistance.Cell[][] m;
 
-    public StringEdit(EditDistance.Cell[][] m) {
+    public void setM(EditDistance.Cell[][] m) {
         this.m = m;
     }
 

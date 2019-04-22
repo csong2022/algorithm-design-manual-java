@@ -8,23 +8,13 @@ public class EditDistance {
     static final int MATCH = 0;    /* enumerated type symbol for match */
     static final int INSERT = 1;   /* enumerated type symbol for insert */
     static final int DELETE = 2;   /* enumerated type symbol for delete */
-
-    static class Cell {
-        int cost;               /* cost of reaching this cell */
-        int parent;             /* parent cell */
-
-        public Cell(int cost, int parent) {
-            this.cost = cost;
-            this.parent = parent;
-        }
-    }
-
     final Cell[][] m;         /* dynamic programming table */
     final StringEdit stringEdit;
 
-    public EditDistance(Cell[][] m, StringEdit stringEdit) {
-        this.m = m;
+    public EditDistance(StringEdit stringEdit) {
+        this.m = new Cell[MAXLEN][MAXLEN];
         this.stringEdit = stringEdit;
+        this.stringEdit.setM(m);
     }
 
     public int stringCompare(String s, String t) {
@@ -130,5 +120,15 @@ public class EditDistance {
 
     void deleteOut(String s, int i) {
         stringEdit.deleteOut(s, i);
+    }
+
+    static class Cell {
+        int cost;               /* cost of reaching this cell */
+        int parent;             /* parent cell */
+
+        public Cell(int cost, int parent) {
+            this.cost = cost;
+            this.parent = parent;
+        }
     }
 }

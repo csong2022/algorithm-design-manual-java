@@ -11,10 +11,8 @@ public class SubStringEditTest implements TestCaseWithInput {
         String s = ' ' + scanner.next();
         String t = ' ' + scanner.next();
 
-        EditDistance.Cell[][] m = new EditDistance.Cell[s.length()][t.length()];
-
-        SubStringEdit stringEdit = new SubStringEdit(m);
-        EditDistance editDistance = new EditDistance(m, stringEdit);
+        SubStringEdit stringEdit = new SubStringEdit();
+        EditDistance editDistance = new EditDistance(stringEdit);
 
         System.out.printf("matching cost = %d \n", editDistance.stringCompare(s, t));
 

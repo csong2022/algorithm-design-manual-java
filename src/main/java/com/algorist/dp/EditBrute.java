@@ -5,8 +5,8 @@ package com.algorist.dp;
  */
 public class EditBrute extends EditDistance {
 
-    public EditBrute(Cell[][] m, StringEdit stringEdit) {
-        super(m, stringEdit);
+    public EditBrute(StringEdit stringEdit) {
+        super(stringEdit);
     }
 
     public int stringCompare(String s, String t, int i, int j) {

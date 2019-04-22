@@ -1,9 +1,6 @@
 package com.algorist.dp;
 
 public class SubStringEdit extends StringEdit {
-    public SubStringEdit(EditDistance.Cell[][] m) {
-        super(m);
-    }
 
     int[] goalCell(String s, String t) {
         int i = s.length() - 1;

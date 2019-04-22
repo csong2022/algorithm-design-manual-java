@@ -11,10 +11,8 @@ public class StringEditTest implements TestCaseWithInput {
         String s = ' ' + scanner.next();
         String t = ' ' + scanner.next();
 
-        EditDistance.Cell[][] m = new EditDistance.Cell[s.length()][t.length()];
-
-        StringEdit stringEdit = new StringEdit(m);
-        EditDistance editDistance = new EditDistance(m, stringEdit);
+        StringEdit stringEdit = new StringEdit();
+        EditDistance editDistance = new EditDistance(stringEdit);
 
         System.out.printf("matching cost = %d \n", editDistance.stringCompare(s, t));
 
