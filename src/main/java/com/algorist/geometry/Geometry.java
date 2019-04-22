@@ -31,7 +31,8 @@ import static java.lang.Math.*;
 public class Geometry {
     static final double PI = 3.1415926;        /* ratio of circumference to diameter */
     static final double EPSILON = 0.000001;    /* a quantity small enough to be zero */
-    static final int DIMENSION = 2;           /* dimension of points */
+    static final int DIMENSION = 2;            /* dimension of points */
+    static final int MAXPOLY = 200;            /* maximum number of points in a polygon */
 
     static Point readPoint(Scanner scanner) {
         return new Point(scanner.nextDouble(), scanner.nextDouble());
@@ -238,6 +239,16 @@ public class Geometry {
             System.out.print("segment: ");
             this.p1.print();
             this.p2.print();
+        }
+    }
+
+    static class Triangulation {
+        int[][] t; /* indicies of vertices in triangulation */
+        int n;     /* number of triangles in triangulation */
+
+        public Triangulation(int[][] t, int n) {
+            this.t = t;
+            this.n = n;
         }
     }
 
