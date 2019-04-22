@@ -32,14 +32,14 @@ public class Plates {
     /**
      * how many triangular-lattice layers of radius r balls fit in height h?
      */
-    static int dense_layers(double w, double h, double r) {
+    static int denseLayers(double w, double h, double r) {
         if ((2 * r) > h) return 0;
 
         double gap = 2.0 * r * (sqrt(3) / 2.0);  /* distance between layers */
         return 1 + floor((h - 2.0 * r) / gap);
     }
 
-    static int plates_per_row(int row, double w, double r) {
+    private static int platesPerRow(int row, double w, double r) {
         int plates_per_full_row;        /* number of plates in full/even row */
 
         plates_per_full_row = floor(w / (2 * r));
@@ -55,17 +55,17 @@ public class Plates {
     /**
      * How many radius r plates fit in a hexagonal-lattice packed w*h box?
      */
-    static int dense_plates(double w, double l, double r) {
-        int layers = dense_layers(w, l, r);  /* number of layers of balls */
+    static int densePlates(double w, double l, double r) {
+        int layers = denseLayers(w, l, r);  /* number of layers of balls */
 
-        return ceil(layers / 2.0) * plates_per_row(0, w, r) +
-                floor(layers / 2.0) * plates_per_row(1, w, r);
+        return ceil(layers / 2.0) * platesPerRow(0, w, r) +
+                floor(layers / 2.0) * platesPerRow(1, w, r);
     }
 
-    static int grid_plates(double w, double h, double r) {
+    static int gridPlates(double w, double h, double r) {
         int layers = floor(h / (2 * r)); /* number of layers of balls */
 
-        return layers * plates_per_row(0, w, r);
+        return layers * platesPerRow(0, w, r);
     }
 
     /*
@@ -75,13 +75,13 @@ public class Plates {
      * and positive-slope diagonal yh.   The geometric coordinate of
      * such a point is a function of the radius of the disk $r$.
      */
-    static double[] hex_to_geo(int xh, int yh, double r) {
+    private static double[] hexToGeo(int xh, int yh, double r) {
         double yg = (2.0 * r) * xh * (sqrt(3) / 2.0);
         double xg = (2.0 * r) * xh * (1.0 / 2.0) + (2.0 * r) * yh;
         return new double[]{xg, yg};
     }
 
-    static double[] geo_to_hex(double xg, double yg, double r) {
+    private static double[] geoToHex(double xg, double yg, double r) {
         double xh = (2.0 / sqrt(3)) * yg / (2.0 * r);
         double yh = (xg - (2.0 * r) * (xh) * (1.0 / 2.0)) / (2.0 * r);
         return new double[]{xh, yh};
@@ -95,41 +95,37 @@ public class Plates {
      * so that (ax,ay) refers to the position in an axis-oriented
      * rectangle with (0,0) as the lower righthand point in the matrix.
      */
-    static int[] array_to_hex(int xa, int ya) {
+    private static int[] arrayToHex(int xa, int ya) {
         int xh = xa;
         int yh = ya - xa + ceil(xa / 2.0);
         return new int[]{xh, yh};
     }
 
-    static int[] hex_to_array(int xh, int yh) {
+    private static int[] hexToArray(int xh, int yh) {
         int xa = xh;
         int ya = yh + xh - ceil(xh / 2.0);
         return new int[]{xa, ya};
     }
 
-    static int plates_on_top(int xh, int yh, double w, double l, double r) {
+    static int platesOnTop(int xh, int yh, double w, double l, double r) {
         int number_on_top = 0;        /* total plates on top */
         int layers;            /* number of rows in grid */
         int rowlength;            /* number of plates in row */
         int row;            /* counter */
-        int xla, yla, xra, yra;        /* array coordinates */
+        int yla, yra;        /* array coordinates */
 
-        layers = dense_layers(w, l, r);
+        layers = denseLayers(w, l, r);
 
         for (row = xh + 1; row < layers; row++) {
-            rowlength = plates_per_row(row, w, r) - 1;
+            rowlength = platesPerRow(row, w, r) - 1;
 
-            int[] ret = hex_to_array(row, yh - (row - xh));
-            xla = ret[0];
+            int[] ret = hexToArray(row, yh - (row - xh));
             yla = ret[1];
             if (yla < 0) yla = 0;            /* left boundary */
 
-            ret = hex_to_array(row, yh);
-            xra = ret[0];
+            ret = hexToArray(row, yh);
             yra = ret[1];
             if (yra > rowlength) yra = rowlength;    /* right boundary */
-
-            /*printf("row=%d yla=%d yra=%d\n",row,yla,yra);*/
 
             number_on_top += yra - yla + 1;
         }
