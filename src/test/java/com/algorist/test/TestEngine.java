@@ -18,7 +18,7 @@ public class TestEngine {
     private static final String OUTPUT_DIR = "out";
 
     /**
-     * Execute test case with input.
+     * Execute test case with input, produces output.
      *
      * @param testCase       test case to be executed.
      * @param inputFileName  input file.
@@ -35,10 +35,7 @@ public class TestEngine {
             throw new IllegalArgumentException(String.format("Expected output file %s doesn't exists", outputFileName));
         }
 
-        File outputFile = new File(OUTPUT_DIR, outputFileName);
-        if (outputFile.exists()) {
-            outputFile.delete();
-        }
+        File outputFile = recycleOutputFile(outputFileName);
 
         PrintStream stdout = System.out;
         try (PrintStream outputStream = new PrintStream(new FileOutputStream(outputFile))) {
@@ -54,7 +51,7 @@ public class TestEngine {
     }
 
     /**
-     * Execute test case without input.
+     * Execute test case without input, produces output.
      *
      * @param testcase       test case to be executed.
      * @param outputFileName output file.
@@ -65,10 +62,7 @@ public class TestEngine {
             throw new IllegalArgumentException(String.format("Expected output file %s doesn't exists", outputFileName));
         }
 
-        File outputFile = new File(OUTPUT_DIR, outputFileName);
-        if (outputFile.exists()) {
-            outputFile.delete();
-        }
+        File outputFile = recycleOutputFile(outputFileName);
 
         PrintStream stdout = System.out;
         try (PrintStream outputStream = new PrintStream(new FileOutputStream(outputFile))) {
@@ -79,6 +73,23 @@ public class TestEngine {
         }
 
         assertFalse(String.format("Test result %s differs", outputFileName), diff(outputFile, expectedfile));
+    }
+
+    private static File recycleOutputFile(String outputFileName) {
+        createOutputDirIfAbsent();
+        File outputFile = new File(OUTPUT_DIR, outputFileName);
+        if (outputFile.exists()) {
+            outputFile.delete();
+        }
+
+        return outputFile;
+    }
+
+    private static void createOutputDirIfAbsent() {
+        File outputDir = new File(OUTPUT_DIR);
+        if (!outputDir.exists()) {
+            outputDir.mkdir();
+        }
     }
 
     /**
