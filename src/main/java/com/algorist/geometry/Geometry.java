@@ -173,8 +173,8 @@ public class Geometry {
     }
 
     static class Point {
-        final double x;
-        final double y;
+        double x;
+        double y;
 
         public Point(double x, double y) {
             this.x = x;
@@ -197,17 +197,23 @@ public class Geometry {
 
     static class Polygon {
         final Point[] p;       /* array of points in polygon */
+        int n;            /* number of points in polygon */
 
         public Polygon(Point[] p) {
+            this(p, p.length);
+        }
+
+        public Polygon(Point[] p, int n) {
             this.p = p;
+            this.n = n;
         }
 
         Point[] toPints() {
-            return Arrays.copyOf(p, p.length);
+            return Arrays.copyOf(p, n);
         }
 
         void print() {
-            for (int i = 0; i < p.length; i++)
+            for (int i = 0; i < n; i++)
                 System.out.printf("(%f,%f)\n", p[i].x, p[i].y);
         }
     }
