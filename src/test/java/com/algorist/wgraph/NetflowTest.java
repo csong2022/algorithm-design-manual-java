@@ -16,7 +16,7 @@ public class NetflowTest implements TestCaseWithInput {
         g.print();
 
         int flow = 0; /* total flow */
-        for (FlowEdgeNode p = g.edge(source); p != null; p = p.next()) {
+        for (FlowEdgeNode p : g.edge(source)) {
             flow += p.flow();
         }
 

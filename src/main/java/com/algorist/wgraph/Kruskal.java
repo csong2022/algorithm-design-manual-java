@@ -61,7 +61,7 @@ public class Kruskal {
 
         int m = 0;
         for (int i = 1; i <= g.nvertices(); i++) {
-            for (WeightedEdgeNode p = g.edge(i); p != null; p = p.next()) {
+            for (WeightedEdgeNode p : g.edge(i)) {
                 if (p.y() > i) {
                     e[m++] = new EdgePair(i, p.y(), p.weight());
                 }

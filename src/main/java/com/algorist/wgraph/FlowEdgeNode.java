@@ -30,7 +30,6 @@ public class FlowEdgeNode implements EdgeNode<FlowEdgeNode> {
     private final int capacity;            /* capacity of edge */
     int residual;                          /* residual capacity of edge */
     private int flow;                      /* flow through edge */
-    private FlowEdgeNode next;
 
     public FlowEdgeNode(int y, int capacity) {
         this.y = y;
@@ -66,16 +65,6 @@ public class FlowEdgeNode implements EdgeNode<FlowEdgeNode> {
 
     public void increaseResidual(int delta) {
         this.residual += delta;
-    }
-
-    @Override
-    public FlowEdgeNode next() {
-        return this.next;
-    }
-
-    @Override
-    public void setNext(FlowEdgeNode next) {
-        this.next = next;
     }
 
     @Override

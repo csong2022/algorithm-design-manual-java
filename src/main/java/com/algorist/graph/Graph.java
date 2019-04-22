@@ -18,6 +18,11 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 
 */
 
+
+import com.algorist.datastructure.List;
+
+import java.util.Iterator;
+
 /**
  * A generic adjacency list graph data type.
  *
@@ -25,7 +30,7 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
  * @author csong2022
  */
 public class Graph<T extends EdgeNode<T>> {
-    private T[] edges;          /* adjacency info */
+    private List<T>[] edges;    /* adjacency info */
     private int[] degree;       /* outdegree of each vertex */
     private int nvertices;      /* number of vertices in the graph */
     private int nedges;         /* number of edges in the graph */
@@ -36,10 +41,13 @@ public class Graph<T extends EdgeNode<T>> {
         this.nedges = 0;
         this.directed = directed;
 
-        this.edges = (T[]) new EdgeNode[nvertices + 1];
+        this.edges = new List[nvertices + 1];
         this.degree = new int[nvertices + 1];
 
-        for (int i = 1; i < this.degree.length; i++) this.degree[i] = 0;
+        for (int i = 1; i < this.degree.length; i++) {
+            this.degree[i] = 0;
+            this.edges[i] = new List<>();
+        }
     }
 
     public int nvertices() {
@@ -50,7 +58,7 @@ public class Graph<T extends EdgeNode<T>> {
         return this.nedges;
     }
 
-    public T edge(int v) {
+    public List<T> edge(int v) {
         return this.edges[v];
     }
 
@@ -59,15 +67,14 @@ public class Graph<T extends EdgeNode<T>> {
     }
 
     public T findEdge(int x, int y) {
-        for (T p = edges[x]; p != null; p = p.next()) {
+        for (T p : edges[x]) {
             if (p.y() == y) return p;
         }
         return null;
     }
 
     public void insertEdge(int x, T n, boolean directed) {
-        n.setNext(edges[x]);
-        edges[x] = n;
+        edges[x].insert(n);
         degree[x]++;
 
         if (!directed)
@@ -77,22 +84,21 @@ public class Graph<T extends EdgeNode<T>> {
     }
 
     public void deleteEdge(int x, int y, boolean directed) {
-        T pBack = null;
-        for (T p = edges[x]; p != null; p = p.next())
+        Iterator<T> iterator = this.edges[x].iterator();
+        while (iterator.hasNext()) {
+            T p = iterator.next();
             if (p.y() == y) {
-                degree[x]--;
-                if (pBack != null)
-                    pBack.setNext(p.next());
-                else
-                    edges[x] = p.next();
-
-                if (!directed)
-                    deleteEdge(y, x, true);
-                else
-                    nedges--;
+                iterator.remove();
+                this.degree[x]--;
+                if (!directed) {
+                    this.deleteEdge(y, x, true);
+                } else {
+                    this.nedges--;
+                }
 
                 return;
             }
+        }
 
         System.out.printf("Warning: deletion(%d,%d) not found in g.\n", x, y);
     }
@@ -101,7 +107,7 @@ public class Graph<T extends EdgeNode<T>> {
         for (int i = 1; i <= nvertices; i++) {
             System.out.printf("%d: ", i);
 
-            for (T p = edges[i]; p != null; p = p.next()) {
+            for (T p : edges[i]) {
                 System.out.printf(" %d", p.y());
             }
             System.out.printf("\n");

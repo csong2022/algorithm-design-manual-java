@@ -44,7 +44,7 @@ public class BFS<T extends EdgeNode<T>> extends AbstractGraphSearch<T> {
             callback.processVertexEarly(v);
             processed[v] = true;
 
-            for (T p = g.edge(v); p != null; p = p.next()) {
+            for (T p : g.edge(v)) {
                 int y = p.y();
 
                 if (callback.validateEdge(p)) {

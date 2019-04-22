@@ -28,7 +28,6 @@ import com.algorist.graph.EdgeNode;
 public class WeightedEdgeNode implements EdgeNode<WeightedEdgeNode> {
     private final int y;                /* adjancency info */
     private final int weight;            /* edge weight */
-    private WeightedEdgeNode next;
 
     public WeightedEdgeNode(int y, int weight) {
         this.y = y;
@@ -42,16 +41,6 @@ public class WeightedEdgeNode implements EdgeNode<WeightedEdgeNode> {
 
     public int weight() {
         return this.weight;
-    }
-
-    @Override
-    public WeightedEdgeNode next() {
-        return next;
-    }
-
-    @Override
-    public void setNext(WeightedEdgeNode next) {
-        this.next = next;
     }
 
     @Override

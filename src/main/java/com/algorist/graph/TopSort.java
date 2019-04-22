@@ -42,7 +42,7 @@ public class TopSort<T extends EdgeNode<T>> {
         while (!zeroin.isEmpty()) {
             int x = zeroin.dequeue();
             sorted[++j] = x;
-            for (T p = g.edge(x); p != null; p = p.next()) {
+            for (T p : g.edge(x)) {
                 int y = p.y();
                 indegree[y]--;
                 if (indegree[y] == 0) zeroin.enqueue(y);
@@ -57,7 +57,7 @@ public class TopSort<T extends EdgeNode<T>> {
         for (int i = 1; i <= g.nvertices(); i++) in[i] = 0;
 
         for (int i = 1; i <= g.nvertices(); i++) {
-            for (T p = g.edge(i); p != null; p = p.next()) {
+            for (T p : g.edge(i)) {
                 in[p.y()]++;
             }
         }

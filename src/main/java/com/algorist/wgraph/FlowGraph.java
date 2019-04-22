@@ -32,7 +32,7 @@ public class FlowGraph extends Graph<FlowEdgeNode> {
 
     public void addResidualEdges() {
         for (int i = 1; i <= nvertices(); i++) {
-            for (FlowEdgeNode p = edge(i); p != null; p = p.next()) {
+            for (FlowEdgeNode p : edge(i)) {
                 if (findEdge(p.y(), i) == null) {
                     insertEdge(p.y(), new FlowEdgeNode(i, 0), true);
                 }
@@ -43,7 +43,7 @@ public class FlowGraph extends Graph<FlowEdgeNode> {
     public void print() {
         for (int i = 1; i <= nvertices(); i++) {
             System.out.printf("%d: ", i);
-            for (FlowEdgeNode p = edge(i); p != null; p = p.next()) {
+            for (FlowEdgeNode p : edge(i)) {
                 System.out.printf(" %s", p.toString());
             }
             System.out.printf("\n");

@@ -48,7 +48,7 @@ public class Dijkstra {
         while (!intree[v]) {
             intree[v] = true;
 
-            for (WeightedEdgeNode p = g.edge(v); p != null; p = p.next()) {
+            for (WeightedEdgeNode p : g.edge(v)) {
                 int w = p.y();
                 int weight = p.weight();
                 if (distance[w] > distance[v] + weight) {

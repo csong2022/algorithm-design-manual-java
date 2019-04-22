@@ -13,18 +13,6 @@ public interface EdgeNode<T extends EdgeNode> {
     int y();           /* adjancency info */
 
     /**
-     * @return next in the adjacency list.
-     */
-    T next();          /* next edge in list */
-
-    /**
-     * Set next adjacent node.
-     *
-     * @param next next node.
-     */
-    void setNext(T next);
-
-    /**
      * Create a copy of edge node for given vertex.
      *
      * @param v vertex.

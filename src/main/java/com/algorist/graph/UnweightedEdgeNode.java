@@ -7,7 +7,6 @@ package com.algorist.graph;
  */
 public class UnweightedEdgeNode implements EdgeNode<UnweightedEdgeNode> {
     private final int y;                /* adjancency info */
-    private UnweightedEdgeNode next;
 
     public UnweightedEdgeNode(int y) {
         this.y = y;
@@ -17,16 +16,6 @@ public class UnweightedEdgeNode implements EdgeNode<UnweightedEdgeNode> {
     @Override
     public int y() {
         return y;
-    }
-
-    @Override
-    public UnweightedEdgeNode next() {
-        return this.next;
-    }
-
-    @Override
-    public void setNext(UnweightedEdgeNode next) {
-        this.next = next;
     }
 
     public UnweightedEdgeNode copy(int v) {

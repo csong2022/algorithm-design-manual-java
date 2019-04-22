@@ -63,7 +63,7 @@ public class DFS<T extends EdgeNode<T>> extends AbstractGraphSearch<T> {
 
         callback.processVertexEarly(v);
 
-        for (T p = g.edge(v); p != null; p = p.next()) {
+        for (T p : g.edge(v)) {
             int y = p.y();
             if (!discovered[y]) {
                 parent[y] = v;
