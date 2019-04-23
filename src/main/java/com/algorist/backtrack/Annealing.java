@@ -1,3 +1,21 @@
+/*
+Copyright 2003 by Steven S. Skiena; all rights reserved.
+
+Permission is granted for use in non-commerical applications
+provided this copyright notice remains intact and unchanged.
+
+This program appears in my book:
+
+"Programming Challenges: The Programming Contest Training Manual"
+by Steven Skiena and Miguel Revilla, Springer-Verlag, New York 2003.
+
+See our website www.programming-challenges.com for additional information.
+
+This book can be ordered from Amazon.com at
+
+http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
+
+*/
 package com.algorist.backtrack;
 
 import static com.algorist.backtrack.TSP.*;
@@ -38,37 +56,37 @@ public class Annealing {
 	   at the end of a run, and this is a knob to tweak that. */
     private static final double K = 0.01;
 
-    private int solution_count = 0;
+    private int solutionCount = 0;
 
-    public int solution_count() {
-        return this.solution_count;
+    public int solutionCount() {
+        return this.solutionCount;
     }
 
-    void solution_count_update(TspSolution s, TspInstance t) {
-        // double solution_cost();
+    void solutionCountUpdate(TspSolution s, TspInstance t) {
+        // double solutionCost();
 
-        solution_count++;
-        if ((solution_count % PRINT_FREQUENCY) == 0)
-            System.out.printf("%d %7.1f\n", solution_count, solution_cost(s, t));
+        solutionCount++;
+        if ((solutionCount % PRINT_FREQUENCY) == 0)
+            System.out.printf("%d %7.1f\n", solutionCount, solutionCost(s, t));
     }
 
     /**
      * Use random sampling to provide a heuristic solution to a given
      * optimization problem.
      */
-    TspSolution random_sampling(TspInstance t, int nsamples) {
+    TspSolution randomSampling(TspInstance t, int nsamples) {
         TspSolution s = new TspSolution(t.n);       /* current tsp solution */
-        double best_cost = solution_cost(s, t);     /* best cost so far */
+        double bestCost = solutionCost(s, t);     /* best cost so far */
         TspSolution bestsol = new TspSolution(s);
 
         for (int i = 1; i <= nsamples; i++) {
-            s.random_solution();
-            double cost_now = solution_cost(s, t);  /* current cost */
-            if (cost_now < best_cost) {
-                best_cost = cost_now;
+            s.randomSolution();
+            double cost_now = solutionCost(s, t);  /* current cost */
+            if (cost_now < bestCost) {
+                bestCost = cost_now;
                 bestsol = new TspSolution(s);
             }
-            solution_count_update(s, t);
+            solutionCountUpdate(s, t);
         }
 
         return bestsol;
@@ -78,10 +96,10 @@ public class Annealing {
      * Use hill climbing to provide a heuristic solution to a given
      * optimization problem.
      */
-    TspSolution hill_climbing(TspInstance t) {
+    TspSolution hillClimbing(TspInstance t) {
         TspSolution s = new TspSolution(t.n);
-        s.random_solution();
-        double cost = solution_cost(s, t); /* best cost so far */
+        s.randomSolution();
+        double cost = solutionCost(s, t); /* best cost so far */
 
         boolean stuck;            /* did I get a better solution? */
         do {
@@ -96,7 +114,7 @@ public class Annealing {
                     } else
                         transition(s, t, j, i);
 
-                    solution_count_update(s, t);
+                    solutionCountUpdate(s, t);
                 }
         } while (!stuck);
 
@@ -112,16 +130,16 @@ public class Annealing {
 	We are seeking to *minimize* the current_value.
 */
 
-    TspSolution repeated_hill_climbing(TspInstance t, int nsamples) {
+    TspSolution repeatedHillClimbing(TspInstance t, int nsamples) {
         TspSolution s = new TspSolution(t.n); /* current tsp solution */
-        double best_cost = solution_cost(s, t);  /* best cost so far */
+        double bestCost = solutionCost(s, t);  /* best cost so far */
         TspSolution bestsol = new TspSolution(s);
 
         for (int i = 1; i <= nsamples; i++) {
-            s = hill_climbing(t);
-            double cost_now = solution_cost(s, t);  /* current cost */
-            if (cost_now < best_cost) {
-                best_cost = cost_now;
+            s = hillClimbing(t);
+            double cost_now = solutionCost(s, t);  /* current cost */
+            if (cost_now < bestCost) {
+                bestCost = cost_now;
                 bestsol = new TspSolution(s);
             }
         }
@@ -130,58 +148,50 @@ public class Annealing {
     }
 
     TspSolution anneal(TspInstance t) {
-        int i1, i2;                /* pair of items to swap */
-        int i, j;                /* counters */
-        double temperature;            /* the current system temp */
-        double current_value;            /* value of current state */
-        double start_value;            /* value at start of loop */
-        double delta;                /* value after swap */
-        double merit, flip;            /* hold swap accept conditions*/
-        double exponent;            /* exponent for energy funct*/
-
-        temperature = INITIAL_TEMPERATURE;
+        double temperature = INITIAL_TEMPERATURE;  /* the current system temp */
 
         TspSolution s = new TspSolution(t.n);
-        current_value = solution_cost(s, t);
+        double currentValue = solutionCost(s, t);  /* value of current state */
 
-        for (i = 1; i <= COOLING_STEPS; i++) {
+        for (int i = 1; i <= COOLING_STEPS; i++) {
             temperature *= COOLING_FRACTION;
 
-            start_value = current_value;
+            double startValue = currentValue;      /* value at start of loop */
 
-            for (j = 1; j <= STEPS_PER_TEMP; j++) {
+            for (int j = 1; j <= STEPS_PER_TEMP; j++) {
 
                 /* pick indices of elements to swap */
-                i1 = randomInt(1, t.n);
-                i2 = randomInt(1, t.n);
+                int i1 = randomInt(1, t.n);
+                int i2 = randomInt(1, t.n);
 
-                delta = transition(s, t, i1, i2);
+                double delta = transition(s, t, i1, i2);  /* value after swap */
 
-                flip = randomFloat();
-                exponent = (-delta / current_value) / (K * temperature);
-                merit = pow(E, exponent);
+                double flip = randomFloat();
+                /* exponent for energy funct*/
+                double exponent = (-delta / currentValue) / (K * temperature);
+                double merit = pow(E, exponent);
 
                 if (delta < 0) {    /*ACCEPT-WIN*/
-                    current_value = current_value + delta;
+                    currentValue = currentValue + delta;
 
                     if (TRACE_OUTPUT) {
                         System.out.printf("swap WIN %d--%d value %f  temp=%f i=%d j=%d\n",
-                                i1, i2, current_value, temperature, i, j);
+                                i1, i2, currentValue, temperature, i, j);
                     }
                 } else {
                     if (merit > flip) {        /*ACCEPT-LOSS*/
-                        current_value = current_value + delta;
+                        currentValue = currentValue + delta;
                         if (TRACE_OUTPUT) {
                             System.out.printf("swap LOSS %d--%d value %f merit=%f flip=%f i=%d j=%d\n",
-                                    i1, i2, current_value, merit, flip, i, j);
+                                    i1, i2, currentValue, merit, flip, i, j);
                         }
                     } else {                /* REJECT */
                         transition(s, t, i1, i2);
                     }
                 }
-                solution_count_update(s, t);
+                solutionCountUpdate(s, t);
             }
-            if ((current_value - start_value) < 0.0) { /* rerun at this temp */
+            if ((currentValue - startValue) < 0.0) { /* rerun at this temp */
                 temperature /= COOLING_FRACTION;
                 if (TRACE_OUTPUT) System.out.printf("rerun at temperature %f\n", temperature);
             }
@@ -190,21 +200,16 @@ public class Annealing {
         return s;
     }
 
-    TspSolution repeated_annealing(TspInstance t, int nsamples) {
-        TspSolution s;                 /* current tsp solution */
-        double best_cost;               /* best cost so far */
-        double cost_now;                /* current cost */
-        int i;                          /* counter */
-
-        s = new TspSolution(t.n);
-        best_cost = solution_cost(s, t);
+    public TspSolution repeatedAnnealing(TspInstance t, int nsamples) {
+        TspSolution s = new TspSolution(t.n);  /* current tsp solution */
+        double bestCost = solutionCost(s, t); /* best cost so far */
         TspSolution bestsol = new TspSolution(s);
 
-        for (i = 1; i <= nsamples; i++) {
+        for (int i = 1; i <= nsamples; i++) {
             s = anneal(t);
-            cost_now = solution_cost(s, t);
-            if (cost_now < best_cost) {
-                best_cost = cost_now;
+            double costNow = solutionCost(s, t); /* current cost */
+            if (costNow < bestCost) {
+                bestCost = costNow;
                 bestsol = new TspSolution(s);
             }
         }

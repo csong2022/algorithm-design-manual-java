@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static com.algorist.backtrack.TSP.solution_cost;
+import static com.algorist.backtrack.TSP.solutionCost;
 
 @Ignore
 public class TSPTest implements TestCaseWithInput {
@@ -21,17 +21,17 @@ public class TSPTest implements TestCaseWithInput {
         t = TSP.TspInstance.read(scanner);
 
         s = TSP.TspSolution.read(scanner);
-        System.out.printf("OPTIMAL SOLUTION COST = %7.1f\n", solution_cost(s, t));
+        System.out.printf("OPTIMAL SOLUTION COST = %7.1f\n", solutionCost(s, t));
         s.print();
 
         s = new TSP.TspSolution(t.n);
-        System.out.printf("solution_cost = %7.1f\n", solution_cost(s, t));
+        System.out.printf("solutionCost = %7.1f\n", solutionCost(s, t));
         s.print();
 
         Annealing annealing = new Annealing();
-        s = annealing.repeated_annealing(t, 3);
+        s = annealing.repeatedAnnealing(t, 3);
         System.out.printf("repeated annealing %d iterations, cost = %7.1f\n",
-                annealing.solution_count(), solution_cost(s, t));
+                annealing.solutionCount(), solutionCost(s, t));
         s.print();
     }
 

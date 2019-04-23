@@ -94,7 +94,7 @@ public class TSP {
         return sqrt((double) (sq(pi.x - pj.x) + sq(t.p[s.p[i]].y - pj.y)));
     }
 
-    static double solution_cost(TspSolution s, TspInstance t) {
+    static double solutionCost(TspSolution s, TspInstance t) {
         double cost = distance(s, t.n, 1, t);  /* cost of solution */
         for (int i = 1; i < t.n; i++)
             cost += distance(s, i, i + 1, t);
@@ -168,7 +168,7 @@ public class TSP {
             return new TspSolution(p, n);
         }
 
-        void random_solution() {
+        void randomSolution() {
             randomPermutation(p, 1, this.n - 1);
         }
 
