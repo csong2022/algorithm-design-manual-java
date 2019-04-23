@@ -18,7 +18,6 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 */
 package com.algorist.datastructure;
 
-
 import java.util.Iterator;
 
 import static com.algorist.datastructure.ArrayUtils.ARRAY_SIZE_THRESHOLD;

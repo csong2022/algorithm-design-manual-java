@@ -16,7 +16,6 @@ This book can be ordered from Amazon.com at
 http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 
 */
-
 package com.algorist.datastructure;
 
 import java.util.Iterator;

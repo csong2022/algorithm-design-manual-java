@@ -1,4 +1,3 @@
-package com.algorist.graph;
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
@@ -17,7 +16,7 @@ This book can be ordered from Amazon.com at
 http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 
 */
-
+package com.algorist.graph;
 
 import com.algorist.datastructure.List;
 
