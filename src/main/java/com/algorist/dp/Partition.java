@@ -42,7 +42,7 @@ public class Partition {
         return new Data(s, n, k);
     }
 
-    static void printBooks(int[] s, int start, int end) {
+    private static void printBooks(int[] s, int start, int end) {
         System.out.print("{");
         for (int i = start; i <= end; i++) System.out.printf(" %d ", s[i]);
         System.out.println("}");
