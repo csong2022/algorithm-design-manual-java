@@ -38,6 +38,15 @@ public class Geometry {
         return new Point(scanner.nextDouble(), scanner.nextDouble());
     }
 
+    static Point[] readPoints(Scanner scanner) {
+        int n = scanner.nextInt();    /*number of points */
+        Point[] in = new Point[n];
+
+        for (int i = 0; i < n; i++)
+            in[i] = readPoint(scanner);
+        return in;
+    }
+
     static Line pointsToLine(Point p1, Point p2) {
         double a, b, c;
         if (p1.x == p2.x) {

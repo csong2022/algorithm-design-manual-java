@@ -19,6 +19,7 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 
 package com.algorist.geometry;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 import static com.algorist.geometry.Geometry.*;
@@ -35,6 +36,8 @@ public class ConvexHull {
         if (n <= 3) {        /* all points on hull! */
             return new Polygon(in, n);
         }
+
+        in = Arrays.copyOf(in, n + 1);
 
         n = sortAndRemoveDuplicates(in, n);
 

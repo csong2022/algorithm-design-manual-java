@@ -14,11 +14,7 @@ import static com.algorist.geometry.Triangulate.areaTriangulation;
 public class TriangulateTest implements TestCaseWithInput {
     @Override
     public void process(Scanner scanner) {
-        int n = scanner.nextInt();
-
-        Point[] points = new Point[n];
-        for (int i = 0; i < n; i++)
-            points[i] = readPoint(scanner);
+        Point[] points = readPoints(scanner);
 
         Polygon p = new Polygon(points);
 

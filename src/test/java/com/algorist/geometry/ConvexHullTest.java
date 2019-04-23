@@ -13,13 +13,9 @@ import static com.algorist.geometry.Geometry.*;
 public class ConvexHullTest implements TestCaseWithInput {
     @Override
     public void process(Scanner scanner) {
-        int n = scanner.nextInt();    /*number of points */
-        Point[] in = new Point[n + 1];
+        Point[] in = readPoints(scanner);
 
-        for (int i = 0; i < n; i++)
-            in[i] = readPoint(scanner);
-
-        Polygon polygon = convexHull(in, n);
+        Polygon polygon = convexHull(in, in.length);
 
         polygon.print();
     }
