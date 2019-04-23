@@ -174,8 +174,8 @@ public class Geometry {
     }
 
     static class Point {
-        double x;
-        double y;
+        final double x;
+        final double y;
 
         public Point(double x, double y) {
             this.x = x;
@@ -242,9 +242,19 @@ public class Geometry {
         }
     }
 
+    static class Triangle {
+        final Point a, b, c;
+
+        public Triangle(Point a, Point b, Point c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+    }
+
     static class Triangulation {
-        int[][] t; /* indicies of vertices in triangulation */
-        int n;     /* number of triangles in triangulation */
+        final int[][] t; /* indices of vertices in triangulation */
+        final int n;     /* number of triangles in triangulation */
 
         public Triangulation(int[][] t, int n) {
             this.t = t;
@@ -253,7 +263,7 @@ public class Geometry {
     }
 
     static class Circle {
-        final Point c;        /* center of circle */
+        final Point c;         /* center of circle */
         final double r;        /* radius of circle */
 
         public Circle(Point c, double r) {

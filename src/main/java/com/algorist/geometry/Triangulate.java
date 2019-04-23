@@ -54,12 +54,9 @@ public class Triangulate {
     }
 
     private static boolean earQ(int i, int j, int k, Geometry.Polygon p) {
-        Geometry.Point[] t = new Geometry.Point[3];
-        t[0] = p.p[i];
-        t[1] = p.p[j];
-        t[2] = p.p[k];
+        Geometry.Triangle t = new Geometry.Triangle(p.p[i], p.p[j], p.p[k]);
 
-        if (cw(t[0], t[1], t[2])) return false;
+        if (cw(t.a, t.b, t.c)) return false;
 
         for (int m = 0; m < p.n; m++) {
             if (m != i && m != j && m != k)
@@ -69,11 +66,11 @@ public class Triangulate {
         return true;
     }
 
-    private static boolean pointInTriangle(Geometry.Point p, Geometry.Point[] t) {
-        for (int i = 0; i < 3; i++)
-            if (cw(t[i], t[(i + 1) % 3], p)) return false;
-
-        return true;
+    private static boolean pointInTriangle(Geometry.Point p, Geometry.Triangle t) {
+        if (cw(t.a, t.b, p)) return false;
+        else if (cw(t.b, t.c, p)) return false;
+        else if (cw(t.c, t.a, p)) return false;
+        else return true;
     }
 
     public static double areaTriangulation(Geometry.Polygon p) {
