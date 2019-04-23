@@ -1,7 +1,7 @@
 /*
 Copyright 2005 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -30,8 +30,8 @@ import java.util.Objects;
  */
 public class Tree<T> {
 
+    private final Comparator<T> c;
     private Node<T> root;
-    private Comparator<T> c;
 
     public Tree(Comparator<T> c) {
         this.c = c;
@@ -180,7 +180,7 @@ public class Tree<T> {
         Node<T> left;          /* pointer to left child */
         Node<T> right;         /* pointer to right child */
 
-        public Node(T item, Node<T> parent) {
+        Node(T item, Node<T> parent) {
             this.item = item;
             this.parent = parent;
             this.left = this.right = null;

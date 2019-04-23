@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -25,9 +25,9 @@ package com.algorist.datastructure;
  * @author csong2022
  */
 public class SetUnion {
-    private int[] p;        /* parent element */
-    private int[] size;           /* number of elements in subtree i */
-    private int n;                /* number of elements in set */
+    private final int[] p;        /* parent element */
+    private final int[] size;           /* number of elements in subtree i */
+    private final int n;                /* number of elements in set */
 
     public SetUnion(int n) {
         this.n = n;

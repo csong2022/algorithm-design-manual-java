@@ -2,7 +2,7 @@ package com.algorist.graph;
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -30,12 +30,13 @@ import java.util.Iterator;
  * @author csong2022
  */
 public class Graph<T extends EdgeNode> {
-    private List<T>[] edges;    /* adjacency info */
-    private int[] degree;       /* outdegree of each vertex */
-    private int nvertices;      /* number of vertices in the graph */
+    private final List<T>[] edges;    /* adjacency info */
+    private final int[] degree;       /* outdegree of each vertex */
+    private final int nvertices;      /* number of vertices in the graph */
+    private final boolean directed;   /* is the graph directed? */
     private int nedges;         /* number of edges in the graph */
-    private boolean directed;   /* is the graph directed? */
 
+    @SuppressWarnings("unchecked")
     public Graph(int nvertices, boolean directed) {
         this.nvertices = nvertices;
         this.nedges = 0;
@@ -73,6 +74,7 @@ public class Graph<T extends EdgeNode> {
         return null;
     }
 
+    @SuppressWarnings("unchecked")
     public void insertEdge(int x, T n, boolean directed) {
         edges[x].insert(n);
         degree[x]++;

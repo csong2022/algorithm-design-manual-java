@@ -1,7 +1,7 @@
 /*
 Copyright 2005 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:

@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -27,10 +27,10 @@ import java.util.Scanner;
  */
 public class AdjacencyMatrix {
     private static final int MAXINT = 100007;
-    private int[][] weight;        /* adjacency/weight info */
-    private int nvertices;         /* number of vertices in the graph */
+    private final int[][] weight;        /* adjacency/weight info */
+    private final int nvertices;         /* number of vertices in the graph */
 
-    public AdjacencyMatrix(int nvertices) {
+    private AdjacencyMatrix(int nvertices) {
         this.nvertices = nvertices;
         this.weight = new int[nvertices + 1][nvertices + 1];
 

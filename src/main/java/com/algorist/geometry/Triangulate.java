@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -66,10 +66,7 @@ public class Triangulate {
     }
 
     private static boolean pointInTriangle(Point p, Triangle t) {
-        if (cw(t.a, t.b, p)) return false;
-        else if (cw(t.b, t.c, p)) return false;
-        else if (cw(t.c, t.a, p)) return false;
-        else return true;
+        return !cw(t.a, t.b, p) && !cw(t.b, t.c, p) && !cw(t.c, t.a, p);
     }
 
     public static double areaTriangulation(Polygon p) {

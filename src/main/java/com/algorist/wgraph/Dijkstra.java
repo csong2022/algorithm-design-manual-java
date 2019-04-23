@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -28,7 +28,7 @@ import com.algorist.graph.GraphSearchUtils;
  */
 public class Dijkstra {
     private static final int MAXINT = 100007;
-    private int[] parent;               /* discovery relation */
+    private final int[] parent;               /* discovery relation */
 
     public Dijkstra(Graph<WeightedEdgeNode> g, int start) {
         this.parent = new int[g.nvertices() + 1];

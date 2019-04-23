@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -30,9 +30,9 @@ import static java.lang.Math.*;
  */
 public class Geometry {
     static final double PI = 3.1415926;        /* ratio of circumference to diameter */
-    static final double EPSILON = 0.000001;    /* a quantity small enough to be zero */
     static final int DIMENSION = 2;            /* dimension of points */
     static final int MAXPOLY = 200;            /* maximum number of points in a polygon */
+    private static final double EPSILON = 0.000001;    /* a quantity small enough to be zero */
 
     static Point readPoint(Scanner scanner) {
         return new Point(scanner.nextDouble(), scanner.nextDouble());
@@ -75,7 +75,7 @@ public class Geometry {
                 abs(l1.b - l2.b) <= EPSILON;
     }
 
-    static boolean sameLineQ(Line l1, Line l2) {
+    private static boolean sameLineQ(Line l1, Line l2) {
         return parallelQ(l1, l2) && abs(l1.c - l2.c) <= EPSILON;
     }
 
@@ -142,10 +142,10 @@ public class Geometry {
 
         p = intersectionPoint(l1, l2);
 
-        return pointInBox(p, s1.p1, s1.p2) && pointInBox(p, s2.p1, s2.p2);
+        return p != null && pointInBox(p, s1.p1, s1.p2) && pointInBox(p, s2.p1, s2.p2);
     }
 
-    static double signedTriangleArea(Point a, Point b, Point c) {
+    private static double signedTriangleArea(Point a, Point b, Point c) {
         return ((a.x * b.y - a.y * b.x + a.y * c.x
                 - a.x * c.y + b.x * c.y - c.x * b.y) / 2.0);
     }
@@ -171,7 +171,7 @@ public class Geometry {
         final double b;        /* y-coefficient */
         final double c;        /* constant term */
 
-        public Line(double a, double b, double c) {
+        Line(double a, double b, double c) {
             this.a = a;
             this.b = b;
             this.c = c;

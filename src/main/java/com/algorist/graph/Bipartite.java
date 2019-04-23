@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -25,7 +25,7 @@ package com.algorist.graph;
  * @author csong2022
  */
 public class Bipartite<T extends EdgeNode> {
-    private Color[] color;       /* assigned color of v */
+    private final Color[] color;       /* assigned color of v */
     private boolean bipartite;   /* is the graph bipartite? */
 
     public Bipartite(Graph<T> g) {

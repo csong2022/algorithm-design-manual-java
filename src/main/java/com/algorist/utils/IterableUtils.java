@@ -42,7 +42,7 @@ public class IterableUtils {
      * @return array.
      */
     public static <T> T[] toArray(Iterable<T> iterable, int size) {
-        @SuppressWarnings("unchecked") T[] arr = newArray(size);
+        T[] arr = newArray(size);
 
         int m = 0;
         for (T item : iterable) {
