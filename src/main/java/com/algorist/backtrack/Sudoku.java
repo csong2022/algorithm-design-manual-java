@@ -197,8 +197,8 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
         }
 
         void possibleValues(int x, int y, boolean[] possible) {
-            boolean init;            /* is anything/everthing possible? */
-            init = this.m[x][y] == 0 && (x >= 0 && y >= 0);
+            /* is anything/everything possible? */
+            boolean init = x >= 0 && y >= 0 && this.m[x][y] == 0;
 
             for (int i = 1; i <= DIMENSION; i++) possible[i] = init;
 

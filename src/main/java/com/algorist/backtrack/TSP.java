@@ -77,7 +77,7 @@ public class TSP {
         return willbe - was;
     }
 
-    static double distance(TspSolution s, int x, int y, TspInstance t) {
+    private static double distance(TspSolution s, int x, int y, TspInstance t) {
         int i, j;
 
         i = x;
@@ -105,7 +105,7 @@ public class TSP {
     static class Point {
         final int x, y;   /* x and y coordinates of point */
 
-        public Point(int x, int y) {
+        Point(int x, int y) {
             this.x = x;
             this.y = y;
         }
@@ -115,7 +115,7 @@ public class TSP {
         final Point[] p;  /* array of points */
         final int n;      /* how many points in problem? */
 
-        public TspInstance(Point[] p, int n) {
+        TspInstance(Point[] p, int n) {
             this.p = p;
             this.n = n;
         }
@@ -150,7 +150,7 @@ public class TSP {
                 p[i] = i;
         }
 
-        public TspSolution(int[] p, int n) {
+        TspSolution(int[] p, int n) {
             this.p = p;
             this.n = n;
         }

@@ -62,7 +62,7 @@ public class Annealing {
         return this.solutionCount;
     }
 
-    void solutionCountUpdate(TspSolution s, TspInstance t) {
+    private void solutionCountUpdate(TspSolution s, TspInstance t) {
         // double solutionCost();
 
         solutionCount++;
@@ -96,7 +96,7 @@ public class Annealing {
      * Use hill climbing to provide a heuristic solution to a given
      * optimization problem.
      */
-    TspSolution hillClimbing(TspInstance t) {
+    private TspSolution hillClimbing(TspInstance t) {
         TspSolution s = new TspSolution(t.n);
         s.randomSolution();
         double cost = solutionCost(s, t); /* best cost so far */
@@ -147,7 +147,7 @@ public class Annealing {
         return bestsol;
     }
 
-    TspSolution anneal(TspInstance t) {
+    private TspSolution anneal(TspInstance t) {
         double temperature = INITIAL_TEMPERATURE;  /* the current system temp */
 
         TspSolution s = new TspSolution(t.n);

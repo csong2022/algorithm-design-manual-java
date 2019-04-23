@@ -58,7 +58,7 @@ public class War {
      * @param card rank of the card.
      * @return suit of the card.
      */
-    static char suit(int card) {
+    private static char suit(int card) {
         return suits[card % NSUITS];
     }
 
@@ -68,7 +68,7 @@ public class War {
      * @param card rank of the card.
      * @return value of the card.
      */
-    static char value(int card) {
+    private static char value(int card) {
         return values[card / NSUITS];
     }
 
@@ -78,7 +78,7 @@ public class War {
                     suit(i), rankCard(value(i), suit(i)));
     }
 
-    static Queue<Integer>[] randomInitDecks() {
+    static Queue[] randomInitDecks() {
         int[] perm = new int[NCARDS + 1];
 
         for (int i = 0; i < NCARDS; i = i + 1) {
@@ -144,7 +144,7 @@ public class War {
             System.out.printf("a and b tie in %d steps \n", steps);
     }
 
-    static void printCardQueue(Queue<Integer> q) {
+    private static void printCardQueue(Queue<Integer> q) {
         int i, j;
 
         for (int value : q) {
@@ -154,7 +154,7 @@ public class War {
         System.out.printf("\n");
     }
 
-    static void clearQueue(Queue<Integer> a, Queue<Integer> b) {
+    private static void clearQueue(Queue<Integer> a, Queue<Integer> b) {
         /*printf("war ends with %d cards \n",a->count);*/
         while (!a.isEmpty())
             b.enqueue(a.dequeue());
