@@ -18,7 +18,7 @@ public class NQueensTest implements TestCaseWithoutInput {
         for (int i = 1; i <= 10; i++) {
             nQueens.setSolutionCount(0);
             backtrack.backtrack(a, 0, i, nQueens);
-            System.out.printf("n=%d  solutionCount=%d\n", i, nQueens.solutionCount());
+            System.out.printf("n=%d  solution_count=%d\n", i, nQueens.solutionCount());
         }
     }
 
