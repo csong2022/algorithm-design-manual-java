@@ -31,7 +31,9 @@ import static com.algorist.sort.Sorting.quickSort;
  * @author csong2022
  */
 public class Kruskal {
+    @SuppressWarnings("Convert2Lambda")
     private static final Comparator<EdgePair> WEIGHT_COMPARE = new Comparator<EdgePair>() {
+        @SuppressWarnings("UseCompareMethod")
         @Override
         public int compare(EdgePair x, EdgePair y) {
             if (x.weight < y.weight) return -1;

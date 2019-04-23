@@ -101,6 +101,7 @@ public class Sorting {
     }
 
     private static <T> int partition(T[] s, int l, int h, Comparator<T> c) {
+        //noinspection UnnecessaryLocalVariable
         int p = h;            /* pivot element index */
         int firsthigh = l;    /* divider position for pivot element */
         for (int i = l; i < h; i++)

@@ -86,6 +86,7 @@ public class ConvexHull {
     }
 
     static class LeftLower implements Comparator<Point> {
+        @SuppressWarnings("UseCompareMethod")
         @Override
         public int compare(Point p1, Point p2) {
             if (p1.x < p2.x) return -1;
