@@ -32,9 +32,17 @@ public class QueueTest {
         this.q.print();
         assertFalse(this.q.isEmpty());
 
-        for (int i = 1; i <= 16; i++) {
+        int i;
+
+        i = 1;
+        for (Integer x : this.q) {
+            assertThat(x, is(i++));
+        }
+
+        for (i = 1; i <= 16; i++) {
             assertThat(this.q.dequeue(), is(i));
         }
+
         assertTrue(this.q.isEmpty());
     }
 }

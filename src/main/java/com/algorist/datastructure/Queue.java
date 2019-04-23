@@ -18,6 +18,8 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 */
 package com.algorist.datastructure;
 
+import java.util.Iterator;
+
 import static com.algorist.datastructure.ArrayUtils.ARRAY_SIZE_THRESHOLD;
 import static com.algorist.datastructure.ArrayUtils.newArray;
 
@@ -27,7 +29,7 @@ import static com.algorist.datastructure.ArrayUtils.newArray;
  * @param <T> element type.
  * @author csong2022
  */
-public class Queue<T> {
+public class Queue<T> implements Iterable<T> {
     private T[] q;                          /* body of queue */
     private int first;                      /* position of first element */
     private int last;                       /* position of last element */
@@ -95,5 +97,29 @@ public class Queue<T> {
 
         System.out.printf("%s ", this.q[this.last]);
         System.out.printf("\n");
+    }
+
+    public int size() {
+        return this.count;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            private int iterSoFar = 0;
+
+            @Override
+            public boolean hasNext() {
+                return iterSoFar < count;
+            }
+
+            @Override
+            public T next() {
+                int index = (first + iterSoFar) % q.length;
+                T x = q[index];
+                iterSoFar++;
+                return x;
+            }
+        };
     }
 }
