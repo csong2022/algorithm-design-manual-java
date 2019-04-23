@@ -77,7 +77,7 @@ public class Stack<T> implements Iterable<T> {
         for (int i = (this.count - 1); i >= 0; i--)
             System.out.printf("%s ", this.s[i]);
 
-        System.out.printf("\n");
+        System.out.println();
     }
 
     public Iterator<T> iterator() {

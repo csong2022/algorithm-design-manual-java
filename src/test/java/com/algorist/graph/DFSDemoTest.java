@@ -45,7 +45,7 @@ public class DFSDemoTest implements TestCaseWithInput {
 
         dfs.search(1, callback);
 
-        System.out.printf("\n");
+        System.out.println();
         for (int i = 1; i <= g.nvertices(); i++) {
             Iterable<Integer> path = dfs.findPath(1, i);
             System.out.println(IterableUtils.toString(path));

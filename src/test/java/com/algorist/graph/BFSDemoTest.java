@@ -45,9 +45,9 @@ public class BFSDemoTest implements TestCaseWithInput {
 
         for (int i = 1; i <= g.nvertices(); i++)
             System.out.printf(" %d", bfs.parent(i));
-        System.out.printf("\n");
+        System.out.println();
 
-        System.out.printf("\n");
+        System.out.println();
         for (int i = 1; i <= g.nvertices(); i++) {
             Iterable<Integer> path = bfs.findPath(1, i);
             System.out.println(IterableUtils.toString(path));

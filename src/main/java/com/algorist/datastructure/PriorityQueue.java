@@ -148,7 +148,7 @@ public class PriorityQueue<T> {
         for (int i = 1; i <= this.n; i++)
             System.out.printf("%s ", this.q[i]);
 
-        System.out.printf("\n");
+        System.out.println();
     }
 
     public int size() {

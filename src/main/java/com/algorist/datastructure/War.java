@@ -151,7 +151,7 @@ public class War {
             System.out.printf("%c%c ", value(value), suit(value));
         }
 
-        System.out.printf("\n");
+        System.out.println();
     }
 
     private static void clearQueue(Queue<Integer> a, Queue<Integer> b) {

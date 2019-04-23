@@ -46,7 +46,7 @@ public class FlowGraph extends Graph<FlowEdgeNode> {
             for (FlowEdgeNode p : edges(i)) {
                 System.out.printf(" %s", p.toString());
             }
-            System.out.printf("\n");
+            System.out.println();
         }
     }
 }

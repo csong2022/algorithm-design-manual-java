@@ -74,7 +74,7 @@ public class AdjacencyMatrix {
             System.out.printf("%3d: ", i);
             for (int j = 1; j <= this.nvertices; j++)
                 System.out.printf(" %3d", this.weight[i][j]);
-            System.out.printf("\n");
+            System.out.println();
         }
     }
 
@@ -84,7 +84,7 @@ public class AdjacencyMatrix {
             for (int j = 1; j <= this.nvertices; j++)
                 if (this.weight[i][j] < MAXINT)
                     System.out.printf(" %d", j);
-            System.out.printf("\n");
+            System.out.println();
         }
     }
 }

@@ -72,7 +72,7 @@ public class List<T> implements Iterable<T> {
             l = l.next;
         }
 
-        System.out.printf("\n");
+        System.out.println();
     }
 
     public void delete(T x) {

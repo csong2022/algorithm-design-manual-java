@@ -34,7 +34,7 @@ public class Connected<T extends EdgeNode> {
                 c++;
                 System.out.printf("Component %d:", c);
                 bfs.search(i, callback);
-                System.out.printf("\n");
+                System.out.println();
             }
     }
 

@@ -101,7 +101,7 @@ public class Queue<T> implements Iterable<T> {
         }
 
         System.out.printf("%s ", this.q[this.last]);
-        System.out.printf("\n");
+        System.out.println();
     }
 
     public int size() {

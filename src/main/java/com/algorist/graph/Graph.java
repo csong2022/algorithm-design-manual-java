@@ -111,7 +111,7 @@ public class Graph<T extends EdgeNode> {
             for (T p : edges[i]) {
                 System.out.printf(" %d", p.y());
             }
-            System.out.printf("\n");
+            System.out.println();
         }
     }
 }
