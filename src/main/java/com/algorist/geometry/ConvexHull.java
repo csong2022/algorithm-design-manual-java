@@ -32,7 +32,7 @@ import static com.algorist.sort.Sorting.quickSort;
  */
 public class ConvexHull {
 
-    public static Polygon convexHull(Point in[], int n) {
+    public static Polygon convexHull(Point[] in, int n) {
         if (n <= 3) {        /* all points on hull! */
             return new Polygon(in, n);
         }
@@ -67,7 +67,7 @@ public class ConvexHull {
         return new Polygon(points, top);
     }
 
-    private static int sortAndRemoveDuplicates(Point in[], int n) {
+    private static int sortAndRemoveDuplicates(Point[] in, int n) {
         quickSort(in, 0, n - 1, new LeftLower());
 
         int oldn = n;           /* number of points before deletion */

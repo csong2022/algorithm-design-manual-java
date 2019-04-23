@@ -195,7 +195,7 @@ public class Geometry {
             this(other.x, other.y);
         }
 
-        static void print(Point p[], int n) {
+        static void print(Point[] p, int n) {
             for (int i = 0; i < n; i++)
                 System.out.printf("(%f,%f)\n", p[i].x, p[i].y);
         }

@@ -33,7 +33,7 @@ import static java.util.Objects.compare;
  */
 public class Sorting {
 
-    public static <T extends Comparable<T>> void insertionSort(T s[], int l, int h) {
+    public static <T extends Comparable<T>> void insertionSort(T[] s, int l, int h) {
         insertionSort(s, l, h, Comparator.naturalOrder());
     }
 
@@ -46,7 +46,7 @@ public class Sorting {
      * @param c   comparator.
      * @param <T> element type.
      */
-    public static <T> void insertionSort(T s[], int l, int h, Comparator<T> c) {
+    public static <T> void insertionSort(T[] s, int l, int h, Comparator<T> c) {
         for (int i = l + 1; i <= h; i++) {
             for (int j = i; j > l && less(s[j], s[j - 1], c); j--) {
                 swap(s, j, j - 1);
@@ -54,7 +54,7 @@ public class Sorting {
         }
     }
 
-    public static <T extends Comparable<T>> void selectionSort(T s[], int l, int h) {
+    public static <T extends Comparable<T>> void selectionSort(T[] s, int l, int h) {
         selectionSort(s, l, h, Comparator.naturalOrder());
     }
 
@@ -79,7 +79,7 @@ public class Sorting {
         }
     }
 
-    public static <T extends Comparable<T>> void quickSort(T s[], int l, int h) {
+    public static <T extends Comparable<T>> void quickSort(T[] s, int l, int h) {
         quickSort(s, l, h, Comparator.naturalOrder());
     }
 
@@ -100,7 +100,7 @@ public class Sorting {
         }
     }
 
-    private static <T> int partition(T s[], int l, int h, Comparator<T> c) {
+    private static <T> int partition(T[] s, int l, int h, Comparator<T> c) {
         int p = h;            /* pivot element index */
         int firsthigh = l;    /* divider position for pivot element */
         for (int i = l; i < h; i++)
@@ -113,7 +113,7 @@ public class Sorting {
         return firsthigh;
     }
 
-    public static <T extends Comparable<T>> void heapSort(T s[], int l, int h) {
+    public static <T extends Comparable<T>> void heapSort(T[] s, int l, int h) {
         heapSort(s, l, h, Comparator.naturalOrder());
     }
 
@@ -169,7 +169,7 @@ public class Sorting {
             return binarySearch(s, key, middle + 1, high, c);
     }
 
-    public static <T extends Comparable<T>> void mergeSort(T s[], int l, int h) {
+    public static <T extends Comparable<T>> void mergeSort(T[] s, int l, int h) {
         mergeSort(s, l, h, Comparator.naturalOrder());
     }
 
