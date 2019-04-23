@@ -1,1 +1,4 @@
-src/main/c
+*.java linguist-detectable=true
+*.c linguist-detectable=false
+*.h linguist-detectable=false
+Makefile linguist-detectable=false
