@@ -41,7 +41,7 @@ public class War {
      * @param suit  suit of the card.
      * @return rank of the card.
      */
-    static int rank_card(char value, char suit) {
+    static int rankCard(char value, char suit) {
         for (int i = 0; i < (NCARDS / NSUITS); i++)
             if (values[i] == value)
                 for (int j = 0; j < NSUITS; j++)
@@ -75,10 +75,10 @@ public class War {
     static void testcards() {
         for (int i = 0; i < NCARDS; i++)
             System.out.printf(" i=%d card[i]=%c%c rank=%d\n", i, value(i),
-                    suit(i), rank_card(value(i), suit(i)));
+                    suit(i), rankCard(value(i), suit(i)));
     }
 
-    Queue<Integer>[] random_init_decks() {
+    static Queue<Integer>[] randomInitDecks() {
         int[] perm = new int[NCARDS + 1];
 
         for (int i = 0; i < NCARDS; i = i + 1) {
@@ -95,13 +95,13 @@ public class War {
             b.enqueue(perm[2 * i + 1]);
         }
 
-        print_card_queue(a);
-        print_card_queue(b);
+        printCardQueue(a);
+        printCardQueue(b);
 
         return new Queue[]{a, b};
     }
 
-    void war(final Queue<Integer> a, final Queue<Integer> b) {
+    static void war(final Queue<Integer> a, final Queue<Integer> b) {
         int steps = 0;            /* step counter */
         Integer x, y;            /* top cards */
         Queue<Integer> c;            /* cards involved in the war */
@@ -123,9 +123,9 @@ public class War {
                 inwar = false;
             } else {
                 if (value(x) > value(y))
-                    clear_queue(c, a);
+                    clearQueue(c, a);
                 else if (value(x) < value(y))
-                    clear_queue(c, b);
+                    clearQueue(c, b);
                 else if (value(y) == value(x))
                     inwar = true;
             }
@@ -144,7 +144,7 @@ public class War {
             System.out.printf("a and b tie in %d steps \n", steps);
     }
 
-    void print_card_queue(Queue<Integer> q) {
+    static void printCardQueue(Queue<Integer> q) {
         int i, j;
 
         for (int value : q) {
@@ -154,7 +154,7 @@ public class War {
         System.out.printf("\n");
     }
 
-    void clear_queue(Queue<Integer> a, Queue<Integer> b) {
+    static void clearQueue(Queue<Integer> a, Queue<Integer> b) {
         /*printf("war ends with %d cards \n",a->count);*/
         while (!a.isEmpty())
             b.enqueue(a.dequeue());
