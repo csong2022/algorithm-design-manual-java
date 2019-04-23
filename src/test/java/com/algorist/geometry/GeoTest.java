@@ -34,7 +34,7 @@ import static com.algorist.geometry.Geometry.*;
 public class GeoTest implements TestCaseWithInput {
 
     public void process(Scanner scanner) {
-        Geometry.Point p1, p2, q1, q2, i = new Point(0, 0);
+        Point p1, p2, q1, q2, i = new Point(0, 0);
         Line l1, l2, l3, l4;
 
         while (scanner.hasNext()) {

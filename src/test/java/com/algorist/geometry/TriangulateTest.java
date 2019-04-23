@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static com.algorist.geometry.Geometry.readPoint;
+import static com.algorist.geometry.Geometry.*;
 import static com.algorist.geometry.Triangulate.area;
 import static com.algorist.geometry.Triangulate.areaTriangulation;
 
@@ -16,11 +16,11 @@ public class TriangulateTest implements TestCaseWithInput {
     public void process(Scanner scanner) {
         int n = scanner.nextInt();
 
-        Geometry.Point[] points = new Geometry.Point[n];
+        Point[] points = new Point[n];
         for (int i = 0; i < n; i++)
             points[i] = readPoint(scanner);
 
-        Geometry.Polygon p = new Geometry.Polygon(points);
+        Polygon p = new Polygon(points);
 
         System.out.printf(" area via triangulation = %f\n", areaTriangulation(p));
         System.out.printf(" area slick = %f\n", area(p));

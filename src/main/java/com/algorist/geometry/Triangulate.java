@@ -18,8 +18,7 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 */
 package com.algorist.geometry;
 
-import static com.algorist.geometry.Geometry.cw;
-import static com.algorist.geometry.Geometry.triangleArea;
+import static com.algorist.geometry.Geometry.*;
 
 /**
  * Triangulate a polygon via ear-clipping, and compute the area
@@ -28,7 +27,7 @@ import static com.algorist.geometry.Geometry.triangleArea;
  * @author csong2022
  */
 public class Triangulate {
-    private static Geometry.Triangulation triangulate(Geometry.Polygon p) {
+    private static Triangulation triangulate(Polygon p) {
         int[] l = new int[p.n];    /* left neighbor indices */
         int[] r = new int[p.n];    /* left neighbor indices */
 
@@ -50,11 +49,11 @@ public class Triangulate {
             }
         }
 
-        return new Geometry.Triangulation(tarr, tn);
+        return new Triangulation(tarr, tn);
     }
 
-    private static boolean earQ(int i, int j, int k, Geometry.Polygon p) {
-        Geometry.Triangle t = new Geometry.Triangle(p.p[i], p.p[j], p.p[k]);
+    private static boolean earQ(int i, int j, int k, Polygon p) {
+        Triangle t = new Triangle(p.p[i], p.p[j], p.p[k]);
 
         if (cw(t.a, t.b, t.c)) return false;
 
@@ -66,24 +65,24 @@ public class Triangulate {
         return true;
     }
 
-    private static boolean pointInTriangle(Geometry.Point p, Geometry.Triangle t) {
+    private static boolean pointInTriangle(Point p, Triangle t) {
         if (cw(t.a, t.b, p)) return false;
         else if (cw(t.b, t.c, p)) return false;
         else if (cw(t.c, t.a, p)) return false;
         else return true;
     }
 
-    public static double areaTriangulation(Geometry.Polygon p) {
+    public static double areaTriangulation(Polygon p) {
         double total = 0.0;        /* total area so far */
 
-        Geometry.Triangulation t = triangulate(p);  /* output triangulation */
+        Triangulation t = triangulate(p);  /* output triangulation */
         for (int i = 0; i < t.n; i++)
             total += triangleArea(p.p[t.t[i][0]], p.p[t.t[i][1]], p.p[t.t[i][2]]);
 
         return total;
     }
 
-    public static double area(Geometry.Polygon p) {
+    public static double area(Polygon p) {
         double total = 0.0;        /* total area so far */
 
         for (int i = 0; i < p.n; i++) {

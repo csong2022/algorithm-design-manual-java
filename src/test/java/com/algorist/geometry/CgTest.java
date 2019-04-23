@@ -35,9 +35,9 @@ import static com.algorist.geometry.Geometry.*;
 public class CgTest implements TestCaseWithInput {
 
     public void process(Scanner scanner) {
-        Geometry.Point p1, p2, q1, q2, i = new Point(0, 0);
-        Geometry.Line l1, l2;
-        Geometry.Segment s1, s2, s3, s4;
+        Point p1, p2, q1, q2, i = new Point(0, 0);
+        Line l1, l2;
+        Segment s1, s2, s3, s4;
 
         while (scanner.hasNext()) {
             p1 = readPoint(scanner);
@@ -45,8 +45,8 @@ public class CgTest implements TestCaseWithInput {
             q1 = readPoint(scanner);
             q2 = readPoint(scanner);
 
-            s1 = new Geometry.Segment(p1, p2);
-            s2 = new Geometry.Segment(q1, q2);
+            s1 = new Segment(p1, p2);
+            s2 = new Segment(q1, q2);
 
             l1 = pointsToLine(p1, p2);
             l2 = pointsToLine(q1, q2);

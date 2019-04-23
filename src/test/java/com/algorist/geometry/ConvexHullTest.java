@@ -8,18 +8,18 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import static com.algorist.geometry.ConvexHull.convexHull;
-import static com.algorist.geometry.Geometry.readPoint;
+import static com.algorist.geometry.Geometry.*;
 
 public class ConvexHullTest implements TestCaseWithInput {
     @Override
     public void process(Scanner scanner) {
         int n = scanner.nextInt();    /*number of points */
-        Geometry.Point[] in = new Geometry.Point[n + 1];
+        Point[] in = new Point[n + 1];
 
         for (int i = 0; i < n; i++)
             in[i] = readPoint(scanner);
 
-        Geometry.Polygon polygon = convexHull(in, n);
+        Polygon polygon = convexHull(in, n);
 
         polygon.print();
     }

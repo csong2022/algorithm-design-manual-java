@@ -64,7 +64,7 @@ public class ConvexHull {
         return new Polygon(points, top);
     }
 
-    private static int sortAndRemoveDuplicates(Geometry.Point in[], int n) {
+    private static int sortAndRemoveDuplicates(Point in[], int n) {
         quickSort(in, 0, n - 1, new LeftLower());
 
         int oldn = n;           /* number of points before deletion */
@@ -82,7 +82,7 @@ public class ConvexHull {
         return n;
     }
 
-    private static class LeftLower implements Comparator<Point> {
+    static class LeftLower implements Comparator<Point> {
         @Override
         public int compare(Point p1, Point p2) {
             if (p1.x < p2.x) return -1;
@@ -95,7 +95,7 @@ public class ConvexHull {
         }
     }
 
-    private static class SmallerAngle implements Comparator<Point> {
+    static class SmallerAngle implements Comparator<Point> {
         private Point first_point;
 
         SmallerAngle(Point first_point) {

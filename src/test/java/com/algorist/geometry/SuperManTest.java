@@ -7,21 +7,21 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static com.algorist.geometry.Geometry.readPoint;
+import static com.algorist.geometry.Geometry.*;
 
 public class SuperManTest implements TestCaseWithInput {
     @Override
     public void process(Scanner scanner) {
-        Geometry.Point s = readPoint(scanner);
-        Geometry.Point t = readPoint(scanner);
+        Point s = readPoint(scanner);
+        Point t = readPoint(scanner);
 
         int ncircles = scanner.nextInt();
-        Geometry.Circle[] c = new Geometry.Circle[ncircles + 1];
+        Circle[] c = new Circle[ncircles + 1];
 
         for (int i = 1; i <= ncircles; i++) {
-            Geometry.Point center = readPoint(scanner);
+            Point center = readPoint(scanner);
             double r = scanner.nextDouble();
-            c[i] = new Geometry.Circle(center, r);
+            c[i] = new Circle(center, r);
         }
 
         System.out.printf("%7.3f %7.3f\n", s.x, s.y);
