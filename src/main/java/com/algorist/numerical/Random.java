@@ -20,18 +20,36 @@ public class Random {
             throw new IllegalArgumentException(String.format("Invalid range [%d, %d]", low, high));
         }
 
-        return low + random.nextInt(high - low);
+        return low + random.nextInt(high - low + 1);
     }
 
     public static <T> void randomPermutation(final T[] a) {
-        for (int i = a.length; i > 1; i--) {
-            swap(a, i - 1, randomInt(0, i - 1));
+        randomPermutation(a, 0, a.length - 1);
+    }
+
+    public static <T> void randomPermutation(final T[] a, final int low, final int high) {
+        for (int i = high; i > low; i--) {
+            swap(a, i, randomInt(low, i));
+        }
+    }
+
+    public static void randomPermutation(final int[] a, final int low, final int high) {
+        for (int i = high; i > low; i--) {
+            swap(a, i, randomInt(low, i));
         }
     }
 
     private static <T> void swap(final T[] a, final int i, final int j) {
         if (i != j) {
             final T tmp = a[i];
+            a[i] = a[j];
+            a[j] = tmp;
+        }
+    }
+
+    private static void swap(final int[] a, final int i, final int j) {
+        if (i != j) {
+            final int tmp = a[i];
             a[i] = a[j];
             a[j] = tmp;
         }
