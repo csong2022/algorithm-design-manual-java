@@ -52,7 +52,7 @@ public class Stack<T> implements Iterable<T> {
 
     public T pop() {
         if (isEmpty()) {
-            System.out.printf("Warning: empty stack pop.\n");
+            System.out.println("Warning: empty stack pop.");
             return null;
         } else {
             T x = this.s[this.top--];

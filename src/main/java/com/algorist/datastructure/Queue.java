@@ -55,7 +55,7 @@ public class Queue<T> implements Iterable<T> {
 
     public T dequeue() {
         if (isEmpty()) {
-            System.out.printf("Warning: empty queue dequeue.\n");
+            System.out.println("Warning: empty queue dequeue.");
             return null;
         } else {
             T x = this.q[this.first];

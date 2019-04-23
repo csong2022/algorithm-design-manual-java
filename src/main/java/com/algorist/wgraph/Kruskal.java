@@ -45,7 +45,7 @@ public class Kruskal {
     public Kruskal(Graph<WeightedEdgeNode> g) {
         SetUnion s = new SetUnion(g.nvertices()); /* set union data structure */
 
-        System.out.printf("initialized set union\n");
+        System.out.println("initialized set union");
         EdgePair[] e = toEdgeArray(g);
         quickSort(e, 0, e.length - 1, WEIGHT_COMPARE);
 

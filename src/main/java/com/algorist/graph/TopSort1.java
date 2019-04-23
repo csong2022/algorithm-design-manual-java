@@ -63,7 +63,7 @@ public class TopSort1<T extends EdgeNode> {
             DFS.EdgeType edgeType = dfs.edgeClassification(x, y);
 
             if (edgeType == DFS.EdgeType.BACK)
-                System.out.printf("Warning: directed cycle found, not a DAG\n");
+                System.out.println("Warning: directed cycle found, not a DAG");
         }
 
         Stack<Integer> sorted() {

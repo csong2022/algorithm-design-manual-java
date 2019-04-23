@@ -175,7 +175,7 @@ public class TSP {
         void print() {
             for (int i = 1; i <= this.n; i++)
                 System.out.printf(" %d", p[i]);
-            System.out.printf("\n------------------------------------------------------\n");
+            System.out.println("\n------------------------------------------------------");
         }
     }
 }
