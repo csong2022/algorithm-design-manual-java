@@ -11,8 +11,8 @@ public class Random {
     /**
      * Compute random numbers within given ranges.
      *
-     * @param low  lower bounds on number.
-     * @param high upper bounds on number.
+     * @param low  lower bounds on number (inclusive).
+     * @param high upper bounds on number (inclusive).
      * @return random number within the range.
      */
     public static int randomInt(final int low, final int high) {
@@ -21,6 +21,10 @@ public class Random {
         }
 
         return low + random.nextInt(high - low + 1);
+    }
+
+    public static double randomFloat() {
+        return random.nextDouble();
     }
 
     public static <T> void randomPermutation(final T[] a) {
