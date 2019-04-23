@@ -76,16 +76,15 @@ public class Queue<T> implements Iterable<T> {
     }
 
     private void resize() {
+        int newSize = this.q.length;
         if (this.count == this.q.length) {
-            T[] newQ = newArray(this.q.length * 2);
-            for (int i = 0; i != count; i++) {
-                newQ[i] = this.q[(i + first) % this.q.length];
-            }
-            this.q = newQ;
-            this.first = 0;
-            this.last = this.count - 1;
+            newSize = 2 * this.q.length;
         } else if (this.count >= ARRAY_SIZE_THRESHOLD && this.count <= this.q.length / 4) {
-            T[] newQ = newArray(this.q.length / 2);
+            newSize = this.q.length / 2;
+        }
+
+        if (newSize != this.q.length) {
+            T[] newQ = newArray(newSize);
             for (int i = 0; i != count; i++) {
                 newQ[i] = this.q[(i + first) % this.q.length];
             }
