@@ -77,6 +77,7 @@ Chapter 8. Dynamic Programming
 - binomial.c --- compute the binomial coefficients using dynamic programming
 - stringedit.c --- compute the optimal alignment matching two strings
 - substringedit.c --- approximately match one string as a substring of another
+- lcs.c --- longest common subsequence of two strings
 - editdistance.h --- header file for string comparison
 - editdistance.c --- a generic implementation of string comparison via dp
 - editbrute.c --- compute string edit distance *without* dynamic programming
@@ -106,7 +107,7 @@ Chapter 17. Computational Geometry
 
 Chapter 18. Set and String Problems
 - name.c --- corporate name changing program -- string example
-- lcs.c --- longest common subsequence of two strings
+
 
 Other
 - bool.h --- header file for boolean datatype
