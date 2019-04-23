@@ -59,6 +59,7 @@ public class Queue<T> implements Iterable<T> {
             return null;
         } else {
             T x = this.q[this.first];
+            this.q[this.first] = null;
             this.first = (this.first + 1) % this.q.length;
             this.count--;
 
@@ -81,12 +82,16 @@ public class Queue<T> implements Iterable<T> {
                 newQ[i] = this.q[(i + first) % this.q.length];
             }
             this.q = newQ;
+            this.first = 0;
+            this.last = this.count - 1;
         } else if (this.count >= ARRAY_SIZE_THRESHOLD && this.count <= this.q.length / 4) {
             T[] newQ = newArray(this.q.length / 2);
             for (int i = 0; i != count; i++) {
                 newQ[i] = this.q[(i + first) % this.q.length];
             }
             this.q = newQ;
+            this.first = 0;
+            this.last = this.count - 1;
         }
     }
 
