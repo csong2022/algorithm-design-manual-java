@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -25,10 +25,10 @@ package com.algorist.graph;
  * @author csong2022
  */
 public class DFS<T extends EdgeNode> extends AbstractGraphSearch<T> {
-    private int[] entryTime;         /* time of vertex entry */
-    private int[] exitTime;          /* time of vertex exit */
+    private final int[] entryTime;    /* time of vertex entry */
+    private final int[] exitTime;     /* time of vertex exit */
     private int time;                 /* current event time */
-    private boolean finished = false; /* if true, cut off search immediately */
+    private boolean finished;         /* if true, cut off search immediately */
 
     public DFS(Graph<T> g) {
         super(g);
@@ -108,6 +108,6 @@ public class DFS<T extends EdgeNode> extends AbstractGraphSearch<T> {
         TREE,    /* tree edge */
         BACK,    /* back edge */
         CROSS,   /* cross edge */
-        FORWARD; /* forward edge */
+        FORWARD  /* forward edge */
     }
 }

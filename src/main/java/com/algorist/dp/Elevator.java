@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -26,15 +26,15 @@ import static java.lang.Math.min;
  * @author csong2022
  */
 public class Elevator {
-    static final int NFLOORS = 25;    /* the height of the building in floors */
     static final int MAX_RIDERS = 50; /* what is the capacity of the elevator? */
-    static final int MAXINT = 100007;
+    private static final int NFLOORS = 25;    /* the height of the building in floors */
+    private static final int MAXINT = 100007;
 
-    int[] stops;          /* what floor does everyone get off at? */
-    int[][] m;            /* dynamic programming cost table */
-    int[][] p;            /* dynamic programming parent table */
-    private int nriders;  /* number of riders */
-    private int nstops;   /* number of allowable stops */
+    final int[] stops;          /* what floor does everyone get off at? */
+    final int[][] m;            /* dynamic programming cost table */
+    private final int[][] p;            /* dynamic programming parent table */
+    private final int nriders;  /* number of riders */
+    private final int nstops;   /* number of allowable stops */
 
     public Elevator(int[] stops, int nstops) {
         this.nriders = stops.length - 1;
@@ -75,7 +75,7 @@ public class Elevator {
         return laststop;
     }
 
-    int floorsWalked(int previous, int current) {
+    private int floorsWalked(int previous, int current) {
         int nsteps = 0;        /* total distance traveled */
 
         for (int i = 1; i <= nriders; i++)

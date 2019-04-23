@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -27,7 +27,7 @@ import com.algorist.datastructure.Queue;
  * @author csong2022
  */
 public class TopSort<T extends EdgeNode> {
-    int[] sorted;
+    private final int[] sorted;
 
     public TopSort(Graph<T> g) {
         this.sorted = new int[g.nvertices() + 1];

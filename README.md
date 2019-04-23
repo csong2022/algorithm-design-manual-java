@@ -1,7 +1,7 @@
 # algorithm-design-manual-java
 Java translation of Programs from The Algorithm Design Manual (2nd Edition)
 
-Original C code ported from https://www3.cs.stonybrook.edu/~skiena/algorist/book/programs/
+Original C code imported from https://www3.cs.stonybrook.edu/~skiena/algorist/book/programs/
 
 Features:
 1. Translated original C programs in procedural language style into Object Oriented fashion.

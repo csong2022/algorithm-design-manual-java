@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -41,10 +41,10 @@ public class TopSort1<T extends EdgeNode> {
     }
 
     private static class TopSort1Callback<T extends EdgeNode> implements GraphSearchCallback<T> {
-        private DFS<T> dfs;
-        private Stack<Integer> sorted;
+        private final DFS<T> dfs;
+        private final Stack<Integer> sorted;
 
-        public TopSort1Callback(DFS<T> dfs) {
+        TopSort1Callback(DFS<T> dfs) {
             this.dfs = dfs;
             this.sorted = new Stack<>();
         }
@@ -66,7 +66,7 @@ public class TopSort1<T extends EdgeNode> {
                 System.out.printf("Warning: directed cycle found, not a DAG\n");
         }
 
-        public Stack<Integer> sorted() {
+        Stack<Integer> sorted() {
             return this.sorted;
         }
     }

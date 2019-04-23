@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -57,7 +57,7 @@ public class Partition {
         }
     }
 
-    static void reconstructPartition(int s[], int[][] d, int n, int k) {
+    private static void reconstructPartition(int s[], int[][] d, int n, int k) {
         if (k == 1)
             printBooks(s, 1, n);
         else {
@@ -94,11 +94,11 @@ public class Partition {
     }
 
     static class Data {
-        int[] s;              /* book thicknesses to partition */
-        int n;                /* how many books? */
-        int k;                /* how many partitions? */
+        final int[] s;              /* book thicknesses to partition */
+        final int n;                /* how many books? */
+        final int k;                /* how many partitions? */
 
-        public Data(int[] s, int n, int k) {
+        Data(int[] s, int n, int k) {
             this.s = s;
             this.n = n;
             this.k = k;

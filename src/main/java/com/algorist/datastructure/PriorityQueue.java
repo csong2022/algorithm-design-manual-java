@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -31,7 +31,7 @@ import static com.algorist.datastructure.ArrayUtils.newArray;
  * @author csong2022
  */
 public class PriorityQueue<T> {
-    private Comparator<T> c;
+    private final Comparator<T> c;
     private T[] q;                          /* body of queue */
     private int n;                          /* number of queue elements */
 
@@ -39,7 +39,7 @@ public class PriorityQueue<T> {
         this(c, ARRAY_SIZE_THRESHOLD);
     }
 
-    public PriorityQueue(Comparator<T> c, int initCapacity) {
+    private PriorityQueue(Comparator<T> c, int initCapacity) {
         this.c = c;
         this.q = newArray(initCapacity + 1);
         this.n = 0;
@@ -146,7 +146,7 @@ public class PriorityQueue<T> {
 
     public void print() {
         for (int i = 1; i <= this.n; i++)
-            System.out.printf("%d ", this.q[i]);
+            System.out.printf("%s ", this.q[i]);
 
         System.out.printf("\n");
     }

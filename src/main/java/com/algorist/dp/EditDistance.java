@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -29,7 +29,7 @@ public class EditDistance {
     static final int INSERT = 1;   /* enumerated type symbol for insert */
     static final int DELETE = 2;   /* enumerated type symbol for delete */
     final Cell[][] m;              /* dynamic programming table */
-    final StringEdit stringEdit;
+    private final StringEdit stringEdit;
 
     public EditDistance(StringEdit stringEdit) {
         this.m = new Cell[MAXLEN + 1][MAXLEN + 1];
@@ -63,9 +63,6 @@ public class EditDistance {
 
     public void reconstructPath(String s, String t, int i, int j) {
         switch (m[i][j].parent) {
-            case -1:
-                break;
-
             case MATCH:
                 reconstructPath(s, t, i - 1, j - 1);
                 matchOut(s, t, i, j);
@@ -105,7 +102,7 @@ public class EditDistance {
         }
     }
 
-    int[] goalCell(String s, String t) {
+    private int[] goalCell(String s, String t) {
         return stringEdit.goalCell(s, t);
     }
 
@@ -117,23 +114,23 @@ public class EditDistance {
         return stringEdit.indel(c);
     }
 
-    void rowInit(int i) {
+    private void rowInit(int i) {
         stringEdit.rowInit(i);
     }
 
-    void columnInit(int i) {
+    private void columnInit(int i) {
         stringEdit.columnInit(i);
     }
 
-    void matchOut(String s, String t, int i, int j) {
+    private void matchOut(String s, String t, int i, int j) {
         stringEdit.matchOut(s, t, i, j);
     }
 
-    void insertOut(String t, int j) {
+    private void insertOut(String t, int j) {
         stringEdit.insertOut(t, j);
     }
 
-    void deleteOut(String s, int i) {
+    private void deleteOut(String s, int i) {
         stringEdit.deleteOut(s, i);
     }
 

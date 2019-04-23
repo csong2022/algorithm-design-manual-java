@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -67,7 +67,7 @@ public class Name {
      * @return Return the position of the first occurrence of the pattern p
      * in the text t, and -1 if it does not occur.
      */
-    static int findmatch(String p, char[] t, int tlen) {
+    private static int findmatch(String p, char[] t, int tlen) {
         int plen = p.length();
 
         for (int i = 0; i <= (tlen - plen); i = i + 1) {
@@ -91,7 +91,7 @@ public class Name {
      * @param y    new substring.
      * @return length of replaced text.
      */
-    static int replaceXwithY(char[] s, int slen, int pos, int xlen, String y) {
+    private static int replaceXwithY(char[] s, int slen, int pos, int xlen, String y) {
         int i;                /* counter */
         int ylen;            /* lengths of relevant strings */
 

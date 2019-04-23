@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -96,15 +96,13 @@ public class Plates {
      * rectangle with (0,0) as the lower righthand point in the matrix.
      */
     private static int[] arrayToHex(int xa, int ya) {
-        int xh = xa;
         int yh = ya - xa + ceil(xa / 2.0);
-        return new int[]{xh, yh};
+        return new int[]{xa, yh};
     }
 
     private static int[] hexToArray(int xh, int yh) {
-        int xa = xh;
         int ya = yh + xh - ceil(xh / 2.0);
-        return new int[]{xa, ya};
+        return new int[]{xh, ya};
     }
 
     static int platesOnTop(int xh, int yh, double w, double l, double r) {

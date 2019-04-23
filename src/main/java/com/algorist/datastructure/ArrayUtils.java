@@ -14,6 +14,7 @@ public class ArrayUtils {
      * @param <T>  element type.
      * @return generic array.
      */
+    @SuppressWarnings("unchecked")
     public static <T> T[] newArray(int size) {
         return (T[]) new Object[size];
     }

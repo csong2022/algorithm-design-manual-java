@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -99,7 +99,7 @@ public class ConvexHull {
     }
 
     static class SmallerAngle implements Comparator<Point> {
-        private Point first_point;
+        private final Point first_point;
 
         SmallerAngle(Point first_point) {
             this.first_point = first_point;

@@ -7,12 +7,12 @@ package com.algorist.graph;
  * @author csong2022
  */
 public abstract class AbstractGraphSearch<T extends EdgeNode> implements GraphSearch<T> {
-    protected Graph<T> g;            /* The graph */
-    protected boolean[] processed;   /* which vertices have been processed */
-    protected boolean[] discovered;  /* which vertices have been found */
-    protected int[] parent;          /* discovery relation */
+    final Graph<T> g;            /* The graph */
+    final boolean[] processed;   /* which vertices have been processed */
+    final boolean[] discovered;  /* which vertices have been found */
+    final int[] parent;          /* discovery relation */
 
-    public AbstractGraphSearch(Graph<T> g) {
+    AbstractGraphSearch(Graph<T> g) {
         this.g = g;
         this.processed = new boolean[g.nvertices() + 1];
         this.discovered = new boolean[g.nvertices() + 1];

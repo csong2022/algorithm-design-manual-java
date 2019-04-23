@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -39,15 +39,14 @@ public class Strong<T extends EdgeNode> {
     }
 
     private static class StrongCallback<T extends EdgeNode> implements GraphSearchCallback<T> {
-        private int[] low;        /* oldest vertex surely in component of v */
-        private int[] scc;        /* strong component number for each vertex */
+        private final int[] low;        /* oldest vertex surely in component of v */
+        private final int[] scc;        /* strong component number for each vertex */
 
-        private Stack<Integer> active;            /* active vertices of unassigned component */
+        private final Stack<Integer> active;            /* active vertices of unassigned component */
+        private final DFS<T> dfs;
         private int components_found;        /* number of strong components identified */
 
-        private DFS<T> dfs;
-
-        public StrongCallback(DFS<T> dfs, Graph<T> g) {
+        StrongCallback(DFS<T> dfs, Graph<T> g) {
             this.dfs = dfs;
 
             this.low = new int[g.nvertices() + 1];
