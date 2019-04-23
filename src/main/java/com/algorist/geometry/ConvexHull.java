@@ -106,6 +106,7 @@ public class ConvexHull {
             this.first_point = first_point;
         }
 
+        @SuppressWarnings("ComparatorMethodParameterNotUsed")
         @Override
         public int compare(Point p1, Point p2) {
             if (collinear(first_point, p1, p2))

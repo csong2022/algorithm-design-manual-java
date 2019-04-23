@@ -30,6 +30,7 @@ import java.util.Iterator;
  */
 public class Graph<T extends EdgeNode> {
     private final List<T>[] edges;    /* adjacency info */
+    @SuppressWarnings("MismatchedReadAndWriteOfArray")
     private final int[] degree;       /* outdegree of each vertex */
     private final int nvertices;      /* number of vertices in the graph */
     private final boolean directed;   /* is the graph directed? */

@@ -192,6 +192,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
             b.freecount = a.freecount;
 
             for (int i = 0; i < DIMENSION; i++)
+                //noinspection ManualArrayCopy
                 for (int j = 0; j < DIMENSION; j++)
                     b.m[i][j] = a.m[i][j];
         }
