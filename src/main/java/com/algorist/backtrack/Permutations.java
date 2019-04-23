@@ -42,7 +42,6 @@ public class Permutations implements BacktrackCallback<Integer> {
 
     @Override
     public void unmakeMove(int[] a, int k, Integer n) {
-
     }
 
     @Override
