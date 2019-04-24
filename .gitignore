@@ -1,6 +1,8 @@
+.gradle
+build
+out
 .vscode
 .idea
-out
 *.o
 8-queens 
 permutations 
