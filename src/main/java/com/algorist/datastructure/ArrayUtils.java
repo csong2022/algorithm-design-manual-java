@@ -22,28 +22,47 @@ public class ArrayUtils {
     /**
      * Dynamically adjust array size to roughly keep it half full.
      *
-     * @param arr   input array.
-     * @param count number of elements filled.
-     * @param <T>   element type.
+     * @param arr    input array.
+     * @param length number of elements filled.
+     * @param <T>    element type.
      * @return new array if size requires adjustment, otherwise the input array.
      */
-    public static <T> T[] resize(T[] arr, int count) {
-        int newSize = adjustedArraySize(arr, count);
+    public static <T> T[] resize(T[] arr, int length) {
+        return resize(arr, 0, length);
+    }
+
+    /**
+     * Dynamically adjust array size to roughly keep it half full.
+     *
+     * @param arr    input array.
+     * @param srcPos index of the first element.
+     * @param length number of elements filled.
+     * @param <T>    element type.
+     * @return new array if size requires adjustment, otherwise the input array.
+     */
+    public static <T> T[] resize(T[] arr, int srcPos, int length) {
+        int newSize = adjustedArraySize(arr, length);
         if (newSize == arr.length) {
             return arr;
 
         } else {
             T[] newArr = newArray(newSize);
-            System.arraycopy(arr, 0, newArr, 0, count);
+            if (srcPos + length <= arr.length) {
+                System.arraycopy(arr, 0, newArr, 0, length);
+            } else {
+                System.arraycopy(arr, srcPos, newArr, 0, arr.length - srcPos);
+                System.arraycopy(arr, 0, newArr, arr.length - srcPos, (srcPos + length) % arr.length + 1);
+            }
+
             return newArr;
         }
     }
 
-    public static <T> int adjustedArraySize(T[] arr, int count) {
+    private static <T> int adjustedArraySize(T[] arr, int length) {
         int newSize = arr.length;
-        if (count == arr.length) { // double array size if reaches capacity.
+        if (length == arr.length) { // double array size if reaches capacity.
             newSize = arr.length * 2;
-        } else if (count > ARRAY_SIZE_THRESHOLD && count <= arr.length / 4) {
+        } else if (length > ARRAY_SIZE_THRESHOLD && length <= arr.length / 4) {
             // half the array size if too low, and avoid threshing on small array.
             newSize = arr.length / 2;
         }
