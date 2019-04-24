@@ -20,7 +20,7 @@ public class StringEditTest implements TestCaseWithInput {
         System.out.println();
         editDistance.printMatrix(s, t, false);
 
-        int[] p = stringEdit.goalCell(s, t);
+        int[] p = stringEdit.goalCell(s, t, editDistance.m);
         int i = p[0], j = p[1];
         System.out.printf("%d %d%n", i, j);
 

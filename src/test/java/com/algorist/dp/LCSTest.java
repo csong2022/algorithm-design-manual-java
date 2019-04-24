@@ -19,7 +19,7 @@ public class LCSTest implements TestCaseWithInput {
 
         System.out.printf("length of longest common subsequence = %d%n", lcslen);
 
-        int[] p = stringEdit.goalCell(s, t);
+        int[] p = stringEdit.goalCell(s, t, editDistance.m);
         int i = p[0], j = p[1];
 
         editDistance.reconstructPath(s, t, i, j);

@@ -28,13 +28,7 @@ import static com.algorist.dp.EditDistance.INSERT;
  * @author csong2022
  */
 public class StringEdit {
-    EditDistance.Cell[][] m;
-
-    public void setM(EditDistance.Cell[][] m) {
-        this.m = m;
-    }
-
-    int[] goalCell(String s, String t) {
+    int[] goalCell(String s, String t, EditDistance.Cell[][] m) {
         return new int[]{s.length() - 1, t.length() - 1};
     }
 
@@ -47,14 +41,14 @@ public class StringEdit {
         return 1;
     }
 
-    void rowInit(int i) {        /* what is m[0][i]? */
+    void rowInit(int i, EditDistance.Cell[][] m) {        /* what is m[0][i]? */
         if (i > 0)
             m[0][i] = new EditDistance.Cell(i, INSERT);
         else
             m[0][i] = new EditDistance.Cell(i, -1);
     }
 
-    void columnInit(int i) {   /* what is m[i][0]? */
+    void columnInit(int i, EditDistance.Cell[][] m) {   /* what is m[i][0]? */
         if (i > 0)
             m[i][0] = new EditDistance.Cell(i, DELETE);
         else
