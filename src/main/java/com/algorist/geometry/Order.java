@@ -67,6 +67,6 @@ public class Order {
     }
 
     private static void process(int i, int j) {
-        System.out.printf("(%d,%d)\n", i, j);
+        System.out.printf("(%d,%d)%n", i, j);
     }
 }

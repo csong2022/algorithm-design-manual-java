@@ -50,7 +50,7 @@ public class DFS<T extends EdgeNode> extends AbstractGraphSearch<T> {
         if (processed[y] && (entryTime[y] > entryTime[x])) return EdgeType.FORWARD;
         if (processed[y] && (entryTime[y] < entryTime[x])) return EdgeType.CROSS;
 
-        System.out.printf("Warning: self loop (%d,%d)\n", x, y);
+        System.out.printf("Warning: self loop (%d,%d)%n", x, y);
         return null;
     }
 

@@ -124,7 +124,7 @@ public class Tree<T> {
         final Node<T> d = this.search(t, x); /* node with key to delete */
 
         if (d == null) {
-            System.out.printf("Warning: key to be deleted %s is not in the tree.\n", x.toString());
+            System.out.printf("Warning: key to be deleted %s is not in the tree.%n", x.toString());
             return t;
         }
 

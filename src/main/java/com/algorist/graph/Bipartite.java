@@ -83,7 +83,7 @@ public class Bipartite<T extends EdgeNode> {
         public void processEdge(int x, int y) {
             if (color[x] == color[y]) {
                 bipartite = false;
-                System.out.printf("Warning: graph not bipartite, due to (%d,%d)\n", x, y);
+                System.out.printf("Warning: graph not bipartite, due to (%d,%d)%n", x, y);
             }
 
             color[y] = color[x].complement();

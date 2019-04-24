@@ -80,12 +80,12 @@ public class Strong<T extends EdgeNode> {
             int t;                  /* vertex placeholder */
 
             components_found++;
-            System.out.printf("%d is in component %d \n", v, components_found);
+            System.out.printf("%d is in component %d %n", v, components_found);
 
             scc[v] = components_found;
             while ((t = active.pop()) != v) {
                 scc[t] = components_found;
-                System.out.printf("%d is in component %d with %d \n", t, components_found, v);
+                System.out.printf("%d is in component %d with %d %n", t, components_found, v);
             }
         }
 

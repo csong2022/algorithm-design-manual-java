@@ -91,7 +91,7 @@ public class Elevator {
         if (stopsToGo > 1)
             reconstructPath(p[lastfloor][stopsToGo], stopsToGo - 1);
 
-        System.out.printf("%d\n", lastfloor);
+        System.out.printf("%d%n", lastfloor);
     }
 
     void printCostTable() {

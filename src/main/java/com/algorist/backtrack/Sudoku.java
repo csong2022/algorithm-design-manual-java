@@ -75,7 +75,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
                 /*print_board(&board);*/
 
                 System.out.printf("It took %d steps to find this solution ", sudoku.steps());
-                System.out.printf("for fast=%d  smart=%d\n", fast ? 1 : 0, smart ? 1 : 0);
+                System.out.printf("for fast=%d  smart=%d%n", fast ? 1 : 0, smart ? 1 : 0);
             }
     }
 

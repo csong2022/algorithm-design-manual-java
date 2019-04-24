@@ -69,7 +69,7 @@ public class SetUnion {
 
     public void print() {
         for (int i = 1; i <= n; i++)
-            System.out.printf("%d  set=%d size=%d \n", i, p[i], size[i]);
+            System.out.printf("%d  set=%d size=%d %n", i, p[i], size[i]);
 
         System.out.println();
     }

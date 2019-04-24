@@ -102,7 +102,7 @@ public class Graph<T extends EdgeNode> {
             }
         }
 
-        System.out.printf("Warning: deletion(%d,%d) not found in g.\n", x, y);
+        System.out.printf("Warning: deletion(%d,%d) not found in g.%n", x, y);
     }
 
     public void print() {

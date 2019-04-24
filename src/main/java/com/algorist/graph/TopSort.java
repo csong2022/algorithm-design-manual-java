@@ -52,7 +52,7 @@ public class TopSort<T extends EdgeNode> {
         }
 
         if (j != g.nvertices())
-            System.out.printf("Not a DAG -- only %d vertices found\n", j);
+            System.out.printf("Not a DAG -- only %d vertices found%n", j);
     }
 
     private void computeIndegrees(Graph<T> g, int[] in) {

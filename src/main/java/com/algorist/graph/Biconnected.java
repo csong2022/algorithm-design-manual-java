@@ -63,19 +63,19 @@ public class Biconnected<T extends EdgeNode> {
 
             if (parent(v) < 1) {    /* test if v is the root */
                 if (tree_out_degree[v] > 1)
-                    System.out.printf("root articulation vertex: %d \n", v);
+                    System.out.printf("root articulation vertex: %d %n", v);
                 return;
             }
 
             boolean root = parent(parent(v)) < 1;        /* test if parent[v] is root */
             if (reachable_ancestor[v] == parent(v) && (!root))
-                System.out.printf("parent articulation vertex: %d \n", parent(v));
+                System.out.printf("parent articulation vertex: %d %n", parent(v));
 
             if (reachable_ancestor[v] == v) {
-                System.out.printf("bridge articulation vertex: %d \n", parent(v));
+                System.out.printf("bridge articulation vertex: %d %n", parent(v));
 
                 if (tree_out_degree[v] > 0)    /* test if v is not a leaf */
-                    System.out.printf("bridge articulation vertex: %d \n", v);
+                    System.out.printf("bridge articulation vertex: %d %n", v);
             }
 
             time_v = entryTime(reachable_ancestor[v]);
