@@ -24,6 +24,8 @@ import static java.lang.Math.max;
 
 /**
  * Optimally balance partitions using dynamic programming.
+ * <p>
+ * Translate from partition.c.
  *
  * @author csong2022
  */

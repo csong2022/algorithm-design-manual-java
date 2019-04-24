@@ -14,15 +14,15 @@ public class SubStringEditTest implements TestCaseWithInput {
         SubStringEdit stringEdit = new SubStringEdit();
         EditDistance editDistance = new EditDistance(stringEdit);
 
-        System.out.printf("matching cost = %d \n", editDistance.stringCompare(s, t));
+        System.out.printf("matching cost = %d %n", editDistance.stringCompare(s, t));
 
         editDistance.printMatrix(s, t, true);
         System.out.println();
         editDistance.printMatrix(s, t, false);
 
-        int[] p = stringEdit.goalCell(s, t);
+        int[] p = stringEdit.goalCell(s, t, editDistance.m);
         int i = p[0], j = p[1];
-        System.out.printf("%d %d\n", i, j);
+        System.out.printf("%d %d%n", i, j);
 
         editDistance.reconstructPath(s, t, i, j);
         System.out.println();

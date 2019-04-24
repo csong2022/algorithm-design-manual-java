@@ -23,6 +23,8 @@ import java.util.Objects;
 
 /**
  * Binary search tree container implementation.
+ * <p>
+ * Translate from tree.h, tree-demo.c.
  *
  * @param <T> data item type.
  * @author csong2022
@@ -84,7 +86,6 @@ public class Tree<T> {
         }
     }
 
-
     private Node<T> successorDescendant(final Node<T> t) {
         if (t.right == null)
             return null;
@@ -124,7 +125,7 @@ public class Tree<T> {
         final Node<T> d = this.search(t, x); /* node with key to delete */
 
         if (d == null) {
-            System.out.printf("Warning: key to be deleted %s is not in the tree.\n", x.toString());
+            System.out.printf("Warning: key to be deleted %s is not in the tree.%n", x.toString());
             return t;
         }
 

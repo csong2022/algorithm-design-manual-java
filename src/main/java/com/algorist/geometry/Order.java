@@ -23,6 +23,8 @@ import static java.lang.Math.min;
 
 /**
  * Demonstrate traversal orders on a grid.
+ * <p>
+ * Translate from order.c.
  *
  * @author csong2022
  */
@@ -67,6 +69,6 @@ public class Order {
     }
 
     private static void process(int i, int j) {
-        System.out.printf("(%d,%d)\n", i, j);
+        System.out.printf("(%d,%d)%n", i, j);
     }
 }

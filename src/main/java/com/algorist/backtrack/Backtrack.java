@@ -20,6 +20,8 @@ package com.algorist.backtrack;
 
 /**
  * A generic backtracking implementation.
+ * <p>
+ * Translate from backtrack.h, backtrack.c.
  *
  * @author csong2022
  */

@@ -16,7 +16,7 @@ public class PrimTest implements TestCaseWithInput {
         Graph<WeightedEdgeNode> g = reader.readGraph(scanner, false);
 
         Prim prim = new Prim(g, 1);
-        System.out.printf("Out of Prim\n");
+        System.out.println("Out of Prim");
 
         System.out.println();
         for (int i = 1; i <= g.nvertices(); i++) {

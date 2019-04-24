@@ -10,7 +10,7 @@ public class DistanceTest implements TestCaseWithoutInput {
     public void process() {
         double[] a = new double[]{6, 2, 3};
         double[] b = new double[]{6, 3, 4};
-        System.out.printf("distance = %f\n", distance(a, b));
+        System.out.printf("distance = %f%n", distance(a, b));
     }
 
     @Test

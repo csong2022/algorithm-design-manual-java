@@ -15,7 +15,7 @@ public class PrimesTest implements TestCaseWithInput {
         long p;
         while (scanner.hasNext()) {
             p = scanner.nextLong();
-            System.out.printf("prime factorization of p=%d \n", p);
+            System.out.printf("prime factorization of p=%d %n", p);
             primeFactorization(p);
         }
     }

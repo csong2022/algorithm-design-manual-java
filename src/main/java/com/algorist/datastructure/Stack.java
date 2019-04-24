@@ -19,20 +19,23 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 package com.algorist.datastructure;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import static com.algorist.datastructure.ArrayUtils.ARRAY_SIZE_THRESHOLD;
 import static com.algorist.datastructure.ArrayUtils.newArray;
 
 /**
  * Implementation of a LIFO stack abstract data type.
+ * <p>
+ * Translate from stack.h, stack.c. Implement with dynamic array. Add iterator implementation.
  *
  * @param <T> element type.
  * @author csong2022
  */
 public class Stack<T> implements Iterable<T> {
     private T[] s;        /* body of queue */
-    private int top;                        /* position of top element */
-    private int count;                      /* number of stack elements */
+    private int top;      /* position of top element */
+    private int count;    /* number of stack elements */
 
     public Stack() {
         this(ARRAY_SIZE_THRESHOLD);
@@ -89,6 +92,7 @@ public class Stack<T> implements Iterable<T> {
             }
 
             public T next() {
+                if (!hasNext()) throw new NoSuchElementException();
                 return s[this.index--];
             }
         };

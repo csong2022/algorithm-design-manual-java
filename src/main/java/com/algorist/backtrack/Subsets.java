@@ -20,6 +20,8 @@ package com.algorist.backtrack;
 
 /**
  * Construct all subsets via backtracking.
+ * <p>
+ * Translate from subsets.c.
  *
  * @author csong2022
  */

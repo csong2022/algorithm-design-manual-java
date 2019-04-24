@@ -22,6 +22,8 @@ import static java.lang.Math.sqrt;
 
 /**
  * Compute the prime factorization of an integer.
+ * <p>
+ * Translate from primes.c.
  *
  * @author csong2022
  */

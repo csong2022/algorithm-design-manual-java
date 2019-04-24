@@ -1,7 +1,9 @@
 package com.algorist.numerical;
 
 /**
- * Compute random numbers within given ranges. Reimplement original random.c with Java Random.
+ * Compute random numbers within given ranges.
+ * <p>
+ * Reimplement original random.c with Java Random.
  *
  * @author csong2022
  */

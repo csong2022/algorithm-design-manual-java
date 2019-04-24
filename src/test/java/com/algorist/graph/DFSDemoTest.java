@@ -67,13 +67,13 @@ public class DFSDemoTest implements TestCaseWithInput {
         @Override
         public void processVertexEarly(int v) {
             dfs.setEntryTime(v);
-            System.out.printf("entered vertex %d at time %d\n", v, dfs.entryTime(v));
+            System.out.printf("entered vertex %d at time %d%n", v, dfs.entryTime(v));
         }
 
         @Override
         public void processVertexLate(int v) {
             dfs.setExitTime(v);
-            System.out.printf("exit vertex %d at time %d\n", v, dfs.exitTime(v));
+            System.out.printf("exit vertex %d at time %d%n", v, dfs.exitTime(v));
         }
 
         @Override
@@ -82,19 +82,19 @@ public class DFSDemoTest implements TestCaseWithInput {
 
             switch (edgeType) {
                 case BACK:
-                    System.out.printf("back edge (%d,%d)\n", x, y);
+                    System.out.printf("back edge (%d,%d)%n", x, y);
                     break;
                 case TREE:
-                    System.out.printf("tree edge (%d,%d)\n", x, y);
+                    System.out.printf("tree edge (%d,%d)%n", x, y);
                     break;
                 case FORWARD:
-                    System.out.printf("forward edge (%d,%d)\n", x, y);
+                    System.out.printf("forward edge (%d,%d)%n", x, y);
                     break;
                 case CROSS:
-                    System.out.printf("cross edge (%d,%d)\n", x, y);
+                    System.out.printf("cross edge (%d,%d)%n", x, y);
                     break;
                 default:
-                    System.out.printf("edge (%d,%d)\n not in valid class=%s", x, y, edgeType);
+                    System.out.printf("edge (%d,%d)%n not in valid class=%s", x, y, edgeType);
             }
         }
     }

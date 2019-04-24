@@ -20,12 +20,14 @@ package com.algorist.dp;
 
 /**
  * Approximately match one string as a substring of another, where is s in t?
+ * <p>
+ * Generify from stringedit.c.
  *
  * @author csong2022
  */
 public class SubStringEdit extends StringEdit {
 
-    int[] goalCell(String s, String t) {
+    int[] goalCell(String s, String t, EditDistance.Cell[][] m) {
         int i = s.length() - 1;
         int j = 0;
 
@@ -35,7 +37,7 @@ public class SubStringEdit extends StringEdit {
         return new int[]{i, j};
     }
 
-    void rowInit(int i) {        /* what is m[0][i]? */
+    void rowInit(int i, EditDistance.Cell[][] m) {        /* what is m[0][i]? */
         m[0][i] = new EditDistance.Cell(0, -1);
     }
 }

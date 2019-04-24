@@ -25,6 +25,8 @@ import static java.lang.Math.*;
 
 /**
  * Basic geometric primitives and data types -- Lines, Circles, Segments
+ * <p>
+ * Translate from geometry.h, geometry.c.
  *
  * @author csong2022
  */
@@ -178,7 +180,7 @@ public class Geometry {
         }
 
         public void print() {
-            System.out.printf("(a=%7.3f,b=%7.3f,c=%7.3f)\n", this.a, this.b, this.c);
+            System.out.printf("(a=%7.3f,b=%7.3f,c=%7.3f)%n", this.a, this.b, this.c);
         }
     }
 
@@ -197,7 +199,12 @@ public class Geometry {
 
         static void print(Point[] p, int n) {
             for (int i = 0; i < n; i++)
-                System.out.printf("(%f,%f)\n", p[i].x, p[i].y);
+                System.out.printf("(%f,%f)%n", p[i].x, p[i].y);
+        }
+
+        @Override
+        public int hashCode() {
+            return (int) (17 * Double.doubleToLongBits(this.x) + Double.doubleToLongBits(this.y));
         }
 
         @Override
@@ -209,7 +216,7 @@ public class Geometry {
         }
 
         void print() {
-            System.out.printf("%7.3f %7.3f\n", this.x, this.y);
+            System.out.printf("%7.3f %7.3f%n", this.x, this.y);
         }
     }
 
@@ -232,7 +239,7 @@ public class Geometry {
 
         void print() {
             for (int i = 0; i < n; i++)
-                System.out.printf("(%f,%f)\n", p[i].x, p[i].y);
+                System.out.printf("(%f,%f)%n", p[i].x, p[i].y);
         }
     }
 

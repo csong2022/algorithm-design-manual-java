@@ -20,7 +20,7 @@ public class NetflowTest implements TestCaseWithInput {
             flow += p.flow();
         }
 
-        System.out.printf("total flow = %d\n", flow);
+        System.out.printf("total flow = %d%n", flow);
     }
 
     @Test

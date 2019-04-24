@@ -22,6 +22,8 @@ import static com.algorist.dp.EditDistance.MAXLEN;
 
 /**
  * Longest common subsequence of two strings.
+ * <p>
+ * Generify from lcs.c.
  *
  * @author csong2022
  */

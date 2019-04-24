@@ -17,7 +17,7 @@ public class BigNumTest implements TestCaseWithInput {
         while (scanner.hasNext()) {
             a = scanner.nextInt();
             b = scanner.nextInt();
-            System.out.printf("a = %d    b = %d\n", a, b);
+            System.out.printf("a = %d    b = %d%n", a, b);
             n1 = intToBignum(a);
             n2 = intToBignum(b);
 
@@ -26,7 +26,7 @@ public class BigNumTest implements TestCaseWithInput {
             System.out.print("addition -- ");
             n3.print();
 
-            System.out.printf("compare_bignum a ? b = %d\n", compare(n1, n2));
+            System.out.printf("compare_bignum a ? b = %d%n", compare(n1, n2));
 
             n3 = subtract(n1, n2);
             System.out.print("subtraction -- ");

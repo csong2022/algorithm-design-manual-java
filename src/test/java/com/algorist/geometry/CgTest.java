@@ -55,7 +55,7 @@ public class CgTest implements TestCaseWithInput {
             s2.print();
 
             System.out.println("segments_intersect test");
-            System.out.printf("%d\n", segmentsIntersect(s1, s2) ? 1 : 0);
+            System.out.printf("%d%n", segmentsIntersect(s1, s2) ? 1 : 0);
 
             System.out.println("intersection point");
             Point tmp = intersectionPoint(l1, l2);

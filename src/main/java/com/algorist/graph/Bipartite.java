@@ -20,6 +20,8 @@ package com.algorist.graph;
 
 /**
  * Two color a bipartite graph
+ * <p>
+ * Translate from bipartite.c.
  *
  * @param <T> Edge node type.
  * @author csong2022
@@ -43,6 +45,10 @@ public class Bipartite<T extends EdgeNode> {
                 color[i] = Color.WHITE;
                 bfs.search(i, callback);
             }
+    }
+
+    public boolean isBipartite() {
+        return bipartite;
     }
 
     Color color(int v) {
@@ -79,7 +85,7 @@ public class Bipartite<T extends EdgeNode> {
         public void processEdge(int x, int y) {
             if (color[x] == color[y]) {
                 bipartite = false;
-                System.out.printf("Warning: graph not bipartite, due to (%d,%d)\n", x, y);
+                System.out.printf("Warning: graph not bipartite, due to (%d,%d)%n", x, y);
             }
 
             color[y] = color[x].complement();

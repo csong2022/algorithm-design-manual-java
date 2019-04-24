@@ -2,6 +2,8 @@ package com.algorist.graph;
 
 /**
  * Graph traversal callback.
+ * <p>
+ * Generify the customization point for graph traversal.
  *
  * @param <T> edge node type.
  * @author csong2022

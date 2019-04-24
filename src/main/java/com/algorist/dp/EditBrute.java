@@ -20,6 +20,8 @@ package com.algorist.dp;
 
 /**
  * Compute string edit distance *without* dynamic programming!
+ * <p>
+ * Translate from editbrute.c.
  *
  * @author csong2022
  */

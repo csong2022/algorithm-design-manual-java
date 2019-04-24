@@ -18,27 +18,29 @@ public class TreeDemoTest implements TestCaseWithInput {
             switch (c) {
                 case 'p':
                     l.print();
-                    System.out.print("\n");
+                    System.out.println();
                     break;
                 case 'i':
                     d = scanner.nextInt();
-                    System.out.printf("new item: %d\n", d);
+                    System.out.printf("new item: %d%n", d);
                     l.insert(d);
                     break;
                 case 's':
                     d = scanner.nextInt();
                     if (l.contains(d)) {
-                        System.out.printf("item %d found\n", d);
+                        System.out.printf("item %d found%n", d);
                     } else {
-                        System.out.printf("item %d not found\n", d);
+                        System.out.printf("item %d not found%n", d);
                     }
                     break;
                 case 'd':
                     d = scanner.nextInt();
-                    System.out.printf(" deleting item %d\n", d);
+                    System.out.printf(" deleting item %d%n", d);
                     l.delete(d);
                     l.print();
-                    System.out.print("\n");
+                    System.out.println();
+                    break;
+                default:
                     break;
             }
         }

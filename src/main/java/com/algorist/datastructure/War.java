@@ -48,7 +48,7 @@ public class War {
                     if (suits[j] == suit)
                         return (i * NSUITS + j);
 
-        System.out.printf("Warning: bad input value=%c, suit=%c\n", value, suit);
+        System.out.printf("Warning: bad input value=%c, suit=%c%n", value, suit);
         return -1;
     }
 
@@ -74,7 +74,7 @@ public class War {
 
     static void testcards() {
         for (int i = 0; i < NCARDS; i++)
-            System.out.printf(" i=%d card[i]=%c%c rank=%d\n", i, value(i),
+            System.out.printf(" i=%d card[i]=%c%c rank=%d%n", i, value(i),
                     suit(i), rankCard(value(i), suit(i)));
     }
 
@@ -134,14 +134,14 @@ public class War {
         /*printf("deck counts a=%d b=%d\n",a->count,b->count);*/
 
         if (!a.isEmpty() && b.isEmpty())
-            System.out.printf("a wins in %d steps \n", steps);
+            System.out.printf("a wins in %d steps %n", steps);
         else if (a.isEmpty() && !b.isEmpty())
-            System.out.printf("b wins in %d steps \n", steps);
+            System.out.printf("b wins in %d steps %n", steps);
         else if (!a.isEmpty() && !b.isEmpty())
-            System.out.printf("game tied after %d steps, |a|=%d |b|=%d \n",
+            System.out.printf("game tied after %d steps, |a|=%d |b|=%d %n",
                     steps, a.size(), b.size());
         else
-            System.out.printf("a and b tie in %d steps \n", steps);
+            System.out.printf("a and b tie in %d steps %n", steps);
     }
 
     private static void printCardQueue(Queue<Integer> q) {

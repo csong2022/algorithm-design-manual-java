@@ -29,6 +29,8 @@ import static com.algorist.backtrack.Sudoku.Board.copy;
 
 /**
  * A backtracking program to solve Sudoku.
+ * <p>
+ * Translate from sudoku.c.
  *
  * @author csong2022
  */
@@ -47,7 +49,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
         Board board;        /* Seduko board structure */
 
         final Path inPath = Paths.get("src/test/resources/sudoku-examples/" + args[0]);
-        try (final Scanner scanner = new Scanner(Files.newInputStream(inPath))) {
+        try (final Scanner scanner = new Scanner(Files.newInputStream(inPath), "utf-8")) {
             board = Board.read(scanner);
         }
 
@@ -75,7 +77,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
                 /*print_board(&board);*/
 
                 System.out.printf("It took %d steps to find this solution ", sudoku.steps());
-                System.out.printf("for fast=%d  smart=%d\n", fast ? 1 : 0, smart ? 1 : 0);
+                System.out.printf("for fast=%d  smart=%d%n", fast ? 1 : 0, smart ? 1 : 0);
             }
     }
 
@@ -237,7 +239,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
             if (this.m[x][y] == 0)
                 this.freecount--;
             else
-                System.out.printf("Warning: filling already filled square (%d,%d)\n", x, y);
+                System.out.printf("Warning: filling already filled square (%d,%d)%n", x, y);
 
             this.m[x][y] = v;
         }
@@ -246,7 +248,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
             if (this.m[x][y] != 0)
                 this.freecount++;
             else
-                System.out.printf("Warning: freeing already empty square (%d,%d)\n", x, y);
+                System.out.printf("Warning: freeing already empty square (%d,%d)%n", x, y);
 
             this.m[x][y] = 0;
         }
@@ -285,7 +287,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
         }
 
         void print() {
-            System.out.printf("\nThere are %d free board positions.\n", freecount);
+            System.out.printf("%nThere are %d free board positions.%n", freecount);
 
             for (int i = 0; i < DIMENSION; i++) {
                 for (int j = 0; j < DIMENSION; j++) {

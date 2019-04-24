@@ -38,11 +38,10 @@ public class TestEngine {
         File outputFile = recycleOutputFile(outputFileName);
 
         PrintStream stdout = System.out;
-        try (PrintStream outputStream = new PrintStream(new FileOutputStream(outputFile))) {
+        try (PrintStream outputStream = new PrintStream(new FileOutputStream(outputFile), true, "utf-8");
+             Scanner scanner = new Scanner(new FileInputStream(inputFile), "utf-8")) {
             System.setOut(outputStream);
-            try (Scanner scanner = new Scanner(new FileInputStream(inputFile))) {
-                testCase.process(scanner);
-            }
+            testCase.process(scanner);
         } finally {
             System.setOut(stdout);
         }
@@ -65,7 +64,7 @@ public class TestEngine {
         File outputFile = recycleOutputFile(outputFileName);
 
         PrintStream stdout = System.out;
-        try (PrintStream outputStream = new PrintStream(new FileOutputStream(outputFile))) {
+        try (PrintStream outputStream = new PrintStream(new FileOutputStream(outputFile), true, "utf-8")) {
             System.setOut(outputStream);
             testcase.process();
         } finally {
@@ -79,7 +78,7 @@ public class TestEngine {
         createOutputDirIfAbsent();
         File outputFile = new File(OUTPUT_DIR, outputFileName);
         if (outputFile.exists()) {
-            outputFile.delete();
+            if (!outputFile.delete()) System.err.printf("Failed to delete file %s%n", outputFileName);
         }
 
         return outputFile;
@@ -88,7 +87,7 @@ public class TestEngine {
     private static void createOutputDirIfAbsent() {
         File outputDir = new File(OUTPUT_DIR);
         if (!outputDir.exists()) {
-            outputDir.mkdir();
+            if (!outputDir.mkdir()) System.err.printf("Failed to create directory %s%n", OUTPUT_DIR);
         }
     }
 

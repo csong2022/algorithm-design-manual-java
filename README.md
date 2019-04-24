@@ -25,6 +25,7 @@ com.algorist.datastructure
 Chapter 4. Sorting and Search
 com.algorist.sort
 - Sorting.java --- implementations of primary sorting algorithms
+- PollyTest.java --- rank the desirability of suitors -- sorting example
 
 Chapter 5. Graph Traversal
 com.algorist.graph
@@ -97,6 +98,8 @@ Chapter 17. Computational Geometry
 com.algorist.geometry
 - Distance.java --- compute Euclidian distances
 - Geometry.java --- basic geometric primitives and data types
+- GeoTest.java --- driver program for geometry routines
+- CgTest.java  --- driver program for computational geometry routines
 - ConvexHull.java --- compute convex hulls of points in the plane
 - Order.java --- demonstrate traversal orders on a grid
 - SuperMan.java --- compute Superman's flight path -- geometry example

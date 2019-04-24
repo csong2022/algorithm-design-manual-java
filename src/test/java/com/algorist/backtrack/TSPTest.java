@@ -21,16 +21,16 @@ public class TSPTest implements TestCaseWithInput {
         t = TSP.TspInstance.read(scanner);
 
         s = TSP.TspSolution.read(scanner);
-        System.out.printf("OPTIMAL SOLUTION COST = %7.1f\n", solutionCost(s, t));
+        System.out.printf("OPTIMAL SOLUTION COST = %7.1f%n", solutionCost(s, t));
         s.print();
 
         s = new TSP.TspSolution(t.n);
-        System.out.printf("solutionCost = %7.1f\n", solutionCost(s, t));
+        System.out.printf("solutionCost = %7.1f%n", solutionCost(s, t));
         s.print();
 
         Annealing annealing = new Annealing();
         s = annealing.repeatedAnnealing(t, 3);
-        System.out.printf("repeated annealing %d iterations, cost = %7.1f\n",
+        System.out.printf("repeated annealing %d iterations, cost = %7.1f%n",
                 annealing.solutionCount(), solutionCost(s, t));
         s.print();
     }

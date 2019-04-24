@@ -20,6 +20,8 @@ package com.algorist.dp;
 
 /**
  * A generic implementation of string comparison via dynamic programming.
+ * <p>
+ * Translate from editdistance.h, editdistance.c.
  *
  * @author csong2022
  */
@@ -34,7 +36,6 @@ public class EditDistance {
     public EditDistance(StringEdit stringEdit) {
         this.m = new Cell[MAXLEN + 1][MAXLEN + 1];
         this.stringEdit = stringEdit;
-        this.stringEdit.setM(m);
     }
 
     public int stringCompare(String s, String t) {
@@ -103,7 +104,7 @@ public class EditDistance {
     }
 
     private int[] goalCell(String s, String t) {
-        return stringEdit.goalCell(s, t);
+        return stringEdit.goalCell(s, t, m);
     }
 
     int match(char c, char d) {
@@ -115,11 +116,11 @@ public class EditDistance {
     }
 
     private void rowInit(int i) {
-        stringEdit.rowInit(i);
+        stringEdit.rowInit(i, m);
     }
 
     private void columnInit(int i) {
-        stringEdit.columnInit(i);
+        stringEdit.columnInit(i, m);
     }
 
     private void matchOut(String s, String t, int i, int j) {

@@ -11,19 +11,19 @@ import static com.algorist.geometry.Order.*;
 public class OrderTest implements TestCaseWithoutInput {
     @Override
     public void process() {
-        System.out.printf("row_major\n");
+        System.out.println("row_major");
         rowMajor(5, 5);
 
-        System.out.printf("\ncolumn_major\n");
+        System.out.println("\ncolumn_major");
         columnMajor(3, 3);
 
-        System.out.printf("\nsnake_order\n");
+        System.out.println("\nsnake_order");
         snakeOrder(5, 5);
 
-        System.out.printf("\ndiagonal_order\n");
+        System.out.println("\ndiagonal_order");
         diagonalOrder(3, 4);
 
-        System.out.printf("\ndiagonal_order\n");
+        System.out.println("\ndiagonal_order");
         diagonalOrder(4, 3);
     }
 

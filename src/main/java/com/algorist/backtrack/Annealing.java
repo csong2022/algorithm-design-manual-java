@@ -25,16 +25,18 @@ import static java.lang.Math.pow;
 
 /**
  * Simulated Annealing Implementation.
+ * <p>
+ * Translate from annealing.h, annealing.c.
  *
  * @author csong2022
  */
 public class Annealing {
-    private static final boolean TRACE_OUTPUT = false;        /* print the swaps as they happen */
-    /* how often we report progress */
-    private static final int PRINT_FREQUENCY = 10000;
+    private static final boolean TRACE_OUTPUT = false;  /* print the swaps as they happen */
 
-    /* start temperature -- probably  leave intact */
-    private static final int INITIAL_TEMPERATURE = 1;
+    private static final int PRINT_FREQUENCY = 10000;   /* how often we report progress */
+
+
+    private static final int INITIAL_TEMPERATURE = 1;   /* start temperature -- probably  leave intact */
 
     /* how many times do we cool -- make higher to improve quality, lower to
        speed the program up.  Move in tandem with the COOLING_FRACTION */
@@ -47,8 +49,7 @@ public class Annealing {
     /* lower makes it faster, higher makes it potentially better. */
     private static final int STEPS_PER_TEMP = 1000;
 
-    /* number e -- probably leave intact*/
-    private static final double E = 2.718;
+    private static final double E = 2.718;             /* number e -- probably leave intact*/
 
     /* problem specific Boltzman's constant. May have to adjust if your global
 	   value function changes the sizes of the numbers it produces.  It is
@@ -63,11 +64,9 @@ public class Annealing {
     }
 
     private void solutionCountUpdate(TspSolution s, TspInstance t) {
-        // double solutionCost();
-
         solutionCount++;
         if ((solutionCount % PRINT_FREQUENCY) == 0)
-            System.out.printf("%d %7.1f\n", solutionCount, solutionCost(s, t));
+            System.out.printf("%d %7.1f%n", solutionCount, solutionCost(s, t));
     }
 
     /**

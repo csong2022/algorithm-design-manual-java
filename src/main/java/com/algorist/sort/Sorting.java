@@ -28,6 +28,8 @@ import static java.util.Objects.compare;
 
 /**
  * Sorting algorithms.
+ * <p>
+ * Translate from sorting.c.
  *
  * @author csong2022
  */
@@ -159,7 +161,7 @@ public class Sorting {
 
         if (low > high) return (-1);    /* key not found */
 
-        middle = (low + high) / 2;
+        middle = (low + high) >>> 1;
 
         int cmp = Objects.compare(s[middle], key, c);
         if (cmp == 0) return (middle);

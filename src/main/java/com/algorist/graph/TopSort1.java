@@ -22,6 +22,8 @@ import com.algorist.datastructure.Stack;
 
 /**
  * Topologically sort a directed acyclic graph by DFS numbering (DAG)
+ * <p>
+ * Translate from topsort1.c.
  *
  * @param <T> edge node type.
  * @author csong2022

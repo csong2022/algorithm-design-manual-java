@@ -20,8 +20,12 @@ package com.algorist.graph;
 
 import com.algorist.datastructure.Queue;
 
+import java.util.Arrays;
+
 /**
  * Topologically sort a directed acyclic graph (DAG)
+ * <p>
+ * Translate from topsort.c.
  *
  * @param <T> edge node type.
  * @author csong2022
@@ -50,7 +54,7 @@ public class TopSort<T extends EdgeNode> {
         }
 
         if (j != g.nvertices())
-            System.out.printf("Not a DAG -- only %d vertices found\n", j);
+            System.out.printf("Not a DAG -- only %d vertices found%n", j);
     }
 
     private void computeIndegrees(Graph<T> g, int[] in) {
@@ -64,6 +68,6 @@ public class TopSort<T extends EdgeNode> {
     }
 
     public int[] sorted() {
-        return this.sorted;
+        return Arrays.copyOf(this.sorted, this.sorted.length);
     }
 }

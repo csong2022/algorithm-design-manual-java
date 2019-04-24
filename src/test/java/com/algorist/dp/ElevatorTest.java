@@ -20,7 +20,7 @@ public class ElevatorTest implements TestCaseWithInput {
         Elevator elevator = new Elevator(stops, nstops);
 
         for (int i = 1; i <= nriders; i++)
-            System.out.printf("%d\n", elevator.stops[i]);
+            System.out.printf("%d%n", elevator.stops[i]);
 
         int laststop = elevator.optimizeFloors();
 
@@ -28,7 +28,7 @@ public class ElevatorTest implements TestCaseWithInput {
         System.out.println();
         elevator.printParentTable();
 
-        System.out.printf("cost = %d\n", elevator.m[laststop][nstops]);
+        System.out.printf("cost = %d%n", elevator.m[laststop][nstops]);
 
         elevator.reconstructPath(laststop, nstops);
     }

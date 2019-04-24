@@ -21,6 +21,8 @@ package com.algorist.dp;
 
 /**
  * Compute the binomial coefficients using dynamic programming.
+ * <p>
+ * Translate from binomial.c.
  *
  * @author csong2022
  */

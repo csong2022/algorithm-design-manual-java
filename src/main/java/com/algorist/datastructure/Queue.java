@@ -19,12 +19,15 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 package com.algorist.datastructure;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import static com.algorist.datastructure.ArrayUtils.ARRAY_SIZE_THRESHOLD;
 import static com.algorist.datastructure.ArrayUtils.newArray;
 
 /**
  * Implementation of a FIFO queue abstract data type.
+ * <p>
+ * Translate from queue.h, queue.c. Implement with dynamic array. Add iterator implementation.
  *
  * @param <T> element type.
  * @author csong2022
@@ -110,6 +113,7 @@ public class Queue<T> implements Iterable<T> {
 
             @Override
             public T next() {
+                if (!hasNext()) throw new NoSuchElementException();
                 int index = (first + iterSoFar) % q.length;
                 T x = q[index];
                 iterSoFar++;

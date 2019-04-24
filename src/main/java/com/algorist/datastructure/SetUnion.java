@@ -20,6 +20,8 @@ package com.algorist.datastructure;
 
 /**
  * Union-find data structure implementation.
+ * <p>
+ * Translate from set_union.h, set_union.c.
  *
  * @author csong2022
  */
@@ -50,7 +52,7 @@ public class SetUnion {
         int r1 = find(s1);    /* root of s1 */
         int r2 = find(s2);/* root of s2 */
 
-        System.out.printf("s1=%d r1=%d s2=%d r2=%d\n", s1, r1, s2, r2);
+        System.out.printf("s1=%d r1=%d s2=%d r2=%d%n", s1, r1, s2, r2);
 
         if (r1 == r2) return;        /* already in same set */
 
@@ -69,7 +71,7 @@ public class SetUnion {
 
     public void print() {
         for (int i = 1; i <= n; i++)
-            System.out.printf("%d  set=%d size=%d \n", i, p[i], size[i]);
+            System.out.printf("%d  set=%d size=%d %n", i, p[i], size[i]);
 
         System.out.println();
     }

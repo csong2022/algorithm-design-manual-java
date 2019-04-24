@@ -26,6 +26,8 @@ import static java.lang.Math.sqrt;
 
 /**
  * Heuristics for solving TSP.
+ * <p>
+ * Translate from tsp.h, tsp.c.
  *
  * @author csong2022
  */
@@ -134,7 +136,7 @@ public class TSP {
 
         void print() {
             for (int i = 1; i <= this.n; i++)
-                System.out.printf("%d %d %d\n", i, p[i].x, p[i].y);
+                System.out.printf("%d %d %d%n", i, p[i].x, p[i].y);
         }
     }
 

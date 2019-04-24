@@ -24,6 +24,8 @@ import static java.lang.Math.sqrt;
 
 /**
  * Compute Superman's flight path -- geometry example
+ * <p>
+ * Translate from superman.c.
  *
  * @author csong2022
  */
@@ -50,14 +52,15 @@ public class SuperMan {
             if (d >= 0 && d < c[i].r && pointInBox(close, s, t)) {
                 xray += 2 * sqrt(c[i].r * c[i].r - d * d);
                 angle = acos(d / c[i].r);
-                around += ((2 * angle) / (2 * PI)) * (2 * PI * c[i].r);
-                System.out.printf("circle %d (%7.3f,%7.3f,%7.3f) is %7.3f away from l, xray=%7.3f around=%7.3f angle=%7.3f.\n",
+//                around += ((2 * angle) / (2 * PI)) * (2 * PI * c[i].r);
+                around += 2 * angle * c[i].r;
+                System.out.printf("circle %d (%7.3f,%7.3f,%7.3f) is %7.3f away from l, xray=%7.3f around=%7.3f angle=%7.3f.%n",
                         i, c[i].c.x, c[i].c.y, c[i].r, d, xray, around, angle);
             }
         }
 
         double travel = distance(s, t) - xray + around; /* total travel distance */
-        System.out.printf("Superman sees through %7.3f units, and flies %7.3f units\n",
+        System.out.printf("Superman sees through %7.3f units, and flies %7.3f units%n",
                 xray, travel);
     }
 }

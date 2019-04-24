@@ -24,6 +24,11 @@ import java.util.Iterator;
 
 /**
  * A generic adjacency list graph data type.
+ * <p>
+ * Translate from graph.h, graph.c, include functionalities in wgraph.h, wgraph.c.
+ * Generify the edge node type, using List data structure as adjacent list.
+ * <p>
+ * Implementation supports unweighted, weighted, and flow graph.
  *
  * @param <T> edge node type.
  * @author csong2022
@@ -102,7 +107,7 @@ public class Graph<T extends EdgeNode> {
             }
         }
 
-        System.out.printf("Warning: deletion(%d,%d) not found in g.\n", x, y);
+        System.out.printf("Warning: deletion(%d,%d) not found in g.%n", x, y);
     }
 
     public void print() {

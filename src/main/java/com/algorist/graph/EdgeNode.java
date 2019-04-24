@@ -2,6 +2,8 @@ package com.algorist.graph;
 
 /**
  * Adjacency list node.
+ * <p>
+ * Generify from edgenode type in graph.h.
  *
  * @author csong2022
  */

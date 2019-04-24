@@ -19,12 +19,13 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 package com.algorist.datastructure;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 /**
  * Linked list-based container implementation.
  * <p>
- * Translate from list-demo.c, list.h, item.h
+ * Translate from list-demo.c, list.h, item.h. Add iterator implementation.
  *
  * @param <T> Element type.
  * @author csong2022
@@ -120,6 +121,7 @@ public class List<T> implements Iterable<T> {
 
         @Override
         public T next() {
+            if (!hasNext()) throw new NoSuchElementException();
             final T x = this.current.item;
             this.predpred = this.pred;
             this.pred = this.current;

@@ -45,22 +45,22 @@ public class ListDemoTest implements TestCaseWithInput {
                 l.print();
             if (c == 'i') {
                 d = scanner.nextInt();
-                System.out.printf("new item: %d\n", d);
+                System.out.printf("new item: %d%n", d);
                 l.insert(d);
             }
             if (c == 's') {
                 d = scanner.nextInt();
                 if (!l.contains(d))
-                    System.out.printf("item %d not found\n", d);
+                    System.out.printf("item %d not found%n", d);
                 else
-                    System.out.printf("item %d found\n", d);
+                    System.out.printf("item %d found%n", d);
             }
             if (c == 'd') {
                 d = scanner.nextInt();
                 if (!l.contains(d))
-                    System.out.printf("item to delete %d not found\n", d);
+                    System.out.printf("item to delete %d not found%n", d);
                 else
-                    System.out.printf("item %d deleted\n", d);
+                    System.out.printf("item %d deleted%n", d);
                 l.delete(d);
             }
         }

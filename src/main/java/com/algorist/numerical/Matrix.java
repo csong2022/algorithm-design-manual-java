@@ -22,6 +22,8 @@ import java.util.Scanner;
 
 /**
  * Multiply two matrices.
+ * <p>
+ * Translate from matrix.c.
  *
  * @author csong2022
  */

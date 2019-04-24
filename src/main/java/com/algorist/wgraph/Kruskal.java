@@ -52,7 +52,7 @@ public class Kruskal {
         for (int i = 0; i < g.nedges(); i++) {
             s.print();
             if (!s.sameComponent(e[i].x, e[i].y)) {
-                System.out.printf("edge (%d,%d) of weight %d in MST\n", e[i].x, e[i].y, e[i].weight);
+                System.out.printf("edge (%d,%d) of weight %d in MST%n", e[i].x, e[i].y, e[i].weight);
                 s.unionSets(e[i].x, e[i].y);
             }
         }

@@ -20,6 +20,8 @@ package com.algorist.numerical;
 
 /**
  * Compute the greatest common divisor of two integers.
+ * <p>
+ * Translate from gcd.c.
  *
  * @author csong2022
  */
@@ -29,7 +31,7 @@ public class GCD {
 
         if (q == 0) return p;
 
-        System.out.printf(" gcd(%d,%d) &=& gcd(%d \\mod %d, %d) = gcd(%d,%d) \n", p, q, p, q, q, q, p % q);
+        System.out.printf(" gcd(%d,%d) &=& gcd(%d \\mod %d, %d) = gcd(%d,%d) %n", p, q, p, q, q, q, p % q);
         return gcd1(q, p % q);
     }
 

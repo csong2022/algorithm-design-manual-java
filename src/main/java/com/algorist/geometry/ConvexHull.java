@@ -19,6 +19,7 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 
 package com.algorist.geometry;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -27,6 +28,8 @@ import static com.algorist.sort.Sorting.quickSort;
 
 /**
  * Compute convex hulls of points in the plane using the Gries/Graham scan algorithm.
+ * <p>
+ * Translate from convex-hull.c.
  *
  * @author csong2022
  */
@@ -85,17 +88,12 @@ public class ConvexHull {
         return n;
     }
 
-    static class LeftLower implements Comparator<Point> {
-        @SuppressWarnings("UseCompareMethod")
+    static class LeftLower implements Comparator<Point>, Serializable {
         @Override
         public int compare(Point p1, Point p2) {
-            if (p1.x < p2.x) return -1;
-            if (p1.x > p2.x) return 1;
-
-            if (p1.y < p2.y) return -1;
-            if (p1.y > p2.y) return 1;
-
-            return 0;
+            int cmp = Double.compare(p1.x, p2.x);
+            if (cmp != 0) return cmp;
+            else return Double.compare(p1.y, p2.y);
         }
     }
 
@@ -106,11 +104,10 @@ public class ConvexHull {
             this.first_point = first_point;
         }
 
-        @SuppressWarnings("ComparatorMethodParameterNotUsed")
         @Override
         public int compare(Point p1, Point p2) {
             if (collinear(first_point, p1, p2))
-                return (distance(first_point, p1) <= distance(first_point, p2)) ? -1 : 1;
+                return Double.compare(distance(first_point, p1), distance(first_point, p2));
             else
                 return (ccw(first_point, p1, p2)) ? -1 : 1;
         }

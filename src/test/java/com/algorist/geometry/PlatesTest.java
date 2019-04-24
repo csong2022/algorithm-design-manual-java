@@ -19,24 +19,25 @@ public class PlatesTest implements TestCaseWithInput {
         int i, j;            /* counters */
         int xh, yh, xa, ya;
         double xhf, yhf, xg, yg;
-        int xmax, ymax;
+        int xmax;
+//        int ymax;
 
-        System.out.printf("input box width, box length, and plate radius:\n");
+        System.out.printf("input box width, box length, and plate radius:%n");
         w = scanner.nextDouble();
         l = scanner.nextDouble();
         r = scanner.nextDouble();
-        System.out.printf("box width=%f, box length=%f, and plate radius=%f:\n", w, l, r);
+        System.out.printf("box width=%f, box length=%f, and plate radius=%f:%n", w, l, r);
 
-        System.out.printf("dense packing = %d\n", densePlates(w, l, r));
-        System.out.printf("grid packing = %d\n", gridPlates(w, l, r));
+        System.out.printf("dense packing = %d%n", densePlates(w, l, r));
+        System.out.printf("grid packing = %d%n", gridPlates(w, l, r));
 
         /* print all the possible hexes in the box */
 
         xmax = floor(w / (2 * r));
-        ymax = denseLayers(w, l, r);
+//        ymax = denseLayers(w, l, r);
 
         for (i = 0; i < xmax; i++)
-            System.out.printf("(0,%d) has %d on top.\n", i, platesOnTop(0, i, w, l, r));
+            System.out.printf("(0,%d) has %d on top.%n", i, platesOnTop(0, i, w, l, r));
     }
 
     @Test
