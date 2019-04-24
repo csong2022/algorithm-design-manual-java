@@ -42,7 +42,7 @@ public class Partition {
         return new Data(s, n, k);
     }
 
-    static void printBooks(int[] s, int start, int end) {
+    private static void printBooks(int[] s, int start, int end) {
         System.out.print("{");
         for (int i = start; i <= end; i++) System.out.printf(" %d ", s[i]);
         System.out.println("}");
@@ -57,7 +57,7 @@ public class Partition {
         }
     }
 
-    private static void reconstructPartition(int s[], int[][] d, int n, int k) {
+    private static void reconstructPartition(int[] s, int[][] d, int n, int k) {
         if (k == 1)
             printBooks(s, 1, n);
         else {
@@ -66,7 +66,7 @@ public class Partition {
         }
     }
 
-    public static void partition(int s[], int n, int k) {
+    public static void partition(int[] s, int n, int k) {
         int[] p = new int[n + 1];          /* prefix sums array */
         int[][] m = new int[n + 1][k + 1]; /* DP table for values */
         int[][] d = new int[n + 1][k + 1]; /* DP table for dividers */

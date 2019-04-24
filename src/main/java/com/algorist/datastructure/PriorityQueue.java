@@ -56,6 +56,7 @@ public class PriorityQueue<T> {
 
     public static <T> PriorityQueue<T> makeHeap(final T[] s, final int l, final int h, final Comparator<T> comparator) {
         final PriorityQueue<T> q = new PriorityQueue<>(comparator, h - l + 1);
+        //noinspection ManualArrayCopy
         for (int i = l; i <= h; i++) {
             q.q[i - l + 1] = s[i];
         }
@@ -124,7 +125,7 @@ public class PriorityQueue<T> {
     public T extractMin() {
         T min = null;            /* minimum value */
         if (isEmpty()) {
-            System.out.printf("Warning: empty priority queue.\n");
+            System.out.println("Warning: empty priority queue.");
         } else {
             min = q[1]; /* minimum value */
             this.q[1] = this.q[this.n];
@@ -148,7 +149,7 @@ public class PriorityQueue<T> {
         for (int i = 1; i <= this.n; i++)
             System.out.printf("%s ", this.q[i]);
 
-        System.out.printf("\n");
+        System.out.println();
     }
 
     public int size() {

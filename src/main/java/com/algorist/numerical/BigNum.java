@@ -246,6 +246,7 @@ public class BigNum {
     private void digitShift(int d)        /* multiply n by 10^d */ {
         if (lastdigit == 0 && digits[0] == 0) return;
 
+        //noinspection ManualArrayCopy
         for (int i = lastdigit; i >= 0; i--)
             digits[i + d] = digits[i];
 

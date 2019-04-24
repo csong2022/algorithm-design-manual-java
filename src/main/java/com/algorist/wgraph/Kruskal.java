@@ -31,7 +31,9 @@ import static com.algorist.sort.Sorting.quickSort;
  * @author csong2022
  */
 public class Kruskal {
+    @SuppressWarnings("Convert2Lambda")
     private static final Comparator<EdgePair> WEIGHT_COMPARE = new Comparator<EdgePair>() {
+        @SuppressWarnings("UseCompareMethod")
         @Override
         public int compare(EdgePair x, EdgePair y) {
             if (x.weight < y.weight) return -1;
@@ -43,7 +45,7 @@ public class Kruskal {
     public Kruskal(Graph<WeightedEdgeNode> g) {
         SetUnion s = new SetUnion(g.nvertices()); /* set union data structure */
 
-        System.out.printf("initialized set union\n");
+        System.out.println("initialized set union");
         EdgePair[] e = toEdgeArray(g);
         quickSort(e, 0, e.length - 1, WEIGHT_COMPARE);
 

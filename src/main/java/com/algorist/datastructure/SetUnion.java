@@ -16,7 +16,6 @@ This book can be ordered from Amazon.com at
 http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 
 */
-
 package com.algorist.datastructure;
 
 /**
@@ -72,6 +71,6 @@ public class SetUnion {
         for (int i = 1; i <= n; i++)
             System.out.printf("%d  set=%d size=%d \n", i, p[i], size[i]);
 
-        System.out.printf("\n");
+        System.out.println();
     }
 }

@@ -17,7 +17,7 @@ public class BipartiteTest implements TestCaseWithInput {
         Bipartite bipartite = new Bipartite<>(g);
         for (int i = 1; i <= g.nvertices(); i++)
             System.out.printf(" %d", bipartite.color(i).ordinal());
-        System.out.printf("\n");
+        System.out.println();
     }
 
     @Test

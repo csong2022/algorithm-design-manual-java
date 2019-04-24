@@ -42,6 +42,7 @@ public class StringEdit {
         return c == d ? 0 : 1;
     }
 
+    @SuppressWarnings("SameReturnValue")
     int indel(char c) {
         return 1;
     }

@@ -19,7 +19,7 @@ public class TopSortTest implements TestCaseWithInput {
         int[] out = topSort.sorted();
         for (int i = 1; i <= g.nvertices(); i++)
             System.out.printf(" %d", out[i]);
-        System.out.printf("\n");
+        System.out.println();
     }
 
     @Test

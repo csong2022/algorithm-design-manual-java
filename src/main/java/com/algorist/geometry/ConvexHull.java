@@ -32,7 +32,7 @@ import static com.algorist.sort.Sorting.quickSort;
  */
 public class ConvexHull {
 
-    public static Polygon convexHull(Point in[], int n) {
+    public static Polygon convexHull(Point[] in, int n) {
         if (n <= 3) {        /* all points on hull! */
             return new Polygon(in, n);
         }
@@ -67,7 +67,7 @@ public class ConvexHull {
         return new Polygon(points, top);
     }
 
-    private static int sortAndRemoveDuplicates(Point in[], int n) {
+    private static int sortAndRemoveDuplicates(Point[] in, int n) {
         quickSort(in, 0, n - 1, new LeftLower());
 
         int oldn = n;           /* number of points before deletion */
@@ -86,6 +86,7 @@ public class ConvexHull {
     }
 
     static class LeftLower implements Comparator<Point> {
+        @SuppressWarnings("UseCompareMethod")
         @Override
         public int compare(Point p1, Point p2) {
             if (p1.x < p2.x) return -1;
@@ -105,6 +106,7 @@ public class ConvexHull {
             this.first_point = first_point;
         }
 
+        @SuppressWarnings("ComparatorMethodParameterNotUsed")
         @Override
         public int compare(Point p1, Point p2) {
             if (collinear(first_point, p1, p2))

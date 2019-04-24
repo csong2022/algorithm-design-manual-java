@@ -1,4 +1,3 @@
-package com.algorist.graph;
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
@@ -17,7 +16,7 @@ This book can be ordered from Amazon.com at
 http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 
 */
-
+package com.algorist.graph;
 
 import com.algorist.datastructure.List;
 
@@ -31,6 +30,7 @@ import java.util.Iterator;
  */
 public class Graph<T extends EdgeNode> {
     private final List<T>[] edges;    /* adjacency info */
+    @SuppressWarnings("MismatchedReadAndWriteOfArray")
     private final int[] degree;       /* outdegree of each vertex */
     private final int nvertices;      /* number of vertices in the graph */
     private final boolean directed;   /* is the graph directed? */
@@ -112,7 +112,7 @@ public class Graph<T extends EdgeNode> {
             for (T p : edges[i]) {
                 System.out.printf(" %d", p.y());
             }
-            System.out.printf("\n");
+            System.out.println();
         }
     }
 }
