@@ -14,7 +14,7 @@ public class StringEditTest implements TestCaseWithInput {
         StringEdit stringEdit = new StringEdit();
         EditDistance editDistance = new EditDistance(stringEdit);
 
-        System.out.printf("matching cost = %d \n", editDistance.stringCompare(s, t));
+        System.out.printf("matching cost = %d %n", editDistance.stringCompare(s, t));
 
         editDistance.printMatrix(s, t, true);
         System.out.println();
@@ -22,7 +22,7 @@ public class StringEditTest implements TestCaseWithInput {
 
         int[] p = stringEdit.goalCell(s, t);
         int i = p[0], j = p[1];
-        System.out.printf("%d %d\n", i, j);
+        System.out.printf("%d %d%n", i, j);
 
         editDistance.reconstructPath(s, t, i, j);
         System.out.println();

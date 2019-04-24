@@ -68,7 +68,7 @@ public class GeoTest implements TestCaseWithInput {
             l3.print();
 
             System.out.println("parallel lines test");
-            System.out.printf("%d\n", parallelQ(l1, l2) ? 1 : 0);
+            System.out.printf("%d%n", parallelQ(l1, l2) ? 1 : 0);
 
             System.out.println("intersection point");
             Point tmp = intersectionPoint(l1, l2);

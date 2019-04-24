@@ -24,11 +24,11 @@ public class SuperManTest implements TestCaseWithInput {
             c[i] = new Circle(center, r);
         }
 
-        System.out.printf("%7.3f %7.3f\n", s.x, s.y);
-        System.out.printf("%7.3f %7.3f\n", t.x, t.y);
-        System.out.printf("%d\n", ncircles);
+        System.out.printf("%7.3f %7.3f%n", s.x, s.y);
+        System.out.printf("%7.3f %7.3f%n", t.x, t.y);
+        System.out.printf("%d%n", ncircles);
         for (int i = 1; i <= ncircles; i++)
-            System.out.printf("%7.3f %7.3f %7.3f\n", c[i].c.x, c[i].c.y, c[i].r);
+            System.out.printf("%7.3f %7.3f %7.3f%n", c[i].c.x, c[i].c.y, c[i].r);
 
         new SuperMan(s, t, c, ncircles);
     }

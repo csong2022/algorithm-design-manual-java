@@ -21,14 +21,14 @@ public class PlatesTest implements TestCaseWithInput {
         double xhf, yhf, xg, yg;
         int xmax, ymax;
 
-        System.out.printf("input box width, box length, and plate radius:\n");
+        System.out.printf("input box width, box length, and plate radius:%n");
         w = scanner.nextDouble();
         l = scanner.nextDouble();
         r = scanner.nextDouble();
-        System.out.printf("box width=%f, box length=%f, and plate radius=%f:\n", w, l, r);
+        System.out.printf("box width=%f, box length=%f, and plate radius=%f:%n", w, l, r);
 
-        System.out.printf("dense packing = %d\n", densePlates(w, l, r));
-        System.out.printf("grid packing = %d\n", gridPlates(w, l, r));
+        System.out.printf("dense packing = %d%n", densePlates(w, l, r));
+        System.out.printf("grid packing = %d%n", gridPlates(w, l, r));
 
         /* print all the possible hexes in the box */
 
@@ -36,7 +36,7 @@ public class PlatesTest implements TestCaseWithInput {
         ymax = denseLayers(w, l, r);
 
         for (i = 0; i < xmax; i++)
-            System.out.printf("(0,%d) has %d on top.\n", i, platesOnTop(0, i, w, l, r));
+            System.out.printf("(0,%d) has %d on top.%n", i, platesOnTop(0, i, w, l, r));
     }
 
     @Test
