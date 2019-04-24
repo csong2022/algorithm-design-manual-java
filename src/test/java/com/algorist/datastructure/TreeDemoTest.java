@@ -40,6 +40,8 @@ public class TreeDemoTest implements TestCaseWithInput {
                     l.print();
                     System.out.println();
                     break;
+                default:
+                    break;
             }
         }
     }

@@ -19,7 +19,8 @@ public class PlatesTest implements TestCaseWithInput {
         int i, j;            /* counters */
         int xh, yh, xa, ya;
         double xhf, yhf, xg, yg;
-        int xmax, ymax;
+        int xmax;
+//        int ymax;
 
         System.out.printf("input box width, box length, and plate radius:%n");
         w = scanner.nextDouble();
@@ -33,7 +34,7 @@ public class PlatesTest implements TestCaseWithInput {
         /* print all the possible hexes in the box */
 
         xmax = floor(w / (2 * r));
-        ymax = denseLayers(w, l, r);
+//        ymax = denseLayers(w, l, r);
 
         for (i = 0; i < xmax; i++)
             System.out.printf("(0,%d) has %d on top.%n", i, platesOnTop(0, i, w, l, r));

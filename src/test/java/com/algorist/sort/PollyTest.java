@@ -23,6 +23,7 @@ import com.algorist.test.TestEngine;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -87,7 +88,7 @@ public class PollyTest implements TestCaseWithInput {
         int weight;
     }
 
-    private static class SuitorComparator implements Comparator<Suitor> {
+    private static class SuitorComparator implements Comparator<Suitor>, Serializable {
         @Override
         public int compare(final Suitor a, final Suitor b) {
             final int result;            /* result of comparsion */
