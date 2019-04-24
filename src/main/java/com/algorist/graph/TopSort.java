@@ -20,6 +20,8 @@ package com.algorist.graph;
 
 import com.algorist.datastructure.Queue;
 
+import java.util.Arrays;
+
 /**
  * Topologically sort a directed acyclic graph (DAG)
  *
@@ -64,6 +66,6 @@ public class TopSort<T extends EdgeNode> {
     }
 
     public int[] sorted() {
-        return this.sorted;
+        return Arrays.copyOf(this.sorted, this.sorted.length);
     }
 }

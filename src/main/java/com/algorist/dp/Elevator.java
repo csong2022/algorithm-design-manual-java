@@ -18,6 +18,8 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 */
 package com.algorist.dp;
 
+import java.util.Arrays;
+
 import static java.lang.Math.min;
 
 /**
@@ -39,7 +41,7 @@ public class Elevator {
     public Elevator(int[] stops, int nstops) {
         this.nriders = stops.length - 1;
         this.nstops = nstops;
-        this.stops = stops;
+        this.stops = Arrays.copyOf(stops, stops.length);
         this.m = new int[NFLOORS + 1][nstops + 1];
         this.p = new int[NFLOORS + 1][nstops + 1];
     }
