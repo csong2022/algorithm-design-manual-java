@@ -8,6 +8,8 @@ Features:
 2. Converted original test cases, included in test-script, into set of Java unit test cases.
 3. Implemented generic Graph data structure to cover unweighted, weights, flow graph instances. Removed code duplication in original C implementation.
 
+List of files:
+ 
 Chapter 3. Data Structures
 com.algorist.datastructure
 - List.java --- linked implementation.
