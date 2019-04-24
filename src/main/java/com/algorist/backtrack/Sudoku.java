@@ -237,7 +237,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
             if (this.m[x][y] == 0)
                 this.freecount--;
             else
-                System.out.printf("Warning: filling already filled square (%d,%d)\n", x, y);
+                System.out.printf("Warning: filling already filled square (%d,%d)%n", x, y);
 
             this.m[x][y] = v;
         }
@@ -246,7 +246,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
             if (this.m[x][y] != 0)
                 this.freecount++;
             else
-                System.out.printf("Warning: freeing already empty square (%d,%d)\n", x, y);
+                System.out.printf("Warning: freeing already empty square (%d,%d)%n", x, y);
 
             this.m[x][y] = 0;
         }
@@ -285,7 +285,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
         }
 
         void print() {
-            System.out.printf("\nThere are %d free board positions.\n", freecount);
+            System.out.printf("%nThere are %d free board positions.%n", freecount);
 
             for (int i = 0; i < DIMENSION; i++) {
                 for (int j = 0; j < DIMENSION; j++) {

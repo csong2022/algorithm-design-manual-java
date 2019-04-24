@@ -50,7 +50,7 @@ public class SetUnion {
         int r1 = find(s1);    /* root of s1 */
         int r2 = find(s2);/* root of s2 */
 
-        System.out.printf("s1=%d r1=%d s2=%d r2=%d\n", s1, r1, s2, r2);
+        System.out.printf("s1=%d r1=%d s2=%d r2=%d%n", s1, r1, s2, r2);
 
         if (r1 == r2) return;        /* already in same set */
 

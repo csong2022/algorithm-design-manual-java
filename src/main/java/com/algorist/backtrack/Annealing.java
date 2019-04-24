@@ -67,7 +67,7 @@ public class Annealing {
 
         solutionCount++;
         if ((solutionCount % PRINT_FREQUENCY) == 0)
-            System.out.printf("%d %7.1f\n", solutionCount, solutionCost(s, t));
+            System.out.printf("%d %7.1f%n", solutionCount, solutionCost(s, t));
     }
 
     /**

@@ -134,7 +134,7 @@ public class TSP {
 
         void print() {
             for (int i = 1; i <= this.n; i++)
-                System.out.printf("%d %d %d\n", i, p[i].x, p[i].y);
+                System.out.printf("%d %d %d%n", i, p[i].x, p[i].y);
         }
     }
 
