@@ -20,6 +20,8 @@ package com.algorist.graph;
 
 /**
  * Compute the connected components of a graph.
+ * <p>
+ * Translate from connected.c.
  *
  * @author csong2022
  */

@@ -23,6 +23,8 @@ import static com.algorist.geometry.Geometry.*;
 /**
  * Triangulate a polygon via ear-clipping, and compute the area
  * of a polygon.
+ * <p>
+ * Translate from triangulate.c.
  *
  * @author csong2022
  */

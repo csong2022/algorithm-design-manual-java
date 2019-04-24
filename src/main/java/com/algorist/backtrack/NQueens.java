@@ -22,6 +22,8 @@ import static java.lang.Math.abs;
 
 /**
  * Solve the eight queens problem using backtracking.
+ * <p>
+ * Translate from 8-queens.c.
  *
  * @author csong2022
  */

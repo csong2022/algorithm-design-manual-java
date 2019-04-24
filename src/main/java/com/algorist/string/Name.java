@@ -22,6 +22,8 @@ import java.util.Scanner;
 
 /**
  * Corporate name changing program -- string example
+ * <p>
+ * Translate from name.c.
  *
  * @author csong2022
  */

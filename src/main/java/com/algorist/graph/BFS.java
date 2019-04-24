@@ -23,6 +23,8 @@ import com.algorist.datastructure.Queue;
 
 /**
  * A generic implementation of graph traversal: breadth-first search.
+ * <p>
+ * Translate from bfs-dfs.c.
  *
  * @param <T> edge node type.
  * @author csong2022

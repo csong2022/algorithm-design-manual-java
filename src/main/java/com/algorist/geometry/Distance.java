@@ -22,6 +22,8 @@ import static java.lang.Math.sqrt;
 
 /**
  * Compute Euclidian distances.
+ * <p>
+ * Translate from distance.c.
  *
  * @author csong2022
  */

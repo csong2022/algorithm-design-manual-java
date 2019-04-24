@@ -22,6 +22,8 @@ import com.algorist.utils.IterableUtils;
 
 /**
  * Identify a cycle in a graph, if one exists.
+ * <p>
+ * Translate from findcycle.c.
  *
  * @param <T> edge node type.
  * @author csong2022

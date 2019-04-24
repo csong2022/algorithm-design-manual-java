@@ -26,6 +26,8 @@ import static com.algorist.datastructure.ArrayUtils.newArray;
 
 /**
  * Implementation of a FIFO queue abstract data type.
+ * <p>
+ * Translate from queue.h, queue.c. Implement with dynamic array. Add iterator implementation.
  *
  * @param <T> element type.
  * @author csong2022

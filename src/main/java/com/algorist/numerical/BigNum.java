@@ -26,6 +26,8 @@ import static java.lang.Math.max;
 /**
  * Implementation of large integer arithmetic: addition, subtraction,
  * multiplication, and division.
+ * <p>
+ * Translate from bignum.c.
  *
  * @author csong2022
  */

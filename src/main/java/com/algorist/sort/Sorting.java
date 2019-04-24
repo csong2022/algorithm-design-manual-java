@@ -28,6 +28,8 @@ import static java.util.Objects.compare;
 
 /**
  * Sorting algorithms.
+ * <p>
+ * Translate from sorting.c.
  *
  * @author csong2022
  */

@@ -24,6 +24,8 @@ import static com.algorist.dp.EditDistance.INSERT;
 
 /**
  * Compute the optimal alignment matching two strings.
+ * <p>
+ * Translate from stringedit.c.
  *
  * @author csong2022
  */

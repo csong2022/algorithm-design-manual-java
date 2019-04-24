@@ -21,6 +21,8 @@ package com.algorist.graph;
 
 /**
  * Identify articulation vertices in a graph
+ * <p>
+ * Translate from biconnected.c.
  *
  * @param <T> edge node type.
  * @author csong2022

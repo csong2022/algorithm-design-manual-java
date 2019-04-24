@@ -25,6 +25,8 @@ import static com.algorist.backtrack.Backtrack.NMAX;
 
 /**
  * Enumerate the paths in a graph via backtracking.
+ * <p>
+ * Translate from paths.c.
  *
  * @author csong2022
  */

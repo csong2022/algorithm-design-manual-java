@@ -20,6 +20,8 @@ package com.algorist.dp;
 
 /**
  * A generic implementation of string comparison via dynamic programming.
+ * <p>
+ * Translate from editdistance.h, editdistance.c.
  *
  * @author csong2022
  */

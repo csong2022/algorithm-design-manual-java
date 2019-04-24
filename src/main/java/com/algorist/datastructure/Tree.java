@@ -23,6 +23,8 @@ import java.util.Objects;
 
 /**
  * Binary search tree container implementation.
+ * <p>
+ * Translate from tree.h, tree-demo.c.
  *
  * @param <T> data item type.
  * @author csong2022
@@ -83,7 +85,6 @@ public class Tree<T> {
             print(l.right);
         }
     }
-
 
     private Node<T> successorDescendant(final Node<T> t) {
         if (t.right == null)

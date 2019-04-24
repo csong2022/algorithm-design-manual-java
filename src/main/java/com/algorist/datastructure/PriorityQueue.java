@@ -26,6 +26,8 @@ import static com.algorist.datastructure.ArrayUtils.newArray;
 
 /**
  * Implementation of a heap / priority queue abstract data type.
+ * <p>
+ * Translate from priority_queue.h, priority_queue.c.
  *
  * @param <T> element type.
  * @author csong2022

@@ -20,6 +20,8 @@ package com.algorist.graph;
 
 /**
  * Two color a bipartite graph
+ * <p>
+ * Translate from bipartite.c.
  *
  * @param <T> Edge node type.
  * @author csong2022

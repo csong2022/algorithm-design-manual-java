@@ -22,6 +22,8 @@ import com.algorist.datastructure.Stack;
 
 /**
  * Identify strongly connected components in a graph.
+ * <p>
+ * Translate from strong.c.
  *
  * @param <T> edge node type.
  * @author csong2022

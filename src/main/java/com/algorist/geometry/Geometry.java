@@ -25,6 +25,8 @@ import static java.lang.Math.*;
 
 /**
  * Basic geometric primitives and data types -- Lines, Circles, Segments
+ * <p>
+ * Translate from geometry.h, geometry.c.
  *
  * @author csong2022
  */

@@ -25,7 +25,7 @@ import java.util.Objects;
 /**
  * Linked list-based container implementation.
  * <p>
- * Translate from list-demo.c, list.h, item.h
+ * Translate from list-demo.c, list.h, item.h. Add iterator implementation.
  *
  * @param <T> Element type.
  * @author csong2022

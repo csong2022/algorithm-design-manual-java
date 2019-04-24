@@ -24,6 +24,8 @@ import java.util.Arrays;
 
 /**
  * Topologically sort a directed acyclic graph (DAG)
+ * <p>
+ * Translate from topsort.c.
  *
  * @param <T> edge node type.
  * @author csong2022

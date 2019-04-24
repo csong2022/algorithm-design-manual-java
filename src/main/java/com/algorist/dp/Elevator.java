@@ -24,6 +24,8 @@ import static java.lang.Math.min;
 
 /**
  * Elevator stop optimization via dynamic programming.
+ * <p>
+ * Translate from elevator.c.
  *
  * @author csong2022
  */

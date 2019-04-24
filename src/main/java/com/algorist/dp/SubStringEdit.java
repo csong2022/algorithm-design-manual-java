@@ -20,6 +20,8 @@ package com.algorist.dp;
 
 /**
  * Approximately match one string as a substring of another, where is s in t?
+ * <p>
+ * Generify from stringedit.c.
  *
  * @author csong2022
  */

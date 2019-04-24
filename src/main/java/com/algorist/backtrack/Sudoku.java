@@ -29,6 +29,8 @@ import static com.algorist.backtrack.Sudoku.Board.copy;
 
 /**
  * A backtracking program to solve Sudoku.
+ * <p>
+ * Translate from sudoku.c.
  *
  * @author csong2022
  */

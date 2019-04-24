@@ -23,6 +23,8 @@ import static java.lang.Math.min;
 
 /**
  * Demonstrate traversal orders on a grid.
+ * <p>
+ * Translate from order.c.
  *
  * @author csong2022
  */

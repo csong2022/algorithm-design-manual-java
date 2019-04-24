@@ -20,6 +20,8 @@ package com.algorist.numerical;
 
 /**
  * Compute the greatest common divisor of two integers.
+ * <p>
+ * Translate from gcd.c.
  *
  * @author csong2022
  */

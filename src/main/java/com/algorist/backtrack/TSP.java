@@ -26,6 +26,8 @@ import static java.lang.Math.sqrt;
 
 /**
  * Heuristics for solving TSP.
+ * <p>
+ * Translate from tsp.h, tsp.c.
  *
  * @author csong2022
  */

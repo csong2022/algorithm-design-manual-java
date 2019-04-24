@@ -20,6 +20,8 @@ package com.algorist.datastructure;
 
 /**
  * Union-find data structure implementation.
+ * <p>
+ * Translate from set_union.h, set_union.c.
  *
  * @author csong2022
  */

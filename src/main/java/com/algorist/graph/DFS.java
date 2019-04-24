@@ -20,6 +20,8 @@ package com.algorist.graph;
 
 /**
  * A generic implementation of graph traversal: depth-first search.
+ * <p>
+ * Translate from bfs-dfs.c.
  *
  * @param <T> edge node type.
  * @author csong2022

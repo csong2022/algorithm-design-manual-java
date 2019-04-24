@@ -20,6 +20,8 @@ package com.algorist.backtrack;
 
 /**
  * Construct all permutations via backtracking.
+ * <p>
+ * Translate from permutations.c.
  *
  * @author csong2022
  */

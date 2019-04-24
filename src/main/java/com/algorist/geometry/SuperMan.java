@@ -24,6 +24,8 @@ import static java.lang.Math.sqrt;
 
 /**
  * Compute Superman's flight path -- geometry example
+ * <p>
+ * Translate from superman.c.
  *
  * @author csong2022
  */

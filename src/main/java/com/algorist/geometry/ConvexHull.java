@@ -28,6 +28,8 @@ import static com.algorist.sort.Sorting.quickSort;
 
 /**
  * Compute convex hulls of points in the plane using the Gries/Graham scan algorithm.
+ * <p>
+ * Translate from convex-hull.c.
  *
  * @author csong2022
  */

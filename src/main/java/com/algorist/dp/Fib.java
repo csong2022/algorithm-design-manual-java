@@ -21,6 +21,8 @@ package com.algorist.dp;
 
 /**
  * Fibonacci Numbers.
+ * <p>
+ * Translate from fib.c.
  *
  * @author csong2022
  */
