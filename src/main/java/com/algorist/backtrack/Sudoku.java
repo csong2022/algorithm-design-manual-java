@@ -47,7 +47,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
         Board board;        /* Seduko board structure */
 
         final Path inPath = Paths.get("src/test/resources/sudoku-examples/" + args[0]);
-        try (final Scanner scanner = new Scanner(Files.newInputStream(inPath))) {
+        try (final Scanner scanner = new Scanner(Files.newInputStream(inPath), "utf-8")) {
             board = Board.read(scanner);
         }
 

@@ -201,6 +201,11 @@ public class Geometry {
         }
 
         @Override
+        public int hashCode() {
+            return (int) (17 * Double.doubleToLongBits(this.x) + Double.doubleToLongBits(this.y));
+        }
+
+        @Override
         public boolean equals(Object other) {
             if (other instanceof Point) {
                 Point b = (Point) other;

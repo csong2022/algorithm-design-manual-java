@@ -19,6 +19,7 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 package com.algorist.datastructure;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 /**
@@ -120,6 +121,7 @@ public class List<T> implements Iterable<T> {
 
         @Override
         public T next() {
+            if (!hasNext()) throw new NoSuchElementException();
             final T x = this.current.item;
             this.predpred = this.pred;
             this.pred = this.current;

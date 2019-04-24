@@ -45,6 +45,10 @@ public class Bipartite<T extends EdgeNode> {
             }
     }
 
+    public boolean isBipartite() {
+        return bipartite;
+    }
+
     Color color(int v) {
         return this.color[v];
     }

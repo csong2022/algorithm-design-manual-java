@@ -159,7 +159,7 @@ public class Sorting {
 
         if (low > high) return (-1);    /* key not found */
 
-        middle = (low + high) / 2;
+        middle = (low + high) >>> 1;
 
         int cmp = Objects.compare(s[middle], key, c);
         if (cmp == 0) return (middle);

@@ -19,6 +19,7 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 package com.algorist.datastructure;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import static com.algorist.datastructure.ArrayUtils.ARRAY_SIZE_THRESHOLD;
 import static com.algorist.datastructure.ArrayUtils.newArray;
@@ -89,6 +90,7 @@ public class Stack<T> implements Iterable<T> {
             }
 
             public T next() {
+                if (!hasNext()) throw new NoSuchElementException();
                 return s[this.index--];
             }
         };

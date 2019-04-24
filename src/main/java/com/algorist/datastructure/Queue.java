@@ -19,6 +19,7 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 package com.algorist.datastructure;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import static com.algorist.datastructure.ArrayUtils.ARRAY_SIZE_THRESHOLD;
 import static com.algorist.datastructure.ArrayUtils.newArray;
@@ -110,6 +111,7 @@ public class Queue<T> implements Iterable<T> {
 
             @Override
             public T next() {
+                if (!hasNext()) throw new NoSuchElementException();
                 int index = (first + iterSoFar) % q.length;
                 T x = q[index];
                 iterSoFar++;
