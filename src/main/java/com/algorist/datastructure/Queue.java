@@ -20,8 +20,7 @@ package com.algorist.datastructure;
 
 import java.util.Iterator;
 
-import static com.algorist.datastructure.ArrayUtils.ARRAY_SIZE_THRESHOLD;
-import static com.algorist.datastructure.ArrayUtils.newArray;
+import static com.algorist.datastructure.ArrayUtils.*;
 
 /**
  * Implementation of a FIFO queue abstract data type.
@@ -76,12 +75,7 @@ public class Queue<T> implements Iterable<T> {
     }
 
     private void resize() {
-        int newSize = this.q.length;
-        if (this.count == this.q.length) {
-            newSize = 2 * this.q.length;
-        } else if (this.count >= ARRAY_SIZE_THRESHOLD && this.count <= this.q.length / 4) {
-            newSize = this.q.length / 2;
-        }
+        int newSize = adjustedArraySize(this.q, this.count);
 
         if (newSize != this.q.length) {
             T[] newQ = newArray(newSize);

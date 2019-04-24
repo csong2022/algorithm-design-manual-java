@@ -28,19 +28,26 @@ public class ArrayUtils {
      * @return new array if size requires adjustment, otherwise the input array.
      */
     public static <T> T[] resize(T[] arr, int count) {
-        if (count == arr.length) { // double array size if reaches capacity.
-            T[] newArr = newArray(arr.length * 2);
+        int newSize = adjustedArraySize(arr, count);
+        if (newSize == arr.length) {
+            return arr;
+
+        } else {
+            T[] newArr = newArray(newSize);
             System.arraycopy(arr, 0, newArr, 0, count);
             return newArr;
+        }
+    }
 
+    public static <T> int adjustedArraySize(T[] arr, int count) {
+        int newSize = arr.length;
+        if (count == arr.length) { // double array size if reaches capacity.
+            newSize = arr.length * 2;
         } else if (count > ARRAY_SIZE_THRESHOLD && count <= arr.length / 4) {
             // half the array size if too low, and avoid threshing on small array.
-            T[] newArr = newArray(arr.length / 2);
-            System.arraycopy(arr, 0, newArr, 0, count);
-            return newArr;
-
-        } else { // no change.
-            return arr;
+            newSize = arr.length / 2;
         }
+
+        return newSize;
     }
 }
