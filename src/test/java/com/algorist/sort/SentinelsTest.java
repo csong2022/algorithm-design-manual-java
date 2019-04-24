@@ -44,7 +44,7 @@ public class SentinelsTest {
         }
         a[i + 1] = x;
 
-        System.out.printf("without sentinel, i=%d a[1]=%d\n", i, a[1]);
+        System.out.printf("without sentinel, i=%d a[1]=%d%n", i, a[1]);
         for (i = 1; i <= 25; i++) System.out.printf("%d ", a[i]);
         x = -2;
 
@@ -57,7 +57,7 @@ public class SentinelsTest {
         }
         a[i + 1] = x;
 
-        System.out.printf("\nwith sentinel, i=%d a[1]=%d\n", i, a[1]);
+        System.out.printf("\nwith sentinel, i=%d a[1]=%d%n", i, a[1]);
         for (i = 1; i <= 25; i++) System.out.printf("%d ", a[i]);
     }
 }

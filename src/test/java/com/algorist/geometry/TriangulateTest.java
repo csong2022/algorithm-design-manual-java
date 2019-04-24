@@ -18,8 +18,8 @@ public class TriangulateTest implements TestCaseWithInput {
 
         Polygon p = new Polygon(points);
 
-        System.out.printf(" area via triangulation = %f\n", areaTriangulation(p));
-        System.out.printf(" area slick = %f\n", area(p));
+        System.out.printf(" area via triangulation = %f%n", areaTriangulation(p));
+        System.out.printf(" area slick = %f%n", area(p));
     }
 
     @Test

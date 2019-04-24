@@ -38,11 +38,10 @@ public class TestEngine {
         File outputFile = recycleOutputFile(outputFileName);
 
         PrintStream stdout = System.out;
-        try (PrintStream outputStream = new PrintStream(new FileOutputStream(outputFile))) {
+        try (PrintStream outputStream = new PrintStream(new FileOutputStream(outputFile));
+             Scanner scanner = new Scanner(new FileInputStream(inputFile), "utf-8")) {
             System.setOut(outputStream);
-            try (Scanner scanner = new Scanner(new FileInputStream(inputFile))) {
-                testCase.process(scanner);
-            }
+            testCase.process(scanner);
         } finally {
             System.setOut(stdout);
         }

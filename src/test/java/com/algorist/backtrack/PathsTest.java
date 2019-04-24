@@ -22,7 +22,7 @@ public class PathsTest implements TestCaseWithInput {
 
         int[] a = new int[NMAX];            /* solution vector */
         for (int i = 1; i <= g.nvertices(); i++) {
-            System.out.printf("\nPaths from 1 to %d:%n", i);
+            System.out.printf("%nPaths from 1 to %d:%n", i);
             backtrack.backtrack(a, 0, i, paths);
         }
     }

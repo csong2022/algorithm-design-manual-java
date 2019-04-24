@@ -62,7 +62,7 @@ public class BFSDemoTest implements TestCaseWithInput {
     private static class BFSDemoCallback implements GraphSearchCallback<UnweightedEdgeNode> {
         @Override
         public void processVertexEarly(int v) {
-            System.out.printf("processed vertex %d\n", v);
+            System.out.printf("processed vertex %d%n", v);
         }
 
         @Override
@@ -72,7 +72,7 @@ public class BFSDemoTest implements TestCaseWithInput {
 
         @Override
         public void processEdge(int x, int y) {
-            System.out.printf("processed edge (%d,%d)\n", x, y);
+            System.out.printf("processed edge (%d,%d)%n", x, y);
         }
     }
 }

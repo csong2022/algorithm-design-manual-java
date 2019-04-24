@@ -71,7 +71,7 @@ public class PollyTest implements TestCaseWithInput {
         quickSort(suitors, 0, suitors.length - 1, new SuitorComparator());
 
         for (final Suitor suitor : suitors) {
-            System.out.printf("%s, %s\n", suitor.last, suitor.first);
+            System.out.printf("%s, %s%n", suitor.last, suitor.first);
         }
     }
 
