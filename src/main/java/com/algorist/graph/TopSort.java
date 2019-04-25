@@ -35,9 +35,8 @@ public class TopSort<T extends EdgeNode> {
 
     public TopSort(Graph<T> g) {
         this.sorted = new int[g.nvertices() + 1];
-        int[] indegree = new int[g.nvertices() + 1];        /* indegree of each vertex */
 
-        computeIndegrees(g, indegree);
+        int[] indegree = computeIndegrees(g);             /* indegree of each vertex */
         Queue<Integer> zeroin = new Queue<>();            /* vertices of indegree 0 */
         for (int i = 1; i <= g.nvertices(); i++)
             if (indegree[i] == 0) zeroin.enqueue(i);
@@ -57,7 +56,8 @@ public class TopSort<T extends EdgeNode> {
             System.out.printf("Not a DAG -- only %d vertices found%n", j);
     }
 
-    private void computeIndegrees(Graph<T> g, int[] in) {
+    private int[] computeIndegrees(Graph<T> g) {
+        int[] in = new int[g.nvertices() + 1];
         for (int i = 1; i <= g.nvertices(); i++) in[i] = 0;
 
         for (int i = 1; i <= g.nvertices(); i++) {
@@ -65,6 +65,8 @@ public class TopSort<T extends EdgeNode> {
                 in[p.y()]++;
             }
         }
+
+        return in;
     }
 
     public int[] sorted() {
