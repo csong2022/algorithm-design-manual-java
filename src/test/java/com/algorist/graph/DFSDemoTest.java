@@ -57,7 +57,7 @@ public class DFSDemoTest implements TestCaseWithInput {
         TestEngine.execute(this, "grid", "grid-dfs-demo-out");
     }
 
-    private static class DFSDemoCallback implements GraphSearchCallback<UnweightedEdgeNode> {
+    private static class DFSDemoCallback extends DefaultGraphSearchCallback<UnweightedEdgeNode> {
         private DFS<UnweightedEdgeNode> dfs;
 
         public DFSDemoCallback(DFS<UnweightedEdgeNode> dfs) {

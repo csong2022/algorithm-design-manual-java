@@ -40,18 +40,10 @@ public class Connected<T extends EdgeNode> {
             }
     }
 
-    private static class ConnectedCallback<T extends EdgeNode> implements GraphSearchCallback<T> {
+    private static class ConnectedCallback<T extends EdgeNode> extends DefaultGraphSearchCallback<T> {
         @Override
         public void processVertexEarly(int v) {
             System.out.printf(" %d", v);
-        }
-
-        @Override
-        public void processVertexLate(int v) {
-        }
-
-        @Override
-        public void processEdge(int x, int y) {
         }
     }
 }

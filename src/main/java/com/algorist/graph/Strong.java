@@ -40,7 +40,7 @@ public class Strong<T extends EdgeNode> {
             }
     }
 
-    private static class StrongCallback<T extends EdgeNode> implements GraphSearchCallback<T> {
+    private static class StrongCallback<T extends EdgeNode> extends DefaultGraphSearchCallback<T> {
         private final int[] low;        /* oldest vertex surely in component of v */
         private final int[] scc;        /* strong component number for each vertex */
 

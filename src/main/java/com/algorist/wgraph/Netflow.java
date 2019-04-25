@@ -19,7 +19,7 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 package com.algorist.wgraph;
 
 import com.algorist.graph.BFS;
-import com.algorist.graph.GraphSearchCallback;
+import com.algorist.graph.DefaultGraphSearchCallback;
 
 import static java.lang.Math.min;
 
@@ -80,22 +80,10 @@ public class Netflow {
         return bfs.parent(x);
     }
 
-    private static class NetflowCallback implements GraphSearchCallback<FlowEdgeNode> {
+    private static class NetflowCallback extends DefaultGraphSearchCallback<FlowEdgeNode> {
         @Override
         public boolean validateEdge(FlowEdgeNode e) {
             return e.residual() > 0;
-        }
-
-        @Override
-        public void processVertexEarly(int v) {
-        }
-
-        @Override
-        public void processVertexLate(int v) {
-        }
-
-        @Override
-        public void processEdge(int x, int y) {
         }
     }
 }

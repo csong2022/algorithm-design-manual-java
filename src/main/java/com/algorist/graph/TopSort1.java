@@ -42,17 +42,13 @@ public class TopSort1<T extends EdgeNode> {
         sorted.print();  /* report topological order */
     }
 
-    private static class TopSort1Callback<T extends EdgeNode> implements GraphSearchCallback<T> {
+    private static class TopSort1Callback<T extends EdgeNode> extends DefaultGraphSearchCallback<T> {
         private final DFS<T> dfs;
         private final Stack<Integer> sorted;
 
         TopSort1Callback(DFS<T> dfs) {
             this.dfs = dfs;
             this.sorted = new Stack<>();
-        }
-
-        @Override
-        public void processVertexEarly(int v) {
         }
 
         @Override
