@@ -47,14 +47,11 @@ public class FlowEdgeNode extends UnweightedEdgeNode {
 
     public void increaseFlow(int delta) {
         this.flow += delta;
+        this.residual -= delta;
     }
 
     public int residual() {
         return this.residual;
-    }
-
-    public void decreaseResidual(int delta) {
-        this.residual -= delta;
     }
 
     public void increaseResidual(int delta) {

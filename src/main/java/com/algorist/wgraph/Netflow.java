@@ -69,7 +69,6 @@ public class Netflow {
 
         FlowEdgeNode e = g.findEdge(parent(end), end); /* edge in question */
         e.increaseFlow(volume);
-        e.decreaseResidual(volume);
 
         e = g.findEdge(end, parent(end));
         e.increaseResidual(volume);
