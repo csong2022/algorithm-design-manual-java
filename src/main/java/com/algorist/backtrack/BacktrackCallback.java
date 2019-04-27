@@ -18,7 +18,7 @@ public interface BacktrackCallback<T> {
     boolean isaSolution(int[] a, int k, T input);
 
     /**
-     * Process a complete solution onces it is constructed.
+     * Process a complete solution once it is constructed.
      *
      * @param a     solution vector.
      * @param k     first k elements.
@@ -33,7 +33,7 @@ public interface BacktrackCallback<T> {
      * @param a     solution vector.
      * @param k     kth element.
      * @param input general input.
-     * @param c     candidaites.
+     * @param c     candidates.
      * @return the number of candidates.
      */
     int constructCandidates(int[] a, int k, T input, int[] c);

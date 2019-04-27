@@ -218,6 +218,10 @@ public class Geometry {
         void print() {
             System.out.printf("%7.3f %7.3f%n", this.x, this.y);
         }
+
+        public String toString() {
+            return String.format("(%f,%f)", x, y);
+        }
     }
 
     static class Polygon {
@@ -241,6 +245,8 @@ public class Geometry {
             for (int i = 0; i < n; i++)
                 System.out.printf("(%f,%f)%n", p[i].x, p[i].y);
         }
+
+
     }
 
     static class Segment {
