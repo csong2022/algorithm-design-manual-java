@@ -37,10 +37,14 @@ import static com.algorist.backtrack.Sudoku.Board.copy;
 public class Sudoku implements BacktrackCallback<Sudoku.Board> {
 
     private final Backtrack backtrack;
+    private boolean fast;             /* fast or slow nextmove algorithm? */
+    private boolean smart;            /* quickly test for unfillable squares?*/
     private int steps;                /* how many total move insertions? */
 
-    private Sudoku(Backtrack backtrack) {
+    public Sudoku(Backtrack backtrack, boolean fast, boolean smart) {
         this.backtrack = backtrack;
+        this.fast = fast;
+        this.smart = smart;
     }
 
     public static void main(String[] args) throws IOException {
@@ -60,13 +64,13 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
 
         Backtrack backtrack = new Backtrack();
 
-        Sudoku sudoku = new Sudoku(backtrack);
 
         boolean[] speed = {true, false};
         boolean[] intelligence = {true, false};
 
         for (boolean fast : speed)
             for (boolean smart : intelligence) {
+                Sudoku sudoku = new Sudoku(backtrack, fast, smart);
 
                 System.out.println("----------------------------------");
                 sudoku.resetSteps();
@@ -111,7 +115,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
     public int constructCandidates(int[] a, int k, Board board, int[] c) {
         boolean[] possible = new boolean[DIMENSION + 1];     /* what is possible for the square */
 
-        Point p = board.nextSquare();    /* which square should we fill next? */
+        Point p = nextSquare(board);    /* which square should we fill next? */
         board.move[k] = p;           /* store our choice of next position */
 
         if (p.x < 0 && p.y < 0) return 0;    /* error condition, no moves possible */
@@ -129,11 +133,44 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
         return ncandidates;
     }
 
-    private void resetSteps() {
+    Point nextSquare(Board board) {
+        int bestcnt = DIMENSION + 1; /* the best square counts */
+        boolean doomed = false;            /* some empty square without moves? */
+
+        int x = -1, y = -1;
+        for (int i = 0; i < DIMENSION; i++) {
+            for (int j = 0; j < DIMENSION; j++) {
+                int newcnt = board.possibleCount(i, j); /* latest square counts */
+                if (newcnt == 0 && board.m[i][j] == 0)
+                    doomed = true;
+                if (fast) {
+                    if (newcnt < bestcnt && newcnt >= 1) {
+                        bestcnt = newcnt;
+                        x = i;
+                        y = j;
+                    }
+
+                } else {
+                    if (newcnt >= 1 && board.m[i][j] == 0) {
+                        x = i;
+                        y = j;
+                    }
+                }
+            }
+        }
+
+        if (doomed && smart) {
+            x = y = -1;        /* initialize to non-position */
+        }
+
+        return new Point(x, y);
+    }
+
+    public void resetSteps() {
         this.steps = 0;
     }
 
-    private int steps() {
+    public int steps() {
         return this.steps;
     }
 
@@ -144,18 +181,22 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
             this.x = x;
             this.y = y;
         }
+
+        public String toString() {
+            return String.format("%d, %d", this.x, this.y);
+        }
     }
 
     static class Board {
         static final int BASED = 3;                       /* base dimension, 3*3 blocks */
         static final int DIMENSION = BASED * BASED;       /* 9*9 board */
         static final int NCELLS = DIMENSION * DIMENSION;  /* 81 cells in a 9*9 problem */
+        static final String DIGITS = "0123456789";
 
         final int[][] m;          /* matrix of board contents */
         final Point[] move;
         int freecount;            /* how many open squares remain? */
-        boolean fast;             /* fast or slow nextmove algorithm? */
-        boolean smart;            /* quickly test for unfillable squares?*/
+
 
         Board() {
             this.m = new int[DIMENSION + 1][DIMENSION + 1];
@@ -201,7 +242,11 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
 
         void possibleValues(int x, int y, boolean[] possible) {
             /* is anything/everything possible? */
-            boolean init = x >= 0 && y >= 0 && this.m[x][y] == 0;
+            boolean init;
+            if ((x < 0) || (y < 0) || this.m[x][y] != 0)
+                init = false;
+            else
+                init = true;
 
             for (int i = 1; i <= DIMENSION; i++) possible[i] = init;
 
@@ -253,38 +298,6 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
             this.m[x][y] = 0;
         }
 
-        Point nextSquare() {
-            int bestcnt = DIMENSION + 1; /* the best square counts */
-            boolean doomed = false;            /* some empty square without moves? */
-
-            int x = -1, y = -1;
-            for (int i = 0; i < DIMENSION; i++) {
-                for (int j = 0; j < DIMENSION; j++) {
-                    int newcnt = possibleCount(i, j); /* latest square counts */
-                    if (newcnt == 0 && m[i][j] == 0)
-                        doomed = true;
-                    if (fast) {
-                        if (newcnt < bestcnt && newcnt >= 1) {
-                            bestcnt = newcnt;
-                            x = i;
-                            y = j;
-                        }
-
-                    } else {
-                        if (newcnt >= 1 && m[i][j] == 0) {
-                            x = i;
-                            y = j;
-                        }
-                    }
-                }
-            }
-
-            if (doomed && smart) {
-                x = y = -1;        /* initialize to non-position */
-            }
-
-            return new Point(x, y);
-        }
 
         void print() {
             System.out.printf("%nThere are %d free board positions.%n", freecount);
@@ -294,7 +307,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
                     if (m[i][j] == 0)
                         System.out.print(" ");
                     else
-                        System.out.printf("%c", (char) ('0' + m[i][j]));
+                        System.out.printf("%c", DIGITS.charAt(m[i][j]));
                     if ((j + 1) % BASED == 0)
                         System.out.print("|");
                 }
