@@ -71,8 +71,8 @@ com.algorist.backtrack
 - Paths.java --- Enumerate the paths in a graph via backtracking
 - Sudoku.java --- A backtracking program to solve Seduku
 - NQueens.java --- solve the eight queens problem using backtracking
-- Annealing.java --- a fairly generic implementation of simulated annealing
 - TSP.java --- Heuristics for solving TSP
+- Annealing.java --- a fairly generic implementation of simulated annealing
 
 Chapter 8. Dynamic Programming
 com.algorist.dp
