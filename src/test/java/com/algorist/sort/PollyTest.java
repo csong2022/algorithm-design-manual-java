@@ -86,6 +86,10 @@ public class PollyTest implements TestCaseWithInput {
         String last;
         int height;
         int weight;
+
+        public String toString() {
+            return String.format("%s,%s,%d,%d", this.last, this.first, this.height, this.weight);
+        }
     }
 
     private static class SuitorComparator implements Comparator<Suitor>, Serializable {
