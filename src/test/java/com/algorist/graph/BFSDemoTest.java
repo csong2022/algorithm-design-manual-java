@@ -59,15 +59,10 @@ public class BFSDemoTest implements TestCaseWithInput {
         TestEngine.execute(this, "grid", "grid-bfs-demo-out");
     }
 
-    private static class BFSDemoCallback implements GraphSearchCallback<UnweightedEdgeNode> {
+    private static class BFSDemoCallback extends DefaultGraphSearchCallback<UnweightedEdgeNode> {
         @Override
         public void processVertexEarly(int v) {
             System.out.printf("processed vertex %d%n", v);
-        }
-
-        @Override
-        public void processVertexLate(int v) {
-
         }
 
         @Override

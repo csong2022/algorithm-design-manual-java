@@ -38,7 +38,7 @@ public class Biconnected<T extends EdgeNode> {
             if (!dfs.discovered(i)) dfs.search(i, callback);
     }
 
-    private static class BiconnectedCallback<T extends EdgeNode> implements GraphSearchCallback<T> {
+    private static class BiconnectedCallback<T extends EdgeNode> extends DefaultGraphSearchCallback<T> {
         final int[] reachable_ancestor;    /* earliest reachable ancestor of v */
         final int[] tree_out_degree;       /* DFS tree outdegree of v */
 

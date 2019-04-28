@@ -36,19 +36,11 @@ public class FindCycle<T extends EdgeNode> {
         dfs.search(1, callback);
     }
 
-    private static class FindCycleCallback<T extends EdgeNode> implements GraphSearchCallback<T> {
+    private static class FindCycleCallback<T extends EdgeNode> extends DefaultGraphSearchCallback<T> {
         private final DFS<T> dfs;
 
         FindCycleCallback(DFS<T> dfs) {
             this.dfs = dfs;
-        }
-
-        @Override
-        public void processVertexEarly(int v) {
-        }
-
-        @Override
-        public void processVertexLate(int v) {
         }
 
         @Override

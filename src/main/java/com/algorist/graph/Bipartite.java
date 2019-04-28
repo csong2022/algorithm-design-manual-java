@@ -72,15 +72,7 @@ public class Bipartite<T extends EdgeNode> {
         }
     }
 
-    private class BipartiteCallback implements GraphSearchCallback<T> {
-        @Override
-        public void processVertexEarly(int v) {
-        }
-
-        @Override
-        public void processVertexLate(int v) {
-        }
-
+    private class BipartiteCallback extends DefaultGraphSearchCallback<T> {
         @Override
         public void processEdge(int x, int y) {
             if (color[x] == color[y]) {

@@ -39,11 +39,10 @@ public class EditDistance {
     }
 
     public int stringCompare(String s, String t) {
-        int[] opt = new int[3];        /* cost of the three options */
-
         for (int j = 0; j < t.length(); j++) rowInit(j);
         for (int i = 0; i < s.length(); i++) columnInit(i);
 
+        int[] opt = new int[3];        /* cost of the three options */
         for (int i = 1; i < s.length(); i++)
             for (int j = 1; j < t.length(); j++) {
                 opt[MATCH] = m[i - 1][j - 1].cost + match(s.charAt(i), t.charAt(j));

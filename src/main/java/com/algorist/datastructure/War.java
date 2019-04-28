@@ -79,7 +79,7 @@ public class War {
     }
 
     static Queue[] randomInitDecks() {
-        int[] perm = new int[NCARDS + 1];
+        int[] perm = new int[NCARDS];
 
         for (int i = 0; i < NCARDS; i = i + 1) {
             perm[i] = i;
