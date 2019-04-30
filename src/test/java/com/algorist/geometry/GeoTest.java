@@ -24,7 +24,11 @@ import org.junit.Test;
 
 import java.util.Scanner;
 
-import static com.algorist.geometry.Geometry.*;
+import static com.algorist.geometry.Geometry.Line;
+import static com.algorist.geometry.Geometry.Line.pointAndSlopeToLine;
+import static com.algorist.geometry.Geometry.Line.pointsToLine;
+import static com.algorist.geometry.Geometry.Point;
+import static com.algorist.geometry.Geometry.Point.readPoint;
 
 /**
  * Driver program for geometry routines.
@@ -68,32 +72,32 @@ public class GeoTest implements TestCaseWithInput {
             l3.print();
 
             System.out.println("parallel lines test");
-            System.out.printf("%d%n", parallelQ(l1, l2) ? 1 : 0);
+            System.out.printf("%d%n", l1.parallelQ(l2) ? 1 : 0);
 
             System.out.println("intersection point");
-            Point tmp = intersectionPoint(l1, l2);
+            Point tmp = l1.intersectionPoint(l2);
             if (tmp != null) {
                 i = tmp;
             }
             i.print();
 
             System.out.println("closest point");
-            i = closestPoint(p1, l1);
+            i = l1.closestPoint(p1);
             i.print();
-            i = closestPoint(p2, l1);
+            i = l1.closestPoint(p2);
             i.print();
-            i = closestPoint(q1, l1);
+            i = l1.closestPoint(q1);
             i.print();
-            i = closestPoint(q2, l1);
+            i = l1.closestPoint(q2);
             i.print();
 
-            i = closestPoint(p1, l2);
+            i = l2.closestPoint(p1);
             i.print();
-            i = closestPoint(p2, l2);
+            i = l2.closestPoint(p2);
             i.print();
-            i = closestPoint(q1, l2);
+            i = l2.closestPoint(q1);
             i.print();
-            i = closestPoint(q2, l2);
+            i = l2.closestPoint(q2);
             i.print();
 
             System.out.println("--------------------------------");

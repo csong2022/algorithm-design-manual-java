@@ -44,12 +44,12 @@ public class SuperMan {
         double around = 0.0;  /* length around circular arcs */
         double angle;         /* angle subtended by arc */
 
-        Line l = pointsToLine(s, t);     /* line from start to target position */
+        Line l = Line.pointsToLine(s, t);     /* line from start to target position */
 
         for (int i = 1; i <= ncircles; i++) {
-            Point close = closestPoint(c[i].c, l);  /* closest point */
-            double d = distance(c[i].c, close);     /* distance from circle-center */
-            if (d >= 0 && d < c[i].r && pointInBox(close, s, t)) {
+            Point close = l.closestPoint(c[i].c);  /* closest point */
+            double d = c[i].c.distanceTo(close);     /* distance from circle-center */
+            if (d >= 0 && d < c[i].r && close.pointInBox(s, t)) {
                 xray += 2 * sqrt(c[i].r * c[i].r - d * d);
                 angle = acos(d / c[i].r);
 //                around += ((2 * angle) / (2 * PI)) * (2 * PI * c[i].r);
@@ -59,7 +59,7 @@ public class SuperMan {
             }
         }
 
-        double travel = distance(s, t) - xray + around; /* total travel distance */
+        double travel = s.distanceTo(t) - xray + around; /* total travel distance */
         System.out.printf("Superman sees through %7.3f units, and flies %7.3f units%n",
                 xray, travel);
     }
