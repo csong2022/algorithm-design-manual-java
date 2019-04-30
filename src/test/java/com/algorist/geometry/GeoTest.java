@@ -39,7 +39,7 @@ public class GeoTest implements TestCaseWithInput {
 
     public void process(Scanner scanner) {
         Point p1, p2, q1, q2, i = new Point(0, 0);
-        Line l1, l2, l3, l4;
+        Line l1, l2, l3;
 
         while (scanner.hasNext()) {
             p1 = readPoint(scanner);

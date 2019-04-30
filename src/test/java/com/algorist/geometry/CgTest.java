@@ -39,7 +39,7 @@ public class CgTest implements TestCaseWithInput {
     public void process(Scanner scanner) {
         Point p1, p2, q1, q2, i = new Point(0, 0);
         Line l1, l2;
-        Segment s1, s2, s3, s4;
+        Segment s1, s2;
 
         while (scanner.hasNext()) {
             p1 = readPoint(scanner);

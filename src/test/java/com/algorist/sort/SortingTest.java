@@ -8,8 +8,8 @@ import java.io.IOException;
 
 import static com.algorist.numerical.Random.randomPermutation;
 import static com.algorist.sort.Sorting.*;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class SortingTest implements TestCaseWithoutInput {
     private static final int NELEM = 100;
@@ -50,9 +50,9 @@ public class SortingTest implements TestCaseWithoutInput {
         heapSort(s, 0, s.length - 1);
         for (int i = 1; i < 2 * s.length + 1; i++) {
             if (i % 2 == 0) {
-                assertFalse("" + i, binarySearch(s, i, 0, s.length - 1) == -1);
+                assertNotEquals("" + i, binarySearch(s, i, 0, s.length - 1), -1);
             } else {
-                assertTrue("" + i, binarySearch(s, i, 0, s.length - 1) == -1);
+                assertEquals("" + i, binarySearch(s, i, 0, s.length - 1), -1);
             }
         }
     }
@@ -63,7 +63,7 @@ public class SortingTest implements TestCaseWithoutInput {
     }
 
     private void print(Integer[] s) {
-        for (int i = 0; i < s.length; i++) System.out.printf("%d ", s[i]);
+        for (Integer integer : s) System.out.printf("%d ", integer);
     }
 
     @Test

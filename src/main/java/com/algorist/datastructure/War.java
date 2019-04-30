@@ -145,8 +145,6 @@ public class War {
     }
 
     private static void printCardQueue(Queue<Integer> q) {
-        int i, j;
-
         for (int value : q) {
             System.out.printf("%c%c ", value(value), suit(value));
         }

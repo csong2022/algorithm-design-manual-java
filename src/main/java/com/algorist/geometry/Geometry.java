@@ -18,7 +18,6 @@ http://www.amazon.com/exec/obidos/ASIN/0387001638/thealgorithmrepo/
 */
 package com.algorist.geometry;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 import static java.lang.Math.*;
@@ -31,9 +30,6 @@ import static java.lang.Math.*;
  * @author csong2022
  */
 public class Geometry {
-    static final double PI = 3.1415926;        /* ratio of circumference to diameter */
-    static final int DIMENSION = 2;            /* dimension of points */
-    static final int MAXPOLY = 200;            /* maximum number of points in a polygon */
     private static final double EPSILON = 0.000001;    /* a quantity small enough to be zero */
 
     static class Point {
@@ -43,10 +39,6 @@ public class Geometry {
         public Point(double x, double y) {
             this.x = x;
             this.y = y;
-        }
-
-        public Point(Point other) {
-            this(other.x, other.y);
         }
 
         static Point readPoint(Scanner scanner) {
@@ -233,10 +225,6 @@ public class Geometry {
         public Polygon(Point[] p, int n) {
             this.p = p;
             this.n = n;
-        }
-
-        Point[] toPints() {
-            return Arrays.copyOf(p, n);
         }
 
         void print() {
