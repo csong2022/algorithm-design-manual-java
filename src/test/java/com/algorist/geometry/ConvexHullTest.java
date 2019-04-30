@@ -8,7 +8,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import static com.algorist.geometry.ConvexHull.convexHull;
-import static com.algorist.geometry.Geometry.*;
+import static com.algorist.geometry.Geometry.Point;
+import static com.algorist.geometry.Geometry.Point.readPoints;
+import static com.algorist.geometry.Geometry.Polygon;
 
 public class ConvexHullTest implements TestCaseWithInput {
     @Override

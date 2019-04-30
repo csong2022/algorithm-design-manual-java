@@ -37,8 +37,8 @@ import static com.algorist.backtrack.Sudoku.Board.copy;
 public class Sudoku implements BacktrackCallback<Sudoku.Board> {
 
     private final Backtrack backtrack;
-    private boolean fast;             /* fast or slow nextmove algorithm? */
-    private boolean smart;            /* quickly test for unfillable squares?*/
+    private final boolean fast;             /* fast or slow nextmove algorithm? */
+    private final boolean smart;            /* quickly test for unfillable squares?*/
     private int steps;                /* how many total move insertions? */
 
     public Sudoku(Backtrack backtrack, boolean fast, boolean smart) {
@@ -48,11 +48,11 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
     }
 
     public static void main(String[] args) throws IOException {
-        int i, j;            /* counters */
         int[] a = new int[DIMENSION * DIMENSION + 1];
-        Board board;        /* Seduko board structure */
+        Board board;        /* Sudoku board structure */
 
         final Path inPath = Paths.get("src/test/resources/sudoku-examples/" + args[0]);
+        //noinspection CharsetObjectCanBeUsed
         try (final Scanner scanner = new Scanner(Files.newInputStream(inPath), "utf-8")) {
             board = Board.read(scanner);
         }
@@ -133,7 +133,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
         return ncandidates;
     }
 
-    Point nextSquare(Board board) {
+    private Point nextSquare(Board board) {
         int bestcnt = DIMENSION + 1; /* the best square counts */
         boolean doomed = false;            /* some empty square without moves? */
 
@@ -242,11 +242,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
 
         void possibleValues(int x, int y, boolean[] possible) {
             /* is anything/everything possible? */
-            boolean init;
-            if ((x < 0) || (y < 0) || this.m[x][y] != 0)
-                init = false;
-            else
-                init = true;
+            boolean init = (x >= 0) && (y >= 0) && this.m[x][y] == 0;
 
             for (int i = 1; i <= DIMENSION; i++) possible[i] = init;
 

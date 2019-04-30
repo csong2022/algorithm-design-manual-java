@@ -58,7 +58,7 @@ public class DFSDemoTest implements TestCaseWithInput {
     }
 
     private static class DFSDemoCallback extends DefaultGraphSearchCallback<UnweightedEdgeNode> {
-        private DFS<UnweightedEdgeNode> dfs;
+        private final DFS<UnweightedEdgeNode> dfs;
 
         public DFSDemoCallback(DFS<UnweightedEdgeNode> dfs) {
             this.dfs = dfs;

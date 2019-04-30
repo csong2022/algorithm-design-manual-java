@@ -25,6 +25,8 @@ import org.junit.Test;
 import java.util.Scanner;
 
 import static com.algorist.geometry.Geometry.*;
+import static com.algorist.geometry.Geometry.Line.pointsToLine;
+import static com.algorist.geometry.Geometry.Point.readPoint;
 
 /**
  * Driver program for computational geometry routines; give the
@@ -37,7 +39,7 @@ public class CgTest implements TestCaseWithInput {
     public void process(Scanner scanner) {
         Point p1, p2, q1, q2, i = new Point(0, 0);
         Line l1, l2;
-        Segment s1, s2, s3, s4;
+        Segment s1, s2;
 
         while (scanner.hasNext()) {
             p1 = readPoint(scanner);
@@ -55,10 +57,10 @@ public class CgTest implements TestCaseWithInput {
             s2.print();
 
             System.out.println("segments_intersect test");
-            System.out.printf("%d%n", segmentsIntersect(s1, s2) ? 1 : 0);
+            System.out.printf("%d%n", s1.intersect(s2) ? 1 : 0);
 
             System.out.println("intersection point");
-            Point tmp = intersectionPoint(l1, l2);
+            Point tmp = l1.intersectionPoint(l2);
             if (tmp != null) {
                 i = tmp;
             }

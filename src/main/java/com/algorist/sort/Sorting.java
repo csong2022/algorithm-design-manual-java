@@ -33,6 +33,7 @@ import static java.util.Objects.compare;
  *
  * @author csong2022
  */
+@SuppressWarnings("WeakerAccess")
 public class Sorting {
 
     public static <T extends Comparable<T>> void insertionSort(T[] s, int l, int h) {

@@ -32,10 +32,6 @@ public abstract class AbstractGraphSearch<T extends EdgeNode> implements GraphSe
         return parent[v];
     }
 
-    public boolean processed(int v) {
-        return processed[v];
-    }
-
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean discovered(int v) {
         return discovered[v];

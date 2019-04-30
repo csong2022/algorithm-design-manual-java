@@ -57,18 +57,14 @@ public class Triangulate {
     private static boolean earQ(int i, int j, int k, Polygon p) {
         Triangle t = new Triangle(p.p[i], p.p[j], p.p[k]);
 
-        if (cw(t.a, t.b, t.c)) return false;
+        if (Triangle.cw(t.a, t.b, t.c)) return false;
 
         for (int m = 0; m < p.n; m++) {
             if (m != i && m != j && m != k)
-                if (pointInTriangle(p.p[m], t)) return false;
+                if (t.pointInTriangle(p.p[m])) return false;
         }
 
         return true;
-    }
-
-    private static boolean pointInTriangle(Point p, Triangle t) {
-        return !cw(t.a, t.b, p) && !cw(t.b, t.c, p) && !cw(t.c, t.a, p);
     }
 
     public static double areaTriangulation(Polygon p) {
@@ -76,7 +72,7 @@ public class Triangulate {
 
         Triangulation t = triangulate(p);  /* output triangulation */
         for (int i = 0; i < t.n; i++)
-            total += triangleArea(p.p[t.t[i][0]], p.p[t.t[i][1]], p.p[t.t[i][2]]);
+            total += Triangle.triangleArea(p.p[t.t[i][0]], p.p[t.t[i][1]], p.p[t.t[i][2]]);
 
         return total;
     }

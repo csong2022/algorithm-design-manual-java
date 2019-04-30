@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -145,8 +145,6 @@ public class War {
     }
 
     private static void printCardQueue(Queue<Integer> q) {
-        int i, j;
-
         for (int value : q) {
             System.out.printf("%c%c ", value(value), suit(value));
         }

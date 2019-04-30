@@ -25,8 +25,7 @@ public class SetUnionTest {
         };
         this.uf = new SetUnion(pairs.length);
 
-        for (int i = 0; i < pairs.length; i++) {
-            int[] pair = pairs[i];
+        for (int[] pair : pairs) {
             this.uf.unionSets(pair[0], pair[1]);
         }
     }

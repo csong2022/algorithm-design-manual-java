@@ -57,10 +57,10 @@ public class ConvexHull {
         int i = 2;
 
         while (i <= n) {
-            if (cw(points[top - 1], points[top], in[i]))
+            if (Triangle.cw(points[top - 1], points[top], in[i]))
                 top--;    /* top not on hull */
             else {
-                if (!collinear(points[top - 1], points[top], in[i]))
+                if (!Triangle.collinear(points[top - 1], points[top], in[i]))
                     top++;
                 points[top] = in[i];
                 i++;
@@ -106,10 +106,10 @@ public class ConvexHull {
 
         @Override
         public int compare(Point p1, Point p2) {
-            if (collinear(first_point, p1, p2))
-                return Double.compare(distance(first_point, p1), distance(first_point, p2));
+            if (Triangle.collinear(first_point, p1, p2))
+                return Double.compare(first_point.distanceTo(p1), first_point.distanceTo(p2));
             else
-                return (ccw(first_point, p1, p2)) ? -1 : 1;
+                return (Triangle.ccw(first_point, p1, p2)) ? -1 : 1;
         }
     }
 }

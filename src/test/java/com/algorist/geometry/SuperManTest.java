@@ -7,7 +7,9 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static com.algorist.geometry.Geometry.*;
+import static com.algorist.geometry.Geometry.Circle;
+import static com.algorist.geometry.Geometry.Point;
+import static com.algorist.geometry.Geometry.Point.readPoint;
 
 public class SuperManTest implements TestCaseWithInput {
     @Override
