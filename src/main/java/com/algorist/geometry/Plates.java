@@ -24,7 +24,7 @@ import static java.lang.Math.sqrt;
 /**
  * Compute the number of circles in two different disk packings.
  * Assuming we have an $w \times l$ box, how many unit disks
- * can we pack in there assumming we have w disks on the bottom?
+ * can we pack in there assuming we have w disks on the bottom?
  * <p>
  * Translate from plates.c.
  *
@@ -34,7 +34,7 @@ public class Plates {
     /**
      * how many triangular-lattice layers of radius r balls fit in height h?
      */
-    static int denseLayers(double w, double h, double r) {
+    private static int denseLayers(double w, double h, double r) {
         if ((2 * r) > h) return 0;
 
         double gap = 2.0 * r * (sqrt(3) / 2.0);  /* distance between layers */

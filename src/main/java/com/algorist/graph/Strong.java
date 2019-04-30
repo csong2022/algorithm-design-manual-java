@@ -70,7 +70,7 @@ public class Strong<T extends EdgeNode> {
         @Override
         public void processVertexLate(int v) {
             if (low[v] == v) {        /* edge (parent[v],v) cuts off scc */
-                /*printf("strong commonent started backtracking from %d\n",v);*/
+                /*printf("strong component started backtracking from %d\n",v);*/
                 popComponent(v);
             }
 

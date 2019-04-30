@@ -1,7 +1,7 @@
 /*
 Copyright 2003 by Steven S. Skiena; all rights reserved.
 
-Permission is granted for use in non-commerical applications
+Permission is granted for use in non-commercial applications
 provided this copyright notice remains intact and unchanged.
 
 This program appears in my book:
@@ -51,9 +51,9 @@ public class Annealing {
 
     private static final double E = 2.718;             /* number e -- probably leave intact*/
 
-    /* problem specific Boltzman's constant. May have to adjust if your global
+    /* problem specific Boltzmann's constant. May have to adjust if your global
 	   value function changes the sizes of the numbers it produces.  It is
-	   important that jumps seem random at the begining of the run, and rare
+	   important that jumps seem random at the beginning of the run, and rare
 	   at the end of a run, and this is a knob to tweak that. */
     private static final double K = 0.01;
 
@@ -121,7 +121,7 @@ public class Annealing {
     }
 
     /*	These routines implement simulated annealing.  Pairs of components
-	of the same type will be swapped at random, and the new arrangment
+	of the same type will be swapped at random, and the new arrangement
 	accepted either if (1) it is an improvement, or (2) the penalty is
 	less than a random number, which is a function of the temperature
 	of the system.

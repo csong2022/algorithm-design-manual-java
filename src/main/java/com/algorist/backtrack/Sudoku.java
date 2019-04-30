@@ -49,9 +49,10 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
 
     public static void main(String[] args) throws IOException {
         int[] a = new int[DIMENSION * DIMENSION + 1];
-        Board board;        /* Seduko board structure */
+        Board board;        /* Sudoku board structure */
 
         final Path inPath = Paths.get("src/test/resources/sudoku-examples/" + args[0]);
+        //noinspection CharsetObjectCanBeUsed
         try (final Scanner scanner = new Scanner(Files.newInputStream(inPath), "utf-8")) {
             board = Board.read(scanner);
         }
@@ -132,7 +133,7 @@ public class Sudoku implements BacktrackCallback<Sudoku.Board> {
         return ncandidates;
     }
 
-    Point nextSquare(Board board) {
+    private Point nextSquare(Board board) {
         int bestcnt = DIMENSION + 1; /* the best square counts */
         boolean doomed = false;            /* some empty square without moves? */
 
