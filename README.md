@@ -1,5 +1,6 @@
 # algorithm-design-manual-java
 Java translation of Programs from The Algorithm Design Manual (2nd Edition)
+<IMG SRC="http://www.algorist.com/images/adm2cover.jpg"  align=right hspace=25 width=100 alt = "Algorithms Design Manual" />
 
 Original C code imported from https://www3.cs.stonybrook.edu/~skiena/algorist/book/programs/
 
