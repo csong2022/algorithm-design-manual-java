@@ -48,17 +48,18 @@ public class GrayCodes {
         arr.add("0");
         arr.add("1");
 
-        // Every iteration of this loop generates 2*i codes from previously
+        // Every iteration of this loop generates 2 times codes from previously
         // generated i codes.
-        for (int i = 2; i < (1 << n); i = i << 1) {
+        int size = 2;
+        for (int i = 2; i <= n; i++, size <<= 1) {
             // Enter the previously generated codes again in arr[] in reverse
             // order and prefix with 1. Now arr[] has double number of codes.
-            for (int j = i - 1; j >= 0; j--) {
+            for (int j = size - 1; j >= 0; j--) {
                 arr.add("1" + arr.get(j));
             }
 
             // append 0 to the first half
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j < size; j++) {
                 arr.set(j, "0" + arr.get(j));
             }
         }
