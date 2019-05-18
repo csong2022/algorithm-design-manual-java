@@ -95,6 +95,10 @@ com.algorist.numerical
 - BigNum.java --- implementation of large integer arithmetic
 - Matrix.java --- Multiply two matrices.
 
+Chapter 14. Cobinatorial Problems
+com.algorist.combinatorial
+- GrayCodes.java -- Generate n-bit Gray Codes.
+
 Chapter 17. Computational Geometry
 com.algorist.geometry
 - Distance.java --- compute Euclidian distances
