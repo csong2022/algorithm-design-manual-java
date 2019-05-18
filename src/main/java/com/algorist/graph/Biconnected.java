@@ -92,7 +92,7 @@ public class Biconnected<T extends EdgeNode> {
             DFS.EdgeType edgeType = dfs.edgeClassification(x, y);
 
             if (edgeType == DFS.EdgeType.TREE)
-                tree_out_degree[x] = tree_out_degree[x] + 1;
+                tree_out_degree[x] += 1;
 
             if ((edgeType == DFS.EdgeType.BACK) && (parent(x) != y)) {
                 if (entryTime(y) < entryTime(reachable_ancestor[x]))
