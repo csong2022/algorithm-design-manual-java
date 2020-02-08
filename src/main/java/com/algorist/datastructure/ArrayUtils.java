@@ -48,7 +48,7 @@ public class ArrayUtils {
         } else {
             T[] newArr = newArray(newSize);
             if (srcPos + length <= arr.length) {
-                System.arraycopy(arr, 0, newArr, 0, length);
+                System.arraycopy(arr, srcPos, newArr, 0, length);
             } else {
                 System.arraycopy(arr, srcPos, newArr, 0, arr.length - srcPos);
                 System.arraycopy(arr, 0, newArr, arr.length - srcPos, (srcPos + length) % arr.length + 1);
